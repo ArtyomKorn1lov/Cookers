@@ -1,0 +1,85 @@
+.mainbox
+{
+    display: flex;
+    flex-direction: column;
+    padding: 44px 120px;
+}
+
+.box1
+{
+    display: flex;
+    flex-direction: column;
+}
+
+h6
+{
+    font-family: Arial, Helvetica, sans-serif;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 72px;
+
+    color: #25292D;
+}
+
+.buttonbox1
+{
+    display: flex;
+}
+
+.button1
+{
+    flex-basis: 278px;
+    background: #FDB100;
+    border: 1px solid #FDB100;
+    border-radius: 16px;
+}
+
+.button2
+{
+    flex-basis: 216px;
+    background: #FEFEFB;
+    border: 1px solid #FDB100;
+    box-sizing: border-box;
+    border-radius: 16px;
+}
+
+.button1 + .button2
+{
+    margin-left: 24px;
+}
+
+.box2
+{
+    display: flex;
+    flex-direction: column;
+}
+
+.box1 + .box2
+{
+    margin-top: 44px;
+}
+
+h5
+{
+    font-family: Arial, Helvetica, sans-serif;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 42px;
+    line-height: 62px;
+}
+
+.box3
+{
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.box2 + .box3
+{
+    margin-top: 44px;
+}
+
+app-find-recipe-form
+{
+}
