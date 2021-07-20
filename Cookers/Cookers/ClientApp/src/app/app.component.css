@@ -3,7 +3,13 @@
 {
   width: 1440px;
   margin: auto;
-  padding: 0px;
   background: #FEFEFB;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
+app-fot-bar
+{
+  margin-top: auto;
+}

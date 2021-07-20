@@ -9,7 +9,6 @@ import { TopBarComponent } from './top-bar/top-bar.component';
 import { FotBarComponent } from './fot-bar/fot-bar.component';
 import { MainPageComponent } from './main-page/main-page.component';
 import { TagListComponent } from './tag-list/tag-list.component';
-import { FindRecipeFormComponent } from './find-recipe-form/find-recipe-form.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +17,6 @@ import { FindRecipeFormComponent } from './find-recipe-form/find-recipe-form.com
     FotBarComponent,
     MainPageComponent,
     TagListComponent,
-    FindRecipeFormComponent,
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
