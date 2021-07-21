@@ -1,0 +1,63 @@
+.mainbox
+{
+    padding: 0px 120px;
+}
+
+.publish-block
+{
+    display: flex;
+    justify-content: space-between;
+}
+
+.general-information-block
+{
+    display: flex;
+    background: #FFFFFF;
+    box-shadow: 0px 16px 72px rgba(34, 39, 47, 0.05);
+    border-radius: 24px;
+    justify-content: space-between;
+}
+
+.publish-block + .general-information-block
+{
+    margin-top: 50px;
+}
+
+.fields-to-fill-block
+{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 50px 70px;
+}
+
+.fields-to-fill-block .fields-input + .fields-input
+{
+    margin-top: 20px;
+}
+
+.fields-to-fill-block .fields-textarea
+{
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.photo-block
+{
+    background: linear-gradient(0deg, #FFEFCC, #FFEFCC), #FFFCF7;
+    border-radius: 72px 0px;
+    width: 430px;
+    display: flex;
+    padding: 83px;
+}
+
+.photo-frame
+{
+    border: 1px dashed #F29E1F;
+    box-sizing: border-box;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}

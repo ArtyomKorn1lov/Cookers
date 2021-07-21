@@ -5,9 +5,159 @@
 p
 {
     margin-top: 16px;
-    font-family: Arial, Helvetica, sans-serif;
+    font-style: Montserrat;
     font-style: normal;
     font-weight: normal;
     font-size: 18px;
     color: #4A525A;
+}
+
+h6
+{
+    font-style: Montserrat;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 72px;
+    color: #25292D;
+}
+
+h5
+{
+    font-style: Montserrat;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 42px;
+    line-height: 62px;
+    color: #25292D;
+}
+
+h4
+{
+    text-align: center;
+    font-style: Montserrat;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 30px;
+    color: #25292D;
+}
+
+.mainbox
+{
+    display: flex;
+    flex-direction: column;
+    padding: 44px 120px;
+}
+
+.addrecipe
+{
+    flex-basis: 278px;
+    background: #FDB100;
+    border: 1px solid #FDB100;
+    border-radius: 16px;
+}
+
+.seachbutton
+{
+    width: 152px;
+    border: 1px solid #FDB100;
+    background: #FDB100;
+    border-radius: 16px;
+}
+
+.searchbar-button-hyperlinkbar-block
+{
+    display: flex;
+    flex-direction: column;
+}
+
+.searchbar-button-block
+{
+    display: flex;
+}
+
+.searchbar-button-block input
+{
+    text-indent: 32px;
+    width: 716px;
+    background: #FFFFFF;
+    border-style: hidden;
+    box-shadow: 0px 8px 42px rgba(34, 39, 47, 0.04);
+    border-radius: 16px;
+}
+
+.hyperlinkbar
+{
+    display: flex;
+}
+
+.hyperlinkbar a
+{
+    font-style: Montserrat;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    color: #808080;
+}
+
+.hyperlinkbar a + a
+{
+    margin-left: 20px;
+}
+
+.searchbar-button-block input + .seachbutton
+{
+    margin-left: 16px;
+}
+
+.searchbar-button-block + .hyperlinkbar
+{
+    margin-top: 24px;
+}
+
+.back-block
+{
+    display: flex;
+    align-items: center;
+}
+
+.back-block p
+{
+    font-weight: 600;
+}
+
+.back-block img + p
+{
+    margin-left: 13px;
+    color: #FDB100;
+}
+
+.fields-input
+{
+    text-indent: 32px;
+    width: 647px;
+    height: 50px;
+    background: #FFFFFF;
+    box-shadow: 0px 8px 42px rgba(34, 39, 47, 0.04);
+    border-radius: 16px;
+    border: 1px solid rgba(145, 150, 161, 0.4);
+}
+
+.fields-textarea
+{
+    text-indent: 32px;
+    width: 647px;
+    height: 117px;
+    background: #FFFFFF;
+    box-shadow: 0px 8px 42px rgba(34, 39, 47, 0.04);
+    border-radius: 16px;
+    border: 1px solid rgba(145, 150, 161, 0.4);
+    padding: 5px;
+}
+
+@font-face {
+    font-family: 'Montserrat';
+    src: url('/src/assets/fonts/montserrat.woff') format('woff'), url('/src/assets/fonts/montserrat.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
 }

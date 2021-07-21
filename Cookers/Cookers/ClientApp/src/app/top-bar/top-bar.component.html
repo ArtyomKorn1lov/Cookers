@@ -1,23 +1,22 @@
-<div class="top-bar">
-    <div class="left-element">
+<div class="header">
+    <div class="nav-panel">
         <h1>Recipes</h1>
         <div class="menu">
-            <a> 
+            <a [routerLink]="['/']"> 
                 Главная        
             </a>
-            <a> 
+            <a [routerLink]="['/recipes']"> 
                 Рецепты        
             </a>
-            <a> 
+            <a [routerLink]="['/favorites']"> 
                 Избранное        
             </a>
         </div>
     </div>
-
-    <div class="right-element">
-        <a class="autorise">
+    <div class="authorise-panel">
+        <img src="assets/images/autorise-icon.png">
+        <a class="authorise">
             Войти
         </a>
     </div>
-
 </div>

@@ -1,65 +1,43 @@
 <div class="mainbox">
-    <div class="box1">
-    
-        <h6>Готовь и делись рецептами</h6>
-
-        <p>Никаких кулинарных книг и блокнотов! Храни все любимые рецепты в одном месте.</p>
-
-        <div class="buttonbox1">
-            <button class="button1">
-               <p style="color: #FFFFFF;">Добавить рецепт</p>
+    <div class="addrecipe-authorise-block">
+        <h6>Готовь и делись <br> рецептами</h6>
+        <p>Никаких кулинарных книг и блокнотов! Храни все <br> любимые рецепты в одном месте.</p>
+        <div class="addrecipe-authorise">
+            <button class="addrecipe" (click)="btnClick()">
+                <p style="color: #FFFFFF; font-weight: 600;">+ &nbsp; &nbsp; Добавить рецепт</p>
             </button>
-
-            <button class="button2">
-              <p style="color: #FDB100;">Войти</p>
+            <button class="authorise">
+                <p style="color: #FDB100; font-weight: 600;">Войти</p>
             </button>
         </div>
-
     </div>
 
-    <div class="box2">
-
+    <div class="sortingbytags-block">
         <h5>Умная сортировка по тегам</h5>
-
         <p>Никаких кулинарных книг и блокнотов! Храни все любимые рецепты в одном месте.</p>
-
         <app-tag-list></app-tag-list>
-
     </div>
 
-    <div class="box3">
-
+    <div class="findrecipe-title-block">
         <h5>Поиск рецептов</h5>
-
         <p>Введите примерное название блюда, а мы по тегам найдем его</p>
-
     </div>
 
-    <div class="box4">
-
-        <div class="box-finder">
-            
-            <div class="finder">
-                
+    <div class="findrecipe-block">
+        <div class="searchbar-button-hyperlinkbar-block">
+            <div class="searchbar-button-block">
                 <input type="text" placeholder="Название блюда...">
-
-                <button>
-                    <p style="color: #FFFFFF; ">Поиск</p>
+                <button class="seachbutton">
+                    <p style="color: #FFFFFF; font-weight: 600;">Поиск</p>
                 </button>
-
+            </div> 
+            <div class="hyperlinkbar">
+                <a>Мясо</a>
+                <a>Деликатесы</a>
+                <a>Пироги</a>
+                <a>Рыба</a>
             </div>
-
-           <div class="nav-panel">
-
-                <p>Мясо</p>
-                <p>Деликатесы</p>
-                <p>Пироги</p>
-                <p>Рыба</p>
-    
-            </div>
-
         </div>   
-
     </div>
     
 </div>

@@ -1,0 +1,18 @@
+.addrecipe-block
+{
+    display: flex;
+    justify-content: space-between;
+    text-align: center;
+}
+
+.findrecipe-withtitle-block
+{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+app-tag-list + .findrecipe-withtitle-block
+{
+    margin-top: 50px;
+}

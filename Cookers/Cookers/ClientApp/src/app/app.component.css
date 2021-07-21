@@ -13,3 +13,11 @@ app-fot-bar
 {
   margin-top: auto;
 }
+
+.home-pic
+{
+  position: absolute;
+  right: 0px;
+  top: 0px;
+  border-radius: 0px 0px 0px 200px;
+}

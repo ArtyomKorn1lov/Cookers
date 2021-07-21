@@ -1,40 +1,15 @@
-.mainbox
-{
-    display: flex;
-    flex-direction: column;
-    padding: 44px 120px;
-}
-
-.box1
+.addrecipe-authorise-block
 {
     display: flex;
     flex-direction: column;
 }
 
-h6
-{
-    font-family: Arial, Helvetica, sans-serif;
-    font-style: normal;
-    font-weight: bold;
-    font-size: 72px;
-
-    color: #25292D;
-}
-
-.buttonbox1
+.addrecipe-authorise
 {
     display: flex;
 }
 
-.button1
-{
-    flex-basis: 278px;
-    background: #FDB100;
-    border: 1px solid #FDB100;
-    border-radius: 16px;
-}
-
-.button2
+.authorise
 {
     flex-basis: 216px;
     background: #FEFEFB;
@@ -43,101 +18,42 @@ h6
     border-radius: 16px;
 }
 
-.button1 + .button2
+.addrecipe + .authorise
 {
     margin-left: 24px;
 }
 
-.box2
+.sortingbytags-block
 {
     display: flex;
     flex-direction: column;
 }
 
-.box1 + .box2
+.addrecipe-authorise-block + .sortingbytags-block
 {
-    margin-top: 44px;
+    margin-top: 352px;
 }
 
-h5
-{
-    font-family: Arial, Helvetica, sans-serif;
-    font-style: normal;
-    font-weight: bold;
-    font-size: 42px;
-    line-height: 62px;
-}
-
-.box3
+.findrecipe-title-block
 {
     align-items: center;
     display: flex;
     flex-direction: column;
 }
 
-.box2 + .box3
+.sortingbytags-block + .findrecipe-title-block
 {
     margin-top: 150px;
 }
 
-.box4
+.findrecipe-block
 {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 106px;
 }
 
-.box3 + .box4
+.findrecipe-title-block + .findrecipe-block
 {
     margin-top: 64px;
-}
-
-.box-finder
-{
-    flex-direction: column;
-    display: flex;
-}
-
-.finder
-{
-    display: flex;
-}
-
-.finder input
-{
-    text-indent: 32px;
-    flex-basis: 716px;
-    background: #FFFFFF;
-    box-shadow: 0px 8px 42px rgba(34, 39, 47, 0.04);
-    border-radius: 16px;
-}
-
-.finder button
-{
-    flex-basis: 152px;
-    border: 1px solid #FDB100;
-    background: #FDB100;
-    border-radius: 16px;
-}
-
-.finder input  + button
-{
-    margin-left: 16px;
-}
-
-.nav-panel
-{
-    display: flex;
-}
-
-.nav-panel p
-{
-    margin-top: 24px;
-    font-family: Arial, Helvetica, sans-serif;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 16px;
-    color: #808080;
-}
-
-.nav-panel p + p
-{
-    margin-left: 10px;
 }
