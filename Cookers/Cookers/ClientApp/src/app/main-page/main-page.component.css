@@ -12,7 +12,7 @@
 .authorise
 {
     flex-basis: 216px;
-    background: #FEFEFB;
+    background: inherit;
     border: 1px solid #FDB100;
     box-sizing: border-box;
     border-radius: 16px;
