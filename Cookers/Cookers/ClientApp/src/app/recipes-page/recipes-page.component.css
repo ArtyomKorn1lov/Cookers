@@ -1,18 +1,19 @@
-.addrecipe-block
+.add-recipe-block
 {
     display: flex;
     justify-content: space-between;
     text-align: center;
+    align-items: center;
 }
 
-.findrecipe-withtitle-block
+.find-recipe-with-title-block
 {
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
-app-tag-list + .findrecipe-withtitle-block
+app-tag-list + .find-recipe-with-title-block
 {
     margin-top: 50px;
 }

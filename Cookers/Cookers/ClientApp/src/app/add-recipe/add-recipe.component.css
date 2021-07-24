@@ -1,4 +1,4 @@
-.mainbox
+.add-recipe-container
 {
     padding: 0px 120px;
 }
@@ -54,6 +54,7 @@
 .cooking-time-portions-dish
 {
     display: flex;
+    align-items: center;
 }
 
 .select-block p
@@ -64,17 +65,19 @@
 .fields-to-fill-block select
 {
     text-indent: 32px;
+    outline: none;
     width: 220px;
     height: 50px;
     border: 1px solid rgba(145, 150, 161, 0.4);
     box-sizing: border-box;
-    color: #FDB100;
+    color: rgba(37, 41, 45, 0.5);
+    appearance: none;
     border-radius: 16px;
 }
 
 .fields-to-fill-block option
 {
-    font-style: Montserrat;
+    font-family: 'Montserrat', sans-serif;
     font-style: normal;
     font-weight: normal;
     background: inherit;

@@ -8,6 +8,8 @@ import { Router } from '@angular/router';
 })
 export class MainPageComponent implements OnInit {
 
+  pageId: number = null;
+
   constructor(private router: Router) { }
 
   btnClick()
@@ -15,7 +17,12 @@ export class MainPageComponent implements OnInit {
       this.router.navigateByUrl('/addnewrecipe');
   }
 
+  public returnPage(): number {
+    return this.pageId;
+  }
+
   ngOnInit() {
+    this.pageId = 1;
   }
 
 }

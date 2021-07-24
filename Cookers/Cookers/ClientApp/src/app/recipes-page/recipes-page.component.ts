@@ -7,7 +7,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RecipesPageComponent implements OnInit {
 
+  pageId: number = 3;
+
   constructor() { }
+
+  returnPage(): number {
+    return this.pageId;
+  }
 
   ngOnInit() {
   }

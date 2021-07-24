@@ -2,15 +2,39 @@
     <div class="nav-panel">
         <h1>Recipes</h1>
         <div class="menu">
-            <a [routerLink]="['/']"> 
-                Главная        
-            </a>
-            <a [routerLink]="['/recipes']"> 
-                Рецепты        
-            </a>
-            <a [routerLink]="['/favorites']"> 
-                Избранное        
-            </a>
+            <div *ngIf="pageId == 1; then thenMainBlock else elseMainBlock"></div>
+                <ng-template #thenMainBlock>
+                    <a style="color: black;" [routerLink]="['/']" (click)="onClickMain(1)"> 
+                        Главная        
+                    </a>
+                </ng-template>
+                <ng-template #elseMainBlock>
+                    <a [routerLink]="['/']" (click)="onClickMain(1)"> 
+                        Главная        
+                    </a>
+                </ng-template>
+            <div *ngIf="pageId == 2; then thenRecipesBlock else elseRecipesBlock"></div>
+                <ng-template #thenRecipesBlock>
+                    <a style="color: black;"  [routerLink]="['/recipes']" (click)="onClickMain(2)"> 
+                        Рецепты        
+                    </a>
+                </ng-template>
+                <ng-template #elseRecipesBlock>
+                    <a [routerLink]="['/recipes']" (click)="onClickMain(2)"> 
+                        Рецепты        
+                    </a>
+                </ng-template>
+            <div *ngIf="pageId == 3; then thenFavoritesBlock else elseFavoritesBlock"></div>
+                <ng-template #thenFavoritesBlock>
+                    <a style="color: black;" [routerLink]="['/favorites']" (click)="onClickMain(3)"> 
+                        Избранное        
+                    </a>
+                </ng-template>
+                <ng-template #elseFavoritesBlock>
+                    <a [routerLink]="['/favorites']" (click)="onClickMain(3)"> 
+                        Избранное        
+                    </a>
+                </ng-template>
         </div>
     </div>
     <div class="authorise-panel">
