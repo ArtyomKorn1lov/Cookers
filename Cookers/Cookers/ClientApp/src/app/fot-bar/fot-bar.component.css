@@ -1,9 +1,8 @@
 footer
 {
     display: flex;
-    width: 1440px;
+    min-width: 1440px;
     padding: 37px 120px;
-    /*background: #FBF9F4;*/
     justify-content: space-between;
     align-items: center;
 }

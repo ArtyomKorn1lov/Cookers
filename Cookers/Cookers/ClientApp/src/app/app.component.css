@@ -1,16 +1,16 @@
-
 .page
 {
-  height: 100vh;
   display: flex;
   flex-direction: column;
+  justify-content: center;
   min-height: 100vh;
 }
 
-.center
+.centered-container
 {
   width: 1440px;
   background: #FEFEFB;
+  flex-grow: 1;
   margin-left: auto;
   margin-right: auto;
 }
@@ -25,8 +25,8 @@
 
 .fot-block
 {
-  margin-top: auto;
   background: #FBF9F4;
   display: flex;
   justify-content: center;
+  min-width: 1440px;
 }
