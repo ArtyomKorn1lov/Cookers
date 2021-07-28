@@ -34,6 +34,62 @@
     margin-top: 352px;
 }
 
+.day-recipe-block
+{
+    display: flex;
+}
+
+.day-recipe-block-img
+{
+    width: 543px;
+    height: 543px;
+}
+
+.recipe-info-block
+{
+    display: flex;
+    flex-direction: column;
+    padding: 0px 62px;
+}
+
+.likes-time-block
+{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.likes-time-block p
+{
+    font-size: 16px;
+}
+
+.likes-time-block img + p
+{
+    margin-left: 9px;
+}
+
+.likes-time-block p + img
+{
+    margin-left: 30px;
+}
+
+.day-recipe-img
+{
+    width: 100px;
+    height: 100px;
+}
+
+.recipe-info-block .day-recipe-img + h5
+{
+    margin-top: 32px;
+}
+
+.sortingbytags-block + .day-recipe-block
+{
+    margin-top: 150px;
+}
+
 .findrecipe-title-block
 {
     align-items: center;
@@ -41,7 +97,7 @@
     flex-direction: column;
 }
 
-.sortingbytags-block + .findrecipe-title-block
+.day-recipe-block + .findrecipe-title-block
 {
     margin-top: 150px;
 }

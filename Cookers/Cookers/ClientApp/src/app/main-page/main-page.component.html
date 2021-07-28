@@ -1,9 +1,9 @@
-<div class="main-pagecontainer">
+<div class="main-pagecontainer" >
     <div class="addrecipe-authorise-block">
         <h6>Готовь и делись <br> рецептами</h6>
         <p>Никаких кулинарных книг и блокнотов! Храни все <br> любимые рецепты в одном месте.</p>
         <div class="addrecipe-authorise">
-            <button class="addrecipe" (click)="btnClick()">
+            <button class="addrecipe" [routerLink] = "['/addnewrecipe', {'paramId': pageId}]">
                 <p style="color: #FFFFFF; font-weight: 600;">+ &nbsp; &nbsp; Добавить рецепт</p>
             </button>
             <button class="authorise">
@@ -15,7 +15,22 @@
     <div class="sortingbytags-block">
         <h5>Умная сортировка по тегам</h5>
         <p>Добавляй рецепты и указывай наиболее популярные теги. Это позволит <br> быстро находить любые категории.</p>
-        <app-tag-list></app-tag-list>
+        <app-tag-list [pageId]="pageId"></app-tag-list>
+    </div>
+
+    <div class="day-recipe-block" *ngIf="recipe !== undefined">
+        <img class="day-recipe-block-img" src="{{recipe.photo}}">
+        <div class="recipe-info-block">
+            <div class="likes-time-block">
+                <img src="assets/images/like1.png">
+                <p>{{recipe.likes}}</p>
+                <img src="assets/images/clock1.png">
+                <p>{{recipe.cookingTime}} минут</p>
+            </div>
+            <img class="day-recipe-img" src="assets/images/day-recipe.png">
+            <h5>{{recipe.name}}</h5>
+            <p>{{recipe.description}}</p>
+        </div>
     </div>
 
     <div class="findrecipe-title-block">
