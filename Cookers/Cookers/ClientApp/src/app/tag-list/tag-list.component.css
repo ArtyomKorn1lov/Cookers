@@ -1,0 +1,28 @@
+.tag-container
+{
+    margin-top: 42px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.tag-box
+{
+    flex-basis: 278px;
+    background: #FFFFFF;
+    border-style: hidden;
+    box-shadow: 0px 16px 72px rgba(34, 39, 47, 0.05);
+    border-radius: 24px;
+    display: flex;
+    flex-direction: column;
+    padding: 24px;
+}
+
+img + h4
+{
+    margin-top: 24px;
+}
+
+/*.tag-box + .tag-box
+{
+    margin-left: 29px;
+}*/

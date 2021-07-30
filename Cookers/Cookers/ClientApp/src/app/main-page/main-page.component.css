@@ -1,0 +1,59 @@
+.addrecipe-authorise-block
+{
+    display: flex;
+    flex-direction: column;
+}
+
+.addrecipe-authorise
+{
+    display: flex;
+}
+
+.authorise
+{
+    flex-basis: 216px;
+    background: inherit;
+    border: 1px solid #FDB100;
+    box-sizing: border-box;
+    border-radius: 16px;
+}
+
+.addrecipe + .authorise
+{
+    margin-left: 24px;
+}
+
+.sortingbytags-block
+{
+    display: flex;
+    flex-direction: column;
+}
+
+.addrecipe-authorise-block + .sortingbytags-block
+{
+    margin-top: 352px;
+}
+
+.findrecipe-title-block
+{
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.sortingbytags-block + .findrecipe-title-block
+{
+    margin-top: 150px;
+}
+
+.findrecipe-block
+{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 106px;
+}
+
+.findrecipe-title-block + .findrecipe-block
+{
+    margin-top: 64px;
+}

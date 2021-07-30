@@ -1,0 +1,43 @@
+<div class="main-pagecontainer">
+    <div class="addrecipe-authorise-block">
+        <h6>Готовь и делись <br> рецептами</h6>
+        <p>Никаких кулинарных книг и блокнотов! Храни все <br> любимые рецепты в одном месте.</p>
+        <div class="addrecipe-authorise">
+            <button class="addrecipe" (click)="btnClick()">
+                <p style="color: #FFFFFF; font-weight: 600;">+ &nbsp; &nbsp; Добавить рецепт</p>
+            </button>
+            <button class="authorise">
+                <p style="color: #FDB100; font-weight: 600;">Войти</p>
+            </button>
+        </div>
+    </div>
+
+    <div class="sortingbytags-block">
+        <h5>Умная сортировка по тегам</h5>
+        <p>Добавляй рецепты и указывай наиболее популярные теги. Это позволит <br> быстро находить любые категории.</p>
+        <app-tag-list></app-tag-list>
+    </div>
+
+    <div class="findrecipe-title-block">
+        <h5>Поиск рецептов</h5>
+        <p>Введите примерное название блюда, а мы по тегам найдем его</p>
+    </div>
+
+    <div class="findrecipe-block">
+        <div class="searchbar-button-hyperlinkbar-block">
+            <div class="searchbar-button-block">
+                <input type="text" placeholder="Название блюда...">
+                <button class="seachbutton">
+                    <p style="color: #FFFFFF; font-weight: 600;">Поиск</p>
+                </button>
+            </div> 
+            <div class="hyperlinkbar">
+                <a>Мясо</a>
+                <a>Деликатесы</a>
+                <a>Пироги</a>
+                <a>Рыба</a>
+            </div>
+        </div>   
+    </div>
+    
+</div>
