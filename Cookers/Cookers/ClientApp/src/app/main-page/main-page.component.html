@@ -4,11 +4,14 @@
         <p>Никаких кулинарных книг и блокнотов! Храни все <br> любимые рецепты в одном месте.</p>
         <div class="addrecipe-authorise">
             <button class="addrecipe" [routerLink] = "['/addnewrecipe', {'paramId': pageId}]">
-                <p style="color: #FFFFFF; font-weight: 600;">+ &nbsp; &nbsp; Добавить рецепт</p>
+                <p>+ &nbsp; &nbsp; Добавить рецепт</p>
             </button>
-            <button class="authorise">
-                <p style="color: #FDB100; font-weight: 600;">Войти</p>
+            <button class="authorise" (click)="btnClick()">
+                <p>Войти</p>
             </button>
+        </div>
+        <div class="app-authorization-block" *ngIf="buttonState">
+            <app-authorization (buttonClick)="closeForm()"></app-authorization>
         </div>
     </div>
 

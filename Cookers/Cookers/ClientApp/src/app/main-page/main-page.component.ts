@@ -12,12 +12,18 @@ export class MainPageComponent implements OnInit {
   public pageId: number = null;
   recipes : Recipe[] | undefined;
   recipe : Recipe | undefined;
+  public buttonState: boolean = false;
 
   constructor(private router: Router, private recipesService: RecipesService) { }
 
-  btnClick()
+  btnClick(): void
   {
-      this.router.navigateByUrl("['/addnewrecipe', {'paramId': this.pageId}]");
+      this.buttonState = true;
+  }
+
+  closeForm(): void
+  {
+      this.buttonState = false;
   }
 
   getRecipes(): void

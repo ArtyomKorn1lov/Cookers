@@ -4,18 +4,14 @@
 
 @font-face {
     font-family: 'Montserrat';
-    src: local('Montserrat Hairline'), local('Montserrat-Hairline'), url('/src/assets/fonts/montserrathairline.woff2') format('woff2'), url('/src/assets/fonts/montserrat.woff') format('woff'), url('/src/assets/fonts/montserrat.ttf') format('truetype');
+    src: url('assets/fonts/montserrat.woff') format('woff'), url('assets/fonts/montserrat.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
 }
 
-body 
-{
-    font-family: 'Montserrat', sans-serif;
-}
-
 p
 {
+    font-family: 'Montserrat', sans-serif;
     margin-top: 16px;
     font-style: normal;
     font-weight: normal;
@@ -25,6 +21,7 @@ p
 
 h6
 {
+    font-family: 'Montserrat', sans-serif;
     font-style: normal;
     font-weight: bold;
     font-size: 72px;
@@ -33,6 +30,7 @@ h6
 
 h5
 {
+    font-family: 'Montserrat', sans-serif;
     font-style: normal;
     font-weight: bold;
     font-size: 42px;
@@ -41,7 +39,7 @@ h5
 
 h4
 {
-    text-align: center;
+    font-family: 'Montserrat', sans-serif;
     font-style: normal;
     font-weight: bold;
     font-size: 24px;
@@ -53,6 +51,21 @@ h4
     display: flex;
     flex-direction: column;
     padding: 44px 120px;
+}
+
+.authorise
+{
+    flex-basis: 216px;
+    background: inherit;
+    border: 1px solid #FDB100;
+    box-sizing: border-box;
+    border-radius: 16px;
+}
+
+.authorise p 
+{
+    color: #FDB100; 
+    font-weight: 600;
 }
 
 .addrecipe

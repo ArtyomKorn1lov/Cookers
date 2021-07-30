@@ -9,18 +9,22 @@
     display: flex;
 }
 
-.authorise
-{
-    flex-basis: 216px;
-    background: inherit;
-    border: 1px solid #FDB100;
-    box-sizing: border-box;
-    border-radius: 16px;
-}
-
 .addrecipe + .authorise
 {
     margin-left: 24px;
+}
+
+.app-authorization-block
+{
+    display: flex; 
+    justify-content: center;
+}
+
+app-authorization
+{
+    position: fixed;
+    display: flex;
+    top: 20%;
 }
 
 .sortingbytags-block

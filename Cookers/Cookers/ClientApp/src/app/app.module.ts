@@ -13,6 +13,7 @@ import { RecipesPageComponent } from './recipes-page/recipes-page.component';
 import { FavoritesPageComponent } from './favorites-page/favorites-page.component';
 import { AddRecipeComponent } from './add-recipe/add-recipe.component';
 import { RecipeComponent } from './recipe/recipe.component';
+import { AuthorizationComponent } from './authorization/authorization.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { RecipeComponent } from './recipe/recipe.component';
     FavoritesPageComponent,
     AddRecipeComponent,
     RecipeComponent,
+    AuthorizationComponent,
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
