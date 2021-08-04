@@ -61,11 +61,18 @@
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+    width: 571px;;
 }
 
 .likes-favotites-block + .text-block
 {
     margin-top: 34px;
+}
+
+.cooking-portions-button-block
+{
+    display: flex;
+    justify-content: space-between;
 }
 
 .cooking-portions-block
@@ -103,7 +110,12 @@
     margin-left: 71px;
 }
 
-.text-block + .cooking-portions-block
+.cooking-portions-button-block .addrecipe
+{
+    width: 180px;
+}
+
+.text-block + .cooking-portions-button-block
 {
     margin-top: 34px;
 }

@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, } from '@angular/core';
 import { Router } from '@angular/router';
-import { Recipe, RecipesService, Ingredient, Step } from '../recipes.service';
+import { RecipesService} from '../recipes.service';
+import { Recipe, Ingredient, Step } from '../recipe';
 
 @Component({
   selector: 'app-main-page',
@@ -12,20 +13,35 @@ export class MainPageComponent implements OnInit {
   public pageId: number = null;
   recipes : Recipe[] | undefined;
   recipe : Recipe | undefined;
-  public buttonState: boolean = false;
+  public buttonAuthState: boolean = false;
+  public buttonRegState: boolean = false;
 
   constructor(private router: Router, private recipesService: RecipesService) { }
 
-  btnClick(): void
+  btnAuthClick(): void
   {
-      this.buttonState = true;
+    this.buttonAuthState = true;
   }
 
-  closeForm(): void
+  closeAuthForm(): void
   {
-      this.buttonState = false;
+    this.buttonAuthState = false;
   }
 
+  btnRegClick(): void
+  {
+    this.buttonRegState = true;
+  }
+
+  closeRegForm(): void
+  {
+    this.buttonRegState = false;
+  }
+
+  onClick(): void
+  {
+    this.recipesService.pushDataInService(this.recipe);
+  }
   getRecipes(): void
   {
     this.recipesService.getStubbedInfo().subscribe(data => this.recipes = data);

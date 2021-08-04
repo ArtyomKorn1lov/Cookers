@@ -1,4 +1,15 @@
-<div class="main-pagecontainer" >
+<div class="main-pagecontainer">
+    <div *ngIf="buttonAuthState">
+        <div class="background-fon">
+            <app-authorization class="auth-reg-form" (buttonAuthClick)="closeAuthForm()" (buttonRegClick)="closeAuthForm(); btnRegClick()"></app-authorization>
+        </div>
+    </div>
+    <div *ngIf="buttonRegState">
+        <div class="background-fon">
+            <app-registration class="auth-reg-form" (buttonRegClick)="closeRegForm()" (buttonAuthClick)="closeRegForm(); btnAuthClick()"></app-registration>
+        </div>
+    </div>
+
     <div class="addrecipe-authorise-block">
         <h6>Готовь и делись <br> рецептами</h6>
         <p>Никаких кулинарных книг и блокнотов! Храни все <br> любимые рецепты в одном месте.</p>
@@ -6,13 +17,11 @@
             <button class="addrecipe" [routerLink] = "['/addnewrecipe', {'paramId': pageId}]">
                 <p>+ &nbsp; &nbsp; Добавить рецепт</p>
             </button>
-            <button class="authorise" (click)="btnClick()">
+            <button class="authorise" (click)="btnAuthClick()">
                 <p>Войти</p>
             </button>
         </div>
-        <div class="app-authorization-block" *ngIf="buttonState">
-            <app-authorization (buttonClick)="closeForm()"></app-authorization>
-        </div>
+        
     </div>
 
     <div class="sortingbytags-block">
@@ -32,7 +41,12 @@
             </div>
             <img class="day-recipe-img" src="assets/images/day-recipe.png">
             <h5>{{recipe.name}}</h5>
-            <p>{{recipe.description}}</p>
+            <p>{{(recipe.description.length>151)? (recipe.description | slice:0:151)+'...':(recipe.description)}}</p>
+            <div class="about-button-block">
+                <button style="width: 180px;" class="addrecipe" [routerLink] = "['/recipeinfo', {'paramId': pageId}]"  (click)="onClick()">
+                    <p>Подробнее</p>
+                </button>
+            </div>
         </div>
     </div>
 

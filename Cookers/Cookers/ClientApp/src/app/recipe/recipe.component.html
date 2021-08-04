@@ -13,22 +13,35 @@
         </div>
         <div class="text-block">
             <h4>{{recipe.name}}</h4>
-            <p>{{recipe.description}}</p>
+            <div *ngIf="parentPageId == 4; then thenMainBlock else elseMainBlock"></div>
+            <ng-template #thenMainBlock>
+                <p>{{recipe.description}}</p>
+            </ng-template>
+            <ng-template #elseMainBlock>
+                <p>{{(recipe.description.length>151)? (recipe.description | slice:0:151)+'...':(recipe.description)}}</p>
+            </ng-template>
         </div>
-        <div class="cooking-portions-block">
-            <div class="cooking-or-portions-container">
-                <img src="assets/images/clock2.png">
-                <div class="illustrate-information-block">
-                    <p>Время приготовления:</p>
-                    <p style="font-size: 18px; color: #25292D;">{{recipe.cookingTime}} минут</p>
+        <div class="cooking-portions-button-block">
+            <div class="cooking-portions-block">
+                <div class="cooking-or-portions-container">
+                    <img src="assets/images/clock2.png">
+                    <div class="illustrate-information-block">
+                        <p>Время приготовления:</p>
+                        <p style="font-size: 18px; color: #25292D;">{{recipe.cookingTime}} минут</p>
+                    </div>
+                </div>
+                <div class="cooking-or-portions-container">
+                    <img src="assets/images/peoples.png">
+                    <div class="illustrate-information-block">
+                        <p>Рецепт на:</p>
+                        <p style="font-size: 18px; color: #25292D;">{{recipe.peoples}} персон</p>
+                    </div>
                 </div>
             </div>
-            <div class="cooking-or-portions-container">
-                <img src="assets/images/peoples.png">
-                <div class="illustrate-information-block">
-                    <p>Рецепт на:</p>
-                    <p style="font-size: 18px; color: #25292D;">{{recipe.peoples}} персон</p>
-                </div>
+            <div *ngIf="parentPageId !== 4">
+                <button class="addrecipe" [routerLink] = "['/recipeinfo', {'paramId': parentPageId}]" (click)="onClick()">
+                    <p>Подробнее</p>
+                </button>
             </div>
         </div>
     </div>

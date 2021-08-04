@@ -9,13 +9,13 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class AddRecipeComponent implements OnInit {
 
   pageId: number;
-  routerLinkString: string = '/recipes';
+  targetRoute: string = '/recipes';
 
   constructor(private router: Router, private route: ActivatedRoute) { }
 
-  btnClick(): void
+  buttonClick(): void
   {
-    this.router.navigateByUrl(this.routerLinkString);
+    this.router.navigateByUrl(this.targetRoute);
   }
 
   ngOnInit() {
@@ -23,11 +23,11 @@ export class AddRecipeComponent implements OnInit {
     switch (this.pageId)
     {
       case 1: 
-        this.routerLinkString = '/';
-        console.log(this.routerLinkString);
+        this.targetRoute = '/';
         break;
-      case 2:
-        this.routerLinkString = '/recipes';
+      case 3:
+        this.targetRoute = '/recipes';
+        break;
     }
   }
 

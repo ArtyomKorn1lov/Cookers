@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { RecipesService, Recipe } from '../recipes.service';
+import { RecipesService } from '../recipes.service';
+import { Recipe, Ingredient, Step } from '../recipe';
 
 @Component({
   selector: 'app-recipe',
@@ -9,8 +10,14 @@ import { RecipesService, Recipe } from '../recipes.service';
 export class RecipeComponent implements OnInit {
 
   @Input() recipe: Recipe;
+  @Input() parentPageId: number;
 
-  constructor() { }
+  constructor(private recipesService: RecipesService) { }
+
+  onClick(): void
+  {
+    this.recipesService.pushDataInService(this.recipe);
+  }
 
   ngOnInit() {
   }

@@ -37,9 +37,21 @@
                 </ng-template>
         </div>
     </div>
+
+    <div *ngIf="buttonAuthState">
+        <div class="background-fon">
+            <app-authorization class="auth-reg-form" (buttonAuthClick)="closeAuthForm()" (buttonRegClick)="closeAuthForm(); btnRegClick()"></app-authorization>
+        </div>
+    </div>
+    <div *ngIf="buttonRegState">
+        <div class="background-fon">
+            <app-registration class="auth-reg-form" (buttonRegClick)="closeRegForm()" (buttonAuthClick)="closeRegForm(); btnAuthClick()"></app-registration>
+        </div>
+    </div>
+
     <div class="authorise-panel">
         <img src="assets/images/autorise-icon.png">
-        <a class="enter-profile">
+        <a class="enter-profile" (click)="btnAuthClick()">
             Войти
         </a>
     </div>

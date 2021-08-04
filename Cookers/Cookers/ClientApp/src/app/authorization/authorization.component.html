@@ -1,6 +1,6 @@
 <form class="authorization-form">
-    <div class="img-block">
-        <img src="assets/images/close.png" (click)="onClick()">
+    <div class="close-block">
+        <img src="assets/images/close.png" (click)="onAuthClick()">
     </div>
     <h4>Войти</h4>
     <input class="fields-input" type="text" placeholder="Логин">
@@ -9,9 +9,9 @@
         <button class="addrecipe">
             <p>Войти</p>
         </button>
-        <button class="authorise" (click)="onClick()">
+        <button class="authorise" (click)="onAuthClick()">
             <p>Отмена</p>
         </button>
     </div>
-    <a>У меня еще нет аккаунта</a>
+    <a class="transition-hrev" (click)="onRegClick()">У меня еще нет аккаунта</a>
 </form>

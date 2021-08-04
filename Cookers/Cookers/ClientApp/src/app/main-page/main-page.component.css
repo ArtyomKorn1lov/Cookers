@@ -14,19 +14,6 @@
     margin-left: 24px;
 }
 
-.app-authorization-block
-{
-    display: flex; 
-    justify-content: center;
-}
-
-app-authorization
-{
-    position: fixed;
-    display: flex;
-    top: 20%;
-}
-
 .sortingbytags-block
 {
     display: flex;
@@ -116,4 +103,15 @@ app-authorization
 .findrecipe-title-block + .findrecipe-block
 {
     margin-top: 64px;
+}
+
+.about-button-block
+{
+    display: flex;
+    justify-content: flex-end;
+}
+
+.recipe-info-block p + .about-button-block
+{
+    margin-top: 30px;
 }

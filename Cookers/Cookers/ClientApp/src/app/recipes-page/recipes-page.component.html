@@ -30,7 +30,7 @@
 
     <div class="recipes-block" *ngIf="recipes !== undefined">
         <div class="list-recipes-block" *ngFor="let recipe of recipes">
-            <app-recipe [recipe]="recipe"></app-recipe>
+            <app-recipe [parentPageId]="pageId" [recipe]="recipe"></app-recipe>
         </div>
     </div>
 </div>

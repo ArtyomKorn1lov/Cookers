@@ -1,0 +1,22 @@
+<form class="authorization-form">
+    <div class="close-block">
+        <img src="assets/images/close.png" (click)="onRegClick()">
+    </div>
+    <h4>Регистрация</h4>
+    <input class="fields-input" type="text" placeholder="Имя">
+    <input class="fields-input" type="text" placeholder="Логин">
+    <div class="password-block">
+        <input class="fields-input" type="password" placeholder="Пароль">
+        <input class="fields-input" type="password" placeholder="Повторите пароль">
+    </div>
+    <p class="suggesting-text">Минимум 8 символов</p>
+    <div class="control-buttons">
+        <button class="addrecipe">
+            <p>Зарегистрироваться</p>
+        </button>
+        <button class="authorise" (click)="onRegClick()">
+            <p>Отмена</p>
+        </button>
+    </div>
+    <a class="transition-hrev" (click)="onAuthClick()">У меня есть аккаунт</a>
+</form>

@@ -1,11 +1,11 @@
 import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 
 @Component({
-  selector: 'app-authorization',
-  templateUrl: './authorization.component.html',
-  styleUrls: ['./authorization.component.css']
+  selector: 'app-registration',
+  templateUrl: './registration.component.html',
+  styleUrls: ['./registration.component.css']
 })
-export class AuthorizationComponent implements OnInit {
+export class RegistrationComponent implements OnInit {
 
   @Output() buttonAuthClick  = new EventEmitter();
   @Output() buttonRegClick = new EventEmitter();

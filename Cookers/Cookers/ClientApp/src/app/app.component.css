@@ -22,11 +22,3 @@
   justify-content: center;
   min-width: 1440px;
 }
-
-.centered-container .home-picture
-{
-  position: absolute;
-  top: 0px;
-  right: 0px;
-  z-index: 0;
-}

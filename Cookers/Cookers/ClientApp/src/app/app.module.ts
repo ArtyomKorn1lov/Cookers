@@ -14,6 +14,8 @@ import { FavoritesPageComponent } from './favorites-page/favorites-page.componen
 import { AddRecipeComponent } from './add-recipe/add-recipe.component';
 import { RecipeComponent } from './recipe/recipe.component';
 import { AuthorizationComponent } from './authorization/authorization.component';
+import { RegistrationComponent } from './registration/registration.component';
+import { RecipeInfoComponent } from './recipe-info/recipe-info.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +29,8 @@ import { AuthorizationComponent } from './authorization/authorization.component'
     AddRecipeComponent,
     RecipeComponent,
     AuthorizationComponent,
+    RegistrationComponent,
+    RecipeInfoComponent,
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -36,7 +40,8 @@ import { AuthorizationComponent } from './authorization/authorization.component'
       { path: '', component: MainPageComponent },
       { path: 'recipes', component:  RecipesPageComponent },
       { path: 'favorites', component:  FavoritesPageComponent },
-      { path: 'addnewrecipe', component:  AddRecipeComponent }
+      { path: 'addnewrecipe', component:  AddRecipeComponent },
+      { path: 'recipeinfo', component: RecipeInfoComponent},
     ])
   ],
   providers: [],

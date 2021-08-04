@@ -1,29 +1,6 @@
-import { Injectable } from '@angular/core';
-import { Observable, of } from 'rxjs';
-import { HttpClient } from '@angular/common/http';
-
-export interface Step {
-    name: string;
-    description: string;
-}
-
-export interface Ingredient {
-    name: string;
-    descriptions: string[];
-}
-
-export interface Recipe {
-    id: number;
-    name: string;
-    description: string;
-    photo: string;
-    cookingTime: number;
-    peoples: number;
-    favorites: number;
-    likes: number;
-    steps: Step[];
-    ingridients: Ingredient[];
-}
+import { Injectable, OnInit } from '@angular/core';
+import { Observable, of, Subject } from 'rxjs';
+import { Recipe, Ingredient, Step } from './recipe';
 
 @Injectable({
     providedIn: 'root'
@@ -31,6 +8,7 @@ export interface Recipe {
 
 export class RecipesService {
 
+    private currentRecipe: Recipe;
     private recipes: Recipe[] =
         [
             {
@@ -221,11 +199,21 @@ export class RecipesService {
             },
         ];
 
-    constructor( private http: HttpClient ) {
+    constructor() {
+    }
+
+    pushDataInService(data): void
+    {
+        this.currentRecipe = data;
+    }
+
+    getStubbedCurrentRecipe(): Observable<Recipe>
+    {
+        return of(this.currentRecipe);
     }
 
     getStubbedInfo(): Observable<Recipe[]> 
     {
         return of(this.recipes);
-    } 
+    }
 }
