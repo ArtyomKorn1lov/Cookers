@@ -17,7 +17,7 @@ export class RecipeInfoComponent implements OnInit {
 
   constructor(private router: Router, private route: ActivatedRoute, private recipeService: RecipesService) { }
 
-  btnClick(): void
+  returnBackPageClick(): void
   {
     this.router.navigateByUrl(this.routerLinkString);
   }
