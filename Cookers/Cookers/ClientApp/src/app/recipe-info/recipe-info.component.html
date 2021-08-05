@@ -25,9 +25,9 @@
         <div class="ingridients-block">
             <h3 class="ingridients-title">Ингридиенты</h3>
             <div class="ingridients-list-block" *ngIf="recipe !== undefined">    
-                <div class="ingridients-list" *ngFor="let ingridient of recipe.ingridients">
-                    <p class="list-title">{{ingridient.name}}</p>
-                    <div class="description-list" *ngFor="let item of ingridient.descriptions">
+                <div class="ingridients-list" *ngFor="let ingredient of recipe.ingredients">
+                    <p class="list-title">{{ingredient.name}}</p>
+                    <div class="description-list" *ngFor="let item of ingredient.descriptions">
                         <p>{{item}}</p>
                     </div>
                 </div>

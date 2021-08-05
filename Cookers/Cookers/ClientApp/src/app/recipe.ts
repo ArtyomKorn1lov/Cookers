@@ -11,5 +11,5 @@ export interface Recipe {
     favorites: number;
     likes: number;
     steps: Step[];
-    ingridients: Ingredient[];
+    ingredients: Ingredient[];
 }

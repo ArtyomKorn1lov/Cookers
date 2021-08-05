@@ -22,13 +22,13 @@
     padding: 30px 36px;
 }
 
-.likes-favotites-block
+.likes-favourites-block
 {
     display: flex;
     justify-content: flex-end;
 }
 
-.likes-or-favotites-button
+.likes-or-favourites-button
 {
     display: flex;
     align-items: center;
@@ -38,7 +38,7 @@
     padding: 11px 26px;
 }
 
-.likes-or-favotites-button p
+.likes-or-favourites-button p
 {
     font-weight: 600;
     color: #FDB100;
@@ -46,12 +46,12 @@
     margin-bottom: 0px;
 }
 
-.likes-or-favotites-button img + p
+.likes-or-favourites-button img + p
 {
     margin-left: 14px;
 }
 
-.likes-or-favotites-button + .likes-or-favotites-button
+.likes-or-favourites-button + .likes-or-favourites-button
 {
     margin-left: 15px;
 }
@@ -64,7 +64,7 @@
     width: 571px;;
 }
 
-.likes-favotites-block + .text-block
+.likes-favourites-block + .text-block
 {
     margin-top: 34px;
 }

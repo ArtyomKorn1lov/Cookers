@@ -1,11 +1,11 @@
-import { Component, OnInit, EventEmitter, Output } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 
 @Component({
   selector: 'app-authorization',
   templateUrl: './authorization.component.html',
   styleUrls: ['./authorization.component.css']
 })
-export class AuthorizationComponent implements OnInit {
+export class AuthorizationComponent {
 
   @Output() buttonAuthClick  = new EventEmitter();
   @Output() buttonRegClick = new EventEmitter();
@@ -21,8 +21,5 @@ export class AuthorizationComponent implements OnInit {
   }
 
   constructor() { }
-
-  ngOnInit() {
-  }
 
 }
