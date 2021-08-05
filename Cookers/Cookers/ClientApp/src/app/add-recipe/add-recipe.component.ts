@@ -13,7 +13,7 @@ export class AddRecipeComponent implements OnInit {
 
   constructor(private router: Router, private route: ActivatedRoute) { }
 
-  returnBackPageClick(): void
+  goToPreviousPage(): void
   {
     this.router.navigateByUrl(this.targetRoute);
   }

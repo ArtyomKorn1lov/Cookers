@@ -14,7 +14,7 @@ export class TopBarComponent implements OnInit {
   constructor() {
   }
 
-  btnAuthClick(): void
+  onAuthClick(): void
   {
     this.buttonAuthState = true;
   }

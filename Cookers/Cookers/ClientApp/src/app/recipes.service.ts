@@ -1,6 +1,6 @@
 import { Injectable, OnInit } from '@angular/core';
 import { Observable, of, Subject } from 'rxjs';
-import { Recipe, Ingredient, Step } from './recipe';
+import { Recipe } from './recipe';
 
 @Injectable({
     providedIn: 'root'
@@ -199,7 +199,8 @@ export class RecipesService {
             },
         ];
 
-    constructor() {
+    constructor() 
+    {
     }
 
     pushDataInService(data): void

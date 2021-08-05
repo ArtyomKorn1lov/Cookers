@@ -41,9 +41,9 @@
             </div>
             <img class="day-recipe-img" src="assets/images/day-recipe.png">
             <h5>{{recipe.name}}</h5>
-            <p>{{(recipe.description.length>151)? (recipe.description | slice:0:151)+'...':(recipe.description)}}</p>
+            <p>{{(recipe.description.length>maxLength)? (recipe.description | slice:0:maxLength)+'...':(recipe.description)}}</p>
             <div class="about-button-block">
-                <button style="width: 180px;" class="addrecipe" [routerLink] = "['/recipeinfo', {'paramId': pageId}]"  (click)="onClick()">
+                <button class="addrecipe" [routerLink] = "['/recipeinfo', {'paramId': pageId}]"  (click)="onPushDataInServiceClick()">
                     <p>Подробнее</p>
                 </button>
             </div>
@@ -60,7 +60,7 @@
             <div class="searchbar-button-block">
                 <input type="text" placeholder="Название блюда...">
                 <button class="seachbutton">
-                    <p style="color: #FFFFFF; font-weight: 600;">Поиск</p>
+                    <p>Поиск</p>
                 </button>
             </div> 
             <div class="hyperlinkbar">

@@ -15,7 +15,7 @@ export class AuthorizationComponent implements OnInit {
     this.buttonAuthClick.emit();
   }
 
-  public onRegClick(): void
+  public onSignInClick(): void
   {
     this.buttonRegClick.emit();
   }

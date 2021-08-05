@@ -1,7 +1,7 @@
 import { Component, OnInit, } from '@angular/core';
 import { Router } from '@angular/router';
 import { RecipesService} from '../recipes.service';
-import { Recipe, Ingredient, Step } from '../recipe';
+import { Recipe } from '../recipe';
 
 @Component({
   selector: 'app-main-page',
@@ -11,12 +11,16 @@ import { Recipe, Ingredient, Step } from '../recipe';
 export class MainPageComponent implements OnInit {
 
   public pageId: number = null;
-  recipes : Recipe[] | undefined;
+  recipes : Recipe[] = [];
   recipe : Recipe | undefined;
   public buttonAuthState: boolean = false;
   public buttonRegState: boolean = false;
+  private readonly maxLength: number;
 
-  constructor(private router: Router, private recipesService: RecipesService) { }
+  constructor(private router: Router, private recipesService: RecipesService) 
+  {
+    this.maxLength = 151;
+  }
 
   btnAuthClick(): void
   {
@@ -38,10 +42,11 @@ export class MainPageComponent implements OnInit {
     this.buttonRegState = false;
   }
 
-  onClick(): void
+  onPushDataInServiceClick(): void
   {
     this.recipesService.pushDataInService(this.recipe);
   }
+
   getRecipes(): void
   {
     this.recipesService.getStubbedInfo().subscribe(data => this.recipes = data);

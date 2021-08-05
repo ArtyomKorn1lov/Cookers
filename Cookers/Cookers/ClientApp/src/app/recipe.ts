@@ -1,12 +1,5 @@
-export interface Step {
-    name: string;
-    description: string;
-}
-
-export interface Ingredient {
-    name: string;
-    descriptions: string[];
-}
+import { Step } from "./step";
+import { Ingredient } from "./ingredient";
 
 export interface Recipe {
     id: number;

@@ -115,3 +115,14 @@
 {
     margin-top: 30px;
 }
+
+.about-button-block .addrecipe
+{
+    width: 180px;
+}
+
+.seachbutton p
+{
+    color: #FFFFFF; 
+    font-weight: 600;
+}

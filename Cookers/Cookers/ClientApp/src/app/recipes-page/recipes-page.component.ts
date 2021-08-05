@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { RecipesService } from '../recipes.service';
-import { Recipe, Ingredient, Step } from '../recipe';
+import { Recipe } from '../recipe';
 
 @Component({
   selector: 'app-recipes-page',
@@ -12,7 +12,7 @@ export class RecipesPageComponent implements OnInit {
 
   pageId: number = 3;
 
-  recipes : Recipe[] | undefined;
+  recipes : Recipe[] = [];
 
   constructor(private router: Router, private recipesService: RecipesService) { }
 

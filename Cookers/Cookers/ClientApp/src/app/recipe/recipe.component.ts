@@ -1,25 +1,26 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { RecipesService } from '../recipes.service';
-import { Recipe, Ingredient, Step } from '../recipe';
+import { Recipe } from '../recipe';
 
 @Component({
   selector: 'app-recipe',
   templateUrl: './recipe.component.html',
   styleUrls: ['./recipe.component.css']
 })
-export class RecipeComponent implements OnInit {
+export class RecipeComponent {
 
   @Input() recipe: Recipe;
   @Input() parentPageId: number;
+  private readonly maxLength: number;
 
-  constructor(private recipesService: RecipesService) { }
-
-  onClick(): void
+  constructor(private recipesService: RecipesService) 
   {
-    this.recipesService.pushDataInService(this.recipe);
+    this.maxLength = 151;
   }
 
-  ngOnInit() {
+  onPushDataInServiceClick(): void
+  {
+    this.recipesService.pushDataInService(this.recipe);
   }
 
 }

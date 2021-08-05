@@ -1,11 +1,11 @@
-import { Component, OnInit, EventEmitter, Output } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 
 @Component({
   selector: 'app-registration',
   templateUrl: './registration.component.html',
   styleUrls: ['./registration.component.css']
 })
-export class RegistrationComponent implements OnInit {
+export class RegistrationComponent {
 
   @Output() buttonAuthClick  = new EventEmitter();
   @Output() buttonRegClick = new EventEmitter();
@@ -21,8 +21,5 @@ export class RegistrationComponent implements OnInit {
   }
 
   constructor() { }
-
-  ngOnInit() {
-  }
 
 }

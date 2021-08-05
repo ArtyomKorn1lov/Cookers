@@ -22,3 +22,14 @@ app-tag-list + .find-recipe-with-title-block
 {
     margin-top: 10px;
 }
+
+.searchbar-button-block input
+{
+    width: 779px;
+}
+
+.seachbutton p
+{
+    color: #FFFFFF; 
+    font-weight: 600;
+}
