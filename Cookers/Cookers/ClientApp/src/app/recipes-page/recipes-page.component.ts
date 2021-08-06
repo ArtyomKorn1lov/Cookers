@@ -10,9 +10,8 @@ import { Recipe } from '../recipe';
 })
 export class RecipesPageComponent implements OnInit {
 
-  pageId: number = 3;
-
-  recipes : Recipe[] = [];
+  public pageId: number = 3;
+  public recipes : Recipe[] = [];
 
   constructor(private router: Router, private recipesService: RecipesService) { }
 

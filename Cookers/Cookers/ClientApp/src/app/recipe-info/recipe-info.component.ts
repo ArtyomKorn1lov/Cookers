@@ -12,14 +12,14 @@ export class RecipeInfoComponent implements OnInit {
 
   public recipe: Recipe;
   public pageId: number = 4;
-  routerLinkString: string;
-  parentPageId: number;
+  private targetRoute: string = '/';
+  private parentPageId: number;
 
   constructor(private router: Router, private route: ActivatedRoute, private recipeService: RecipesService) { }
 
   returnBackPageClick(): void
   {
-    this.router.navigateByUrl(this.routerLinkString);
+    this.router.navigateByUrl(this.targetRoute);
   }
 
   ngOnInit() 
@@ -29,10 +29,10 @@ export class RecipeInfoComponent implements OnInit {
     switch (this.parentPageId)
     {
       case 1: 
-        this.routerLinkString = '/';
+        this.targetRoute = '/';
         break;
       case 3:
-        this.routerLinkString = '/recipes';
+        this.targetRoute = '/recipes';
         break;
     }
   }

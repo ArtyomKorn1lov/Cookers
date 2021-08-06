@@ -10,12 +10,12 @@ import { Recipe } from '../recipe';
 })
 export class MainPageComponent implements OnInit {
 
-  public pageId: number = null;
-  recipes : Recipe[] = [];
-  recipe : Recipe | undefined;
-  public buttonAuthState: boolean = false;
-  public buttonRegState: boolean = false;
+  private isAuthorised: boolean = false;
+  private isRegistered: boolean = false;
   private readonly maxLength: number;
+  public pageId: number = null;
+  public recipes : Recipe[] = [];
+  public recipe : Recipe | undefined;
 
   constructor(private router: Router, private recipesService: RecipesService) 
   {
@@ -24,22 +24,22 @@ export class MainPageComponent implements OnInit {
 
   onAuthFormClick(): void
   {
-    this.buttonAuthState = true;
+    this.isAuthorised = true;
   }
 
   closeAuthForm(): void
   {
-    this.buttonAuthState = false;
+    this.isAuthorised = false;
   }
 
   onRegFormClick(): void
   {
-    this.buttonRegState = true;
+    this.isRegistered = true;
   }
 
   closeRegForm(): void
   {
-    this.buttonRegState = false;
+    this.isRegistered = false;
   }
 
   onPushDataInServiceClick(): void

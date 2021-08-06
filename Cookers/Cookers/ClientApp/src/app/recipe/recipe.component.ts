@@ -18,7 +18,7 @@ export class RecipeComponent {
     this.maxLength = 151;
   }
 
-  pageCheck(): boolean
+  isPreviousPageRecipeInfo(): boolean
   {
     if(this.parentPageId == 4)
     {

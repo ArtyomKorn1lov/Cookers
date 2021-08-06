@@ -11,6 +11,15 @@ export class TagListComponent implements OnInit {
 
   constructor() { }
 
+  isPreviousPageMain(): boolean
+  {
+    if(this.pageId == 1)
+    {
+      return true;
+    }
+    return false;
+  }
+
   ngOnInit() {
   }
 

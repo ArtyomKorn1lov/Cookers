@@ -1,10 +1,10 @@
 <div class="main-page-container">
-    <div *ngIf="buttonAuthState">
+    <div *ngIf="isAuthorised">
         <div class="background-fon">
             <app-authorization class="auth-reg-form" (buttonAuthClick)="closeAuthForm()" (buttonRegClick)="closeAuthForm(); onRegFormClick()"></app-authorization>
         </div>
     </div>
-    <div *ngIf="buttonRegState">
+    <div *ngIf="isRegistered">
         <div class="background-fon">
             <app-registration class="auth-reg-form" (buttonRegClick)="closeRegForm()" (buttonAuthClick)="closeRegForm(); onAuthFormClick()"></app-registration>
         </div>

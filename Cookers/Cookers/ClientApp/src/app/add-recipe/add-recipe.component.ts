@@ -8,8 +8,8 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class AddRecipeComponent implements OnInit {
 
-  pageId: number;
-  targetRoute: string = '/recipes';
+  private targetRoute: string = '/';
+  public pageId: number;
 
   constructor(private router: Router, private route: ActivatedRoute) { }
 
