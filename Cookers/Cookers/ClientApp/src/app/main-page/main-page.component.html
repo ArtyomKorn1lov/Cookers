@@ -1,12 +1,12 @@
 <div class="main-page-container">
     <div *ngIf="buttonAuthState">
         <div class="background-fon">
-            <app-authorization class="auth-reg-form" (buttonAuthClick)="closeAuthForm()" (buttonRegClick)="closeAuthForm(); btnRegClick()"></app-authorization>
+            <app-authorization class="auth-reg-form" (buttonAuthClick)="closeAuthForm()" (buttonRegClick)="closeAuthForm(); onRegFormClick()"></app-authorization>
         </div>
     </div>
     <div *ngIf="buttonRegState">
         <div class="background-fon">
-            <app-registration class="auth-reg-form" (buttonRegClick)="closeRegForm()" (buttonAuthClick)="closeRegForm(); btnAuthClick()"></app-registration>
+            <app-registration class="auth-reg-form" (buttonRegClick)="closeRegForm()" (buttonAuthClick)="closeRegForm(); onAuthFormClick()"></app-registration>
         </div>
     </div>
 
@@ -17,7 +17,7 @@
             <button class="addrecipe" [routerLink] = "['/addnewrecipe', {'paramId': pageId}]">
                 <p>+ &nbsp; &nbsp; Добавить рецепт</p>
             </button>
-            <button class="authorise" (click)="btnAuthClick()">
+            <button class="authorise" (click)="onAuthFormClick()">
                 <p>Войти</p>
             </button>
         </div>

@@ -4,7 +4,7 @@
         <div class="likes-favourites-block">
             <div class="likes-or-favourites-button">
                 <img src="assets/images/star1.png">
-                <p>{{recipe.favorites}}</p>
+                <p>{{recipe.favourites}}</p>
             </div>
             <div class="likes-or-favourites-button">
                 <img src="assets/images/like3.png">
@@ -13,11 +13,11 @@
         </div>
         <div class="text-block">
             <h4>{{recipe.name}}</h4>
-            <div *ngIf="parentPageId == 4; then thenMainBlock else elseMainBlock"></div>
-            <ng-template #thenMainBlock>
+            <div *ngIf="pageCheck(); then UserInfo else OtherPages"></div>
+            <ng-template #UserInfo>
                 <p>{{recipe.description}}</p>
             </ng-template>
-            <ng-template #elseMainBlock>
+            <ng-template #OtherPages>
                 <p>{{(recipe.description.length>maxLength)? (recipe.description | slice:0:maxLength)+'...':(recipe.description)}}</p>
             </ng-template>
         </div>

@@ -18,6 +18,15 @@ export class RecipeComponent {
     this.maxLength = 151;
   }
 
+  pageCheck(): boolean
+  {
+    if(this.parentPageId == 4)
+    {
+      return true;
+    }
+    return false;
+  }
+
   onPushDataInServiceClick(): void
   {
     this.recipesService.pushDataInService(this.recipe);

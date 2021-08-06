@@ -40,18 +40,18 @@
 
     <div *ngIf="buttonAuthState">
         <div class="background-fon">
-            <app-authorization class="auth-reg-form" (buttonAuthClick)="closeAuthForm()" (buttonRegClick)="closeAuthForm(); btnRegClick()"></app-authorization>
+            <app-authorization class="auth-reg-form" (buttonAuthClick)="closeAuthForm()" (buttonRegClick)="closeAuthForm(); onRegFormClick()"></app-authorization>
         </div>
     </div>
     <div *ngIf="buttonRegState">
         <div class="background-fon">
-            <app-registration class="auth-reg-form" (buttonRegClick)="closeRegForm()" (buttonAuthClick)="closeRegForm(); btnAuthClick()"></app-registration>
+            <app-registration class="auth-reg-form" (buttonRegClick)="closeRegForm()" (buttonAuthClick)="closeRegForm(); onAuthFormClick()"></app-registration>
         </div>
     </div>
 
     <div class="authorise-panel">
         <img src="assets/images/autorise-icon.png">
-        <a class="enter-profile" (click)="onAuthClick()">
+        <a class="enter-profile" (click)="onAuthFormClick()">
             Войти
         </a>
     </div>

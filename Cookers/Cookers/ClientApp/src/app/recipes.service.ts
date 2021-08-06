@@ -18,7 +18,7 @@ export class RecipesService {
                 photo: 'assets/images/panna-kotta.png',
                 cookingTime: 35,
                 peoples: 6,
-                favorites: 10,
+                favourites: 10,
                 likes: 10,
                 steps:
                     [
@@ -80,7 +80,7 @@ export class RecipesService {
                 photo: 'assets/images/pancake.png',
                 cookingTime: 40,
                 peoples: 3,
-                favorites: 24,
+                favourites: 24,
                 likes: 256,
                 steps:
                     [
@@ -142,7 +142,7 @@ export class RecipesService {
                 photo: 'assets/images/meatballs.png',
                 cookingTime: 90,
                 peoples: 4,
-                favorites: 4,
+                favourites: 4,
                 likes: 7,
                 steps:
                     [

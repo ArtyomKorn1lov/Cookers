@@ -14,7 +14,7 @@ export class TopBarComponent implements OnInit {
   constructor() {
   }
 
-  onAuthClick(): void
+  onAuthFormClick(): void
   {
     this.buttonAuthState = true;
   }
@@ -24,7 +24,7 @@ export class TopBarComponent implements OnInit {
     this.buttonAuthState = false;
   }
 
-  btnRegClick(): void
+  onRegFormClick(): void
   {
     this.buttonRegState = true;
   }

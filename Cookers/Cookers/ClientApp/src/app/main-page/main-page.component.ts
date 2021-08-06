@@ -22,7 +22,7 @@ export class MainPageComponent implements OnInit {
     this.maxLength = 151;
   }
 
-  btnAuthClick(): void
+  onAuthFormClick(): void
   {
     this.buttonAuthState = true;
   }
@@ -32,7 +32,7 @@ export class MainPageComponent implements OnInit {
     this.buttonAuthState = false;
   }
 
-  btnRegClick(): void
+  onRegFormClick(): void
   {
     this.buttonRegState = true;
   }
