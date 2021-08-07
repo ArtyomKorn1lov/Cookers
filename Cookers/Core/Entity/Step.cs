@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace Core.Entity
 {
-    public class Step
+    public class Step : Entity
     {
-        private int Id { get; set; }
+        public int Id { get; private set; }
         private string Name { get; set; }
         private string Description { get; set; }
         private int RecipeId { get; set; }

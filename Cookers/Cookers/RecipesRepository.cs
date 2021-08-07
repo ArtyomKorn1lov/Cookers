@@ -1,12 +1,12 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Cookers.Dto;
+using Web.Dto;
 
-namespace Cookers
+namespace Web
 {
-    public class RecipesRepository
+    public class RecipesRepository //Заглушка
     {
         public RecipeDto[] GetAll()
         {

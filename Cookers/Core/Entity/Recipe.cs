@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace Core.Entity
 {
-    public class Recipe
+    public class Recipe : Entity
     {
-        private int Id { get; set; }
+        public int Id { get; private set; }
         private string Name { get; set; }
         private string Description { get; set; }
         private string Photo { get; set; }

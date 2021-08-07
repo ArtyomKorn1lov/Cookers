@@ -5,7 +5,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 
-namespace Cookers
+namespace Web
 {
     public class Startup
     {
@@ -29,19 +29,10 @@ namespace Cookers
             {
                 app.UseDeveloperExceptionPage();
             }
-            else
-            {
-                app.UseExceptionHandler( "/Error" );
-            }
 
             app.UseRouting();
             app.UseDefaultFiles();
             app.UseStaticFiles();
-
-            app.UseEndpoints( endpoints =>
-             {
-                 endpoints.MapControllers();
-             } );
 
         }
     }

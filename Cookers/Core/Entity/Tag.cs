@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace Core.Entity
 {
-    public class Tag
+    public class Tag : Entity
     {
-        private int Id { get; set; }
+        public int Id { get; private set; }
         private string Name { get; set; }
         private int RecipeId { get; set; }
     }

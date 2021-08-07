@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Cookers.Dto
+namespace Web.Dto
 {
     public class RecipeDto
     {
@@ -15,19 +15,7 @@ namespace Cookers.Dto
         public int Peoples { get; set; }
         public int Favorites { get; set; }
         public int Likes { get; set; }
-        public Step[] Steps { get; set; }
-        public Ingredient[] Ingredients { get; set; }
-    }
-
-    public class Step
-    {
-        public string Name { get; set; }
-        public string[] Description { get; set; }
-    }
-
-    public class Ingredient
-    {
-        public string Name { get; set; }
-        public string Description { get; set; }
+        public StepDto[] Steps { get; set; }
+        public IngredientDto[] Ingredients { get; set; }
     }
 }

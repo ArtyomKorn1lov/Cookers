@@ -6,11 +6,8 @@ using System.Threading.Tasks;
 
 namespace Core.Entity
 {
-    public class User : Entity
+    public abstract class Entity
     {
         public int Id { get; private set; }
-        private string Name { get; set; }
-        private string Login { get; set; }
-        private string Password { get; set; }
     }
 }
