@@ -7,29 +7,42 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TopBarComponent implements OnInit {
 
-  pageId: number = null;
+  private isAuthorised: boolean = false;
+  private isRegistered: boolean = false;
+  public pageId: number = null;
 
   constructor() {
-   }
+  }
+
+  onAuthFormClick(): void
+  {
+    this.isAuthorised = true;
+  }
+
+  closeAuthForm(): void
+  {
+    this.isAuthorised = false;
+  }
+
+  onRegFormClick(): void
+  {
+    this.isRegistered = true;
+  }
+
+  closeRegForm(): void
+  {
+    this.isRegistered = false;
+  }
 
   onClickMain(id: number)
   {
-    switch(id)
+    if(id >= 1 && id <= 3)
     {
-      case 1:
-        this.pageId = 1;
-        break;
-      case 2:
-        this.pageId = 2;
-        break;
-      case 3:
-        this.pageId = 3;
-        break;
+      this.pageId = id;
     }
   }
 
   ngOnInit() {
     this.pageId = 1;
   }
-
 }

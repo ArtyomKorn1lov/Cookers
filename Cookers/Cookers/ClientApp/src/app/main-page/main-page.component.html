@@ -1,21 +1,53 @@
-<div class="main-pagecontainer">
+<div class="main-page-container">
+    <div *ngIf="isAuthorised">
+        <div class="background-fon">
+            <app-authorization class="auth-reg-form" (buttonAuthClick)="closeAuthForm()" (buttonRegClick)="closeAuthForm(); onRegFormClick()"></app-authorization>
+        </div>
+    </div>
+    <div *ngIf="isRegistered">
+        <div class="background-fon">
+            <app-registration class="auth-reg-form" (buttonRegClick)="closeRegForm()" (buttonAuthClick)="closeRegForm(); onAuthFormClick()"></app-registration>
+        </div>
+    </div>
+
     <div class="addrecipe-authorise-block">
         <h6>Готовь и делись <br> рецептами</h6>
         <p>Никаких кулинарных книг и блокнотов! Храни все <br> любимые рецепты в одном месте.</p>
         <div class="addrecipe-authorise">
-            <button class="addrecipe" (click)="btnClick()">
-                <p style="color: #FFFFFF; font-weight: 600;">+ &nbsp; &nbsp; Добавить рецепт</p>
+            <button class="addrecipe" [routerLink] = "['/addnewrecipe', {'paramId': pageId}]">
+                <p>+ &nbsp; &nbsp; Добавить рецепт</p>
             </button>
-            <button class="authorise">
-                <p style="color: #FDB100; font-weight: 600;">Войти</p>
+            <button class="authorise" (click)="onAuthFormClick()">
+                <p>Войти</p>
             </button>
         </div>
+        
     </div>
 
     <div class="sortingbytags-block">
         <h5>Умная сортировка по тегам</h5>
         <p>Добавляй рецепты и указывай наиболее популярные теги. Это позволит <br> быстро находить любые категории.</p>
-        <app-tag-list></app-tag-list>
+        <app-tag-list [pageId]="pageId"></app-tag-list>
+    </div>
+
+    <div class="day-recipe-block" *ngIf="recipe !== undefined">
+        <img class="day-recipe-block-img" src="{{recipe.photo}}">
+        <div class="recipe-info-block">
+            <div class="likes-time-block">
+                <img src="assets/images/like1.png">
+                <p>{{recipe.likes}}</p>
+                <img src="assets/images/clock1.png">
+                <p>{{recipe.cookingTime}} минут</p>
+            </div>
+            <img class="day-recipe-img" src="assets/images/day-recipe.png">
+            <h5>{{recipe.name}}</h5>
+            <p>{{(recipe.description.length>maxLength)? (recipe.description | slice:0:maxLength)+'...':(recipe.description)}}</p>
+            <div class="about-button-block">
+                <button class="addrecipe" [routerLink] = "['/recipeinfo', {'paramId': pageId}]"  (click)="onPushDataInServiceClick()">
+                    <p>Подробнее</p>
+                </button>
+            </div>
+        </div>
     </div>
 
     <div class="findrecipe-title-block">
@@ -28,7 +60,7 @@
             <div class="searchbar-button-block">
                 <input type="text" placeholder="Название блюда...">
                 <button class="seachbutton">
-                    <p style="color: #FFFFFF; font-weight: 600;">Поиск</p>
+                    <p>Поиск</p>
                 </button>
             </div> 
             <div class="hyperlinkbar">

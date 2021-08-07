@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FavoritesPageComponent implements OnInit {
 
-  pageId: number = 2;
+  public pageId: number = 2;
 
   constructor() { }
 

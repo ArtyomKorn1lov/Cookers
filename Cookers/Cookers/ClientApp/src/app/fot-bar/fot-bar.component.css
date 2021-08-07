@@ -1,7 +1,7 @@
 footer
 {
     display: flex;
-    min-width: 1440px;
+    width: 1440px;
     padding: 37px 120px;
     justify-content: space-between;
     align-items: center;

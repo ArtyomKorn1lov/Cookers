@@ -12,6 +12,10 @@ import { TagListComponent } from './tag-list/tag-list.component';
 import { RecipesPageComponent } from './recipes-page/recipes-page.component';
 import { FavoritesPageComponent } from './favorites-page/favorites-page.component';
 import { AddRecipeComponent } from './add-recipe/add-recipe.component';
+import { RecipeComponent } from './recipe/recipe.component';
+import { AuthorizationComponent } from './authorization/authorization.component';
+import { RegistrationComponent } from './registration/registration.component';
+import { RecipeInfoComponent } from './recipe-info/recipe-info.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +27,10 @@ import { AddRecipeComponent } from './add-recipe/add-recipe.component';
     RecipesPageComponent,
     FavoritesPageComponent,
     AddRecipeComponent,
+    RecipeComponent,
+    AuthorizationComponent,
+    RegistrationComponent,
+    RecipeInfoComponent,
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -33,6 +41,7 @@ import { AddRecipeComponent } from './add-recipe/add-recipe.component';
       { path: 'recipes', component:  RecipesPageComponent },
       { path: 'favorites', component:  FavoritesPageComponent },
       { path: 'addnewrecipe', component:  AddRecipeComponent },
+      { path: 'recipeinfo', component: RecipeInfoComponent},
     ])
   ],
   providers: [],

@@ -17,12 +17,12 @@
     padding: 24px;
 }
 
+.tag-box p
+{
+    text-align: left;
+}
+
 img + h4
 {
     margin-top: 24px;
 }
-
-/*.tag-box + .tag-box
-{
-    margin-left: 29px;
-}*/

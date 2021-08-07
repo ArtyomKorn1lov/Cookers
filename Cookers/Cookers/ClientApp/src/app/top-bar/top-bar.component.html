@@ -15,7 +15,7 @@
                 </ng-template>
             <div *ngIf="pageId == 2; then thenRecipesBlock else elseRecipesBlock"></div>
                 <ng-template #thenRecipesBlock>
-                    <a style="color: black;"  [routerLink]="['/recipes']" (click)="onClickMain(2)"> 
+                    <a style="color: black;" [routerLink]="['/recipes']" (click)="onClickMain(2)"> 
                         Рецепты        
                     </a>
                 </ng-template>
@@ -26,7 +26,7 @@
                 </ng-template>
             <div *ngIf="pageId == 3; then thenFavoritesBlock else elseFavoritesBlock"></div>
                 <ng-template #thenFavoritesBlock>
-                    <a style="color: black;" [routerLink]="['/favorites']" (click)="onClickMain(3)"> 
+                    <a style="color: black;"[routerLink]="['/favorites']" (click)="onClickMain(3)"> 
                         Избранное        
                     </a>
                 </ng-template>
@@ -37,9 +37,21 @@
                 </ng-template>
         </div>
     </div>
+
+    <div *ngIf="isAuthorised">
+        <div class="background-fon">
+            <app-authorization class="auth-reg-form" (buttonAuthClick)="closeAuthForm()" (buttonRegClick)="closeAuthForm(); onRegFormClick()"></app-authorization>
+        </div>
+    </div>
+    <div *ngIf="isRegistered">
+        <div class="background-fon">
+            <app-registration class="auth-reg-form" (buttonRegClick)="closeRegForm()" (buttonAuthClick)="closeRegForm(); onAuthFormClick()"></app-registration>
+        </div>
+    </div>
+
     <div class="authorise-panel">
         <img src="assets/images/autorise-icon.png">
-        <a class="authorise">
+        <a class="enter-profile" (click)="onAuthFormClick()">
             Войти
         </a>
     </div>

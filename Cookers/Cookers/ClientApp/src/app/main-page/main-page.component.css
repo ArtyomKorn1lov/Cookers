@@ -9,15 +9,6 @@
     display: flex;
 }
 
-.authorise
-{
-    flex-basis: 216px;
-    background: inherit;
-    border: 1px solid #FDB100;
-    box-sizing: border-box;
-    border-radius: 16px;
-}
-
 .addrecipe + .authorise
 {
     margin-left: 24px;
@@ -34,6 +25,62 @@
     margin-top: 352px;
 }
 
+.day-recipe-block
+{
+    display: flex;
+}
+
+.day-recipe-block-img
+{
+    width: 543px;
+    height: 543px;
+}
+
+.recipe-info-block
+{
+    display: flex;
+    flex-direction: column;
+    padding: 0px 62px;
+}
+
+.likes-time-block
+{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.likes-time-block p
+{
+    font-size: 16px;
+}
+
+.likes-time-block img + p
+{
+    margin-left: 9px;
+}
+
+.likes-time-block p + img
+{
+    margin-left: 30px;
+}
+
+.day-recipe-img
+{
+    width: 100px;
+    height: 100px;
+}
+
+.recipe-info-block .day-recipe-img + h5
+{
+    margin-top: 32px;
+}
+
+.sortingbytags-block + .day-recipe-block
+{
+    margin-top: 150px;
+}
+
 .findrecipe-title-block
 {
     align-items: center;
@@ -41,7 +88,7 @@
     flex-direction: column;
 }
 
-.sortingbytags-block + .findrecipe-title-block
+.day-recipe-block + .findrecipe-title-block
 {
     margin-top: 150px;
 }
@@ -56,4 +103,26 @@
 .findrecipe-title-block + .findrecipe-block
 {
     margin-top: 64px;
+}
+
+.about-button-block
+{
+    display: flex;
+    justify-content: flex-end;
+}
+
+.recipe-info-block p + .about-button-block
+{
+    margin-top: 30px;
+}
+
+.about-button-block .addrecipe
+{
+    width: 180px;
+}
+
+.seachbutton p
+{
+    color: #FFFFFF; 
+    font-weight: 600;
 }

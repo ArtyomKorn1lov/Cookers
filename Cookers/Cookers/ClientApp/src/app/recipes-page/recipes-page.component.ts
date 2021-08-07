@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { RecipesService } from '../recipes.service';
+import { Recipe } from '../recipe';
 
 @Component({
   selector: 'app-recipes-page',
@@ -7,15 +10,29 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RecipesPageComponent implements OnInit {
 
-  pageId: number = 3;
+  public pageId: number = 3;
+  public recipes : Recipe[] = [];
 
-  constructor() { }
+  constructor(private router: Router, private recipesService: RecipesService) { }
 
-  returnPage(): number {
+  returnPage(): number 
+  {
     return this.pageId;
   }
 
-  ngOnInit() {
+  btnClick()
+  {
+      this.router.navigateByUrl('/addnewrecipe');
+  }
+
+  getRecipes(): void
+  {
+    this.recipesService.getStubbedInfo().subscribe(data => this.recipes = data);
+  }
+
+  ngOnInit() 
+  {
+    this.getRecipes();
   }
 
 }

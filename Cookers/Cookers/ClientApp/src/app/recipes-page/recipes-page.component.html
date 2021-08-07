@@ -1,22 +1,22 @@
-<div class="main-pagecontainer">
+<div class="main-page-container">
     <div class="add-recipe-block">
         <h4>Рецепты</h4>
-        <div class="addrecipe"> 
+        <button class="addrecipe" [routerLink] = "['/addnewrecipe', {'paramId': pageId}]">
             <p style="color: #FFFFFF; font-weight: 600;">+ &nbsp; &nbsp; Добавить рецепт</p>
-        </div>
+        </button>
     </div>
 
     <app-tag-list></app-tag-list>
-    
+
     <div class="find-recipe-with-title-block">
         <h4>Поиск рецепта</h4>
         <div class="searchbar-button-hyperlinkbar-block">
             <div class="searchbar-button-block">
-                <input style="width: 779px;" type="text" placeholder="Название блюда...">
+                <input type="text" placeholder="Название блюда...">
                 <button class="seachbutton">
-                    <p style="color: #FFFFFF; font-weight: 600;">Поиск</p>
+                    <p>Поиск</p>
                 </button>
-            </div> 
+            </div>
             <div class="hyperlinkbar">
                 <a>Мясо</a>
                 <a>Деликатесы</a>
@@ -25,6 +25,12 @@
                 <a>Пост</a>
                 <a>Пасха2021</a>
             </div>
-        </div>   
+        </div>
+    </div>
+
+    <div class="recipes-block" *ngIf="recipes !== undefined">
+        <div class="list-recipes-block" *ngFor="let recipe of recipes">
+            <app-recipe [parentPageId]="pageId" [recipe]="recipe"></app-recipe>
+        </div>
     </div>
 </div>
