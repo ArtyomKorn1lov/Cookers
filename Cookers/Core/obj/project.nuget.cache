@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "oKJHQgOkmMrRAxpcFzW8wx6ke2szBdPcbm9syuSiGQsu5A8jhsMYpf1oYH1Z2hzr6qrxF/bxxdFNLKKLlSpKJw==",
+  "dgSpecHash": "MgTdTtzqACBEdBFaXr+g/xlDOPn3eV96b7OVlXQ+FHFjKDXHly0buhaS+uJ8hTunlPjs1EGygSb6e9NH1AgM2g==",
   "success": true,
-  "projectFilePath": "C:\\Данные\\Практика в Travelline\\Учебный проект\\Project\\Cookers\\Cookers\\Core\\Core.csproj",
+  "projectFilePath": "C:\\Данные\\Практика в Travelline\\Учебный проект\\Project\\Cookers\\Cookers\\Core\\Domain.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

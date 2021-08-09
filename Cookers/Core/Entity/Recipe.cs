@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Core.Entity
+namespace Domain.Entity
 {
     public class Recipe : Entity
     {
@@ -13,7 +13,7 @@ namespace Core.Entity
         public string Photo { get; set; }
         public int CookingTime { get; set; }
         public int Peoples { get; set; }
-        public int Favorites { get; set; }
+        public int Favourites { get; set; }
         public int Likes { get; set; }
         public int IngredientId { get; set; }
         public int StepId { get; set; }

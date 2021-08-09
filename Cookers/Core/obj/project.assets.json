@@ -13,9 +13,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Данные\\Практика в Travelline\\Учебный проект\\Project\\Cookers\\Cookers\\Core\\Core.csproj",
-      "projectName": "Core",
-      "projectPath": "C:\\Данные\\Практика в Travelline\\Учебный проект\\Project\\Cookers\\Cookers\\Core\\Core.csproj",
+      "projectUniqueName": "C:\\Данные\\Практика в Travelline\\Учебный проект\\Project\\Cookers\\Cookers\\Core\\Domain.csproj",
+      "projectName": "Domain",
+      "projectPath": "C:\\Данные\\Практика в Travelline\\Учебный проект\\Project\\Cookers\\Cookers\\Core\\Domain.csproj",
       "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
       "outputPath": "C:\\Данные\\Практика в Travelline\\Учебный проект\\Project\\Cookers\\Cookers\\Core\\obj\\",
       "projectStyle": "PackageReference",
