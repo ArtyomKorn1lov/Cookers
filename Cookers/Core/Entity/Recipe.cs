@@ -8,15 +8,14 @@ namespace Core.Entity
 {
     public class Recipe : Entity
     {
-        public int Id { get; private set; }
-        private string Name { get; set; }
-        private string Description { get; set; }
-        private string Photo { get; set; }
-        private int CookingTime { get; set; }
-        private int Peoples { get; set; }
-        private int Favorites { get; set; }
-        private int Likes { get; set; }
-        private int IngredientId { get; set; }
-        private int StepId { get; set; }
+        public string Name { get; private set; }
+        public string Description { get; private set; }
+        public string Photo { get; private set; }
+        public int CookingTime { get; private set; }
+        public int Peoples { get; private set; }
+        public int Favorites { get; private set; }
+        public int Likes { get; private set; }
+        public int IngredientId { get; private set; }
+        public int StepId { get; private set; }
     }
 }

@@ -8,9 +8,8 @@ namespace Core.Entity
 {
     public class Step : Entity
     {
-        public int Id { get; private set; }
-        private string Name { get; set; }
-        private string Description { get; set; }
-        private int RecipeId { get; set; }
+        public string Name { get; private set; }
+        public string Description { get; private set; }
+        public int RecipeId { get; private set; }
     }
 }

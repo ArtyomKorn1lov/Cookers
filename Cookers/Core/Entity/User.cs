@@ -8,9 +8,8 @@ namespace Core.Entity
 {
     public class User : Entity
     {
-        public int Id { get; private set; }
-        private string Name { get; set; }
-        private string Login { get; set; }
-        private string Password { get; set; }
+        public string Name { get; private set; }
+        public string Login { get; private set; }
+        public string Password { get; private set; }
     }
 }

@@ -13,9 +13,9 @@ namespace Web.Dto
         public string Photo { get; set; }
         public int CookingTime { get; set; }
         public int Peoples { get; set; }
-        public int Favorites { get; set; }
+        public int Favourites { get; set; }
         public int Likes { get; set; }
-        public StepDto[] Steps { get; set; }
-        public IngredientDto[] Ingredients { get; set; }
+        public List<StepDto> Steps { get; set; }
+        public List<StepDto> Ingredients { get; set; }
     }
 }
