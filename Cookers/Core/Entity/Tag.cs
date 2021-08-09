@@ -8,7 +8,7 @@ namespace Core.Entity
 {
     public class Tag : Entity
     {
-        public string Name { get; private set; }
-        public int RecipeId { get; private set; }
+        public string Name { get; set; }
+        public int RecipeId { get; set; }
     }
 }
