@@ -15,7 +15,5 @@ namespace Domain.Entity
         public int Peoples { get; set; }
         public int Favourites { get; set; }
         public int Likes { get; set; }
-        public int IngredientId { get; set; }
-        public int StepId { get; set; }
     }
 }

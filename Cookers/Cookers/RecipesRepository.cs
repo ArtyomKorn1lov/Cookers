@@ -21,7 +21,7 @@ namespace Web
                     Photo = "assets/images/pum_soup.png",
                     CookingTime = 35,
                     Peoples = 3,
-                    Favorites = 4,
+                    Favourites = 4,
                     Likes = 15,
                 },
                 new RecipeDto
@@ -32,7 +32,7 @@ namespace Web
                     Photo = "assets/images/pum_soup.png",
                     CookingTime = 35,
                     Peoples = 3,
-                    Favorites = 4,
+                    Favourites = 4,
                     Likes = 15,
                 },
             };
