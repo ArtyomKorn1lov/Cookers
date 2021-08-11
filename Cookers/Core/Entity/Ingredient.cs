@@ -6,8 +6,9 @@ using System.Threading.Tasks;
 
 namespace Domain.Entity
 {
-    public class Ingredient : Entity
+    public class Ingredient
     {
+        public int Id { get; set }
         public string Name { get; set; }
         public string Description { get; set; }
         public int RecipeId { get; set; }
