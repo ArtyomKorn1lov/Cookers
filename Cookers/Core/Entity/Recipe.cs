@@ -1,8 +1,4 @@
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Domain.Entity
 {
@@ -16,5 +12,8 @@ namespace Domain.Entity
         public int Peoples { get; set; }
         public int Favourites { get; set; }
         public int Likes { get; set; }
+        public List<Step> Steps { get; set; }
+        public List<Recipe> Recipes { get; set; }
+        public List<Ingredient> Ingredients { get; set; }
     }
 }
