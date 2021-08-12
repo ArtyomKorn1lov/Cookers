@@ -25,7 +25,7 @@ namespace Web
 
             services.AddDbContext<RecipeDbContext>( options =>
             {
-                string connectionString = @"Data Source=DUKE\SQLEXPRESS; Initial Catalog=cookers; Pooling=true; Integrated Security=SSPI";
+                string connectionString = @"Data Source=DUKE\SQLEXPRESS; Initial Catalog=cookers; Pooling=true; Integrated Security=SSPI"; //Костыль
                 options.UseSqlServer( connectionString );
             } );
         }
