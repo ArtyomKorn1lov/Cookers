@@ -17,24 +17,24 @@ namespace Infrastructure.Repositories
 
         public IEnumerable<Recipe> GetLastCount()
         {
-            return _recipeDbContext.Recipes;
+            return _recipeDbContext.Set<Recipe>();
         }
 
         public Recipe Get( int id )
         {
-            return _recipeDbContext.Recipes.Find( id );
+            return _recipeDbContext.Set<Recipe>().Find( id );
         }
 
         public void Create( Recipe recipe )
         {
-            _recipeDbContext.Recipes.Add( recipe );
+            _recipeDbContext.Set<Recipe>().Add( recipe );
         }
 
         public void Delete( int id )
         {
-            Recipe recipe = _recipeDbContext.Recipes.Find( id );
+            Recipe recipe = _recipeDbContext.Set<Recipe>().Find( id );
             if ( recipe != null )
-                _recipeDbContext.Recipes.Remove( recipe );
+                _recipeDbContext.Set<Recipe>().Remove( recipe );
         }
     }
 }

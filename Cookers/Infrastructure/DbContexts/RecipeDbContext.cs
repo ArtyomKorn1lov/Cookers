@@ -11,11 +11,6 @@ namespace Infrastructure.DbContexts
         {
         }
 
-        public DbSet<Recipe> Recipes { get; set; }
-        public DbSet<Ingredient> Ingredients { get; set; }
-        public DbSet<Step> Steps { get; set; }
-        public DbSet<Tag> Tags { get; set; }
-
         protected override void OnModelCreating( ModelBuilder builder )
         {
             base.OnModelCreating( builder );

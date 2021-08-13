@@ -11,7 +11,6 @@ namespace Infrastructure.Configuration
             builder.ToTable( nameof( Tag ) ).HasKey( m => m.Id );
 
             builder.Property( m => m.Name ).IsRequired();
-            builder.Property( m => m.RecipeId ).IsRequired();
         }
     }
 }

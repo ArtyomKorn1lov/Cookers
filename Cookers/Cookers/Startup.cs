@@ -25,7 +25,7 @@ namespace Web
 
             services.AddDbContext<RecipeDbContext>( options =>
             {
-                string connectionString = @Configuration.GetConnectionString( "CookersConnection" ); 
+                string connectionString = Configuration.GetConnectionString( "CookersConnection" ); 
                 options.UseSqlServer( connectionString );
             } );
         }

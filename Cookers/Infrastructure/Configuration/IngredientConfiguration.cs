@@ -12,7 +12,6 @@ namespace Infrastructure.Configuration
 
             builder.Property( m => m.Name ).IsRequired();
             builder.Property( m => m.Description ).IsRequired();
-            builder.Property( m => m.RecipeId ).IsRequired();
         }
     }
 }

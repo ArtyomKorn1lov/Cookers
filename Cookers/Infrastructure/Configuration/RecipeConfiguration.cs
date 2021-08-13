@@ -16,6 +16,9 @@ namespace Infrastructure.Configuration
             builder.Property( m => m.PersonCount ).IsRequired();
             builder.Property( m => m.Favourites ).IsRequired();
             builder.Property( m => m.Likes ).IsRequired();
+            builder.HasMany( r => r.Ingredients ).WithOne().HasForeignKey( i => i.RecipeId ).OnDelete( DeleteBehavior.Cascade );
+            builder.HasMany( r => r.Tags ).WithOne().HasForeignKey( t => t.RecipeId ).OnDelete( DeleteBehavior.Cascade );
+            builder.HasMany( r => r.Steps ).WithOne().HasForeignKey( s => s.RecipeId ).OnDelete( DeleteBehavior.Cascade );
         }
     }
 }

@@ -10,9 +10,10 @@ namespace Domain.Entity
         public int CookingTime { get; set; }
         public int PersonCount { get; set; }
         public int Favourites { get; set; }
+        public string Photo { get; set; }
         public int Likes { get; set; }
         public List<Step> Steps { get; set; }
-        public List<Recipe> Recipes { get; set; }
+        public List<Tag> Tags { get; set; }
         public List<Ingredient> Ingredients { get; set; }
     }
 }
