@@ -10,13 +10,12 @@ namespace Infrastructure.Configuration
         {
             builder.ToTable( nameof( Recipe ) ).HasKey( m => m.Id );
 
-            builder.Property( m => m.Name ).HasMaxLength( 250 ).HasDefaultValue( string.Empty );
-            builder.Property( m => m.Description ).HasMaxLength( 500 ).HasDefaultValue( string.Empty );
-            builder.Property( m => m.Photo ).HasMaxLength( 250 ).HasDefaultValue( string.Empty );
-            builder.Property( m => m.CookingTime ).HasMaxLength( 10 ).HasDefaultValue( 0 );
-            builder.Property( m => m.Peoples ).HasMaxLength( 10 ).HasDefaultValue( 0 );
-            builder.Property( m => m.Favourites ).HasMaxLength( 10 ).HasDefaultValue( 0 );
-            builder.Property( m => m.Likes ).HasMaxLength( 10 ).HasDefaultValue( 0 );
+            builder.Property( m => m.Name ).IsRequired();
+            builder.Property( m => m.Description ).IsRequired();
+            builder.Property( m => m.CookingTime ).IsRequired();
+            builder.Property( m => m.PersonCount ).IsRequired();
+            builder.Property( m => m.Favourites ).IsRequired();
+            builder.Property( m => m.Likes ).IsRequired();
         }
     }
 }

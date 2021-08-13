@@ -12,12 +12,17 @@ namespace Infrastructure.Repositories
 
         public RecipeRepository( RecipeDbContext context )
         {
-            this._recipeDbContext = context;
+            _recipeDbContext = context;
         }
 
-        public IEnumerable<Recipe> GetAll()
+        public IEnumerable<Recipe> GetLastCount()
         {
             return _recipeDbContext.Recipes;
+        }
+
+        public Recipe Get( int id )
+        {
+            return _recipeDbContext.Recipes.Find( id );
         }
 
         public void Create( Recipe recipe )
@@ -30,16 +35,6 @@ namespace Infrastructure.Repositories
             Recipe recipe = _recipeDbContext.Recipes.Find( id );
             if ( recipe != null )
                 _recipeDbContext.Recipes.Remove( recipe );
-        }
-
-        public Recipe Get( int id )
-        {
-            return _recipeDbContext.Recipes.Find( id );
-        }
-
-        public void Update( Recipe recipe )
-        {
-            _recipeDbContext.Entry( recipe ).State = EntityState.Modified;
         }
     }
 }

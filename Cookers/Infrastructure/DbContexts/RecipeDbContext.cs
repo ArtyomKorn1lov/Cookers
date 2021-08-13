@@ -6,7 +6,8 @@ namespace Infrastructure.DbContexts
 {
     public class RecipeDbContext : DbContext
     {
-        public RecipeDbContext( DbContextOptions options ) : base( options )
+        public RecipeDbContext( DbContextOptions options ) 
+            : base( options )
         {
         }
 

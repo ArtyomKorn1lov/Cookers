@@ -9,10 +9,9 @@ namespace Domain.Repositories
 {
     public interface IRecipeRepository 
     {
-        IEnumerable<Recipe> GetAll();
+        IEnumerable<Recipe> GetLastCount();
         Recipe Get( int id );
         void Create( Recipe item );
-        void Update( Recipe item );
         void Delete( int id );
     }
 }
