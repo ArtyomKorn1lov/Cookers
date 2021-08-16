@@ -1,6 +1,6 @@
 using Infrastructure.DbContexts;
 
-namespace Application.UnitOfWork
+namespace Infrastructure
 {
     public class UnitOfWork : IUnitOfWork
     {

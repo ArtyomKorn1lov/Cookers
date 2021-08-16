@@ -32,7 +32,7 @@ namespace Infrastructure.Repositories
 
         public void Delete( int id )
         {
-            Recipe recipe = _recipeDbContext.Set<Recipe>().Find( id );
+            Recipe recipe = _recipeDbContext.Set<Recipe>().FirstOrDefault( r => r.Id == id );
             if ( recipe != null )
                 _recipeDbContext.Set<Recipe>().Remove( recipe );
         }
