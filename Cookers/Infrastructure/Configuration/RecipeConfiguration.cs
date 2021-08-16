@@ -8,7 +8,9 @@ namespace Infrastructure.Configuration
     {
         public void Configure( EntityTypeBuilder<Recipe> builder )
         {
-            builder.ToTable( nameof( Recipe ) ).HasKey( m => m.Id );
+            builder.ToTable( nameof( Recipe ) );
+
+            builder.HasKey( m => m.Id );
 
             builder.Property( m => m.Name ).IsRequired();
             builder.Property( m => m.Description ).IsRequired();
@@ -16,6 +18,7 @@ namespace Infrastructure.Configuration
             builder.Property( m => m.PersonCount ).IsRequired();
             builder.Property( m => m.Favourites ).IsRequired();
             builder.Property( m => m.Likes ).IsRequired();
+
             builder.HasMany( r => r.Ingredients ).WithOne().HasForeignKey( i => i.RecipeId ).OnDelete( DeleteBehavior.Cascade );
             builder.HasMany( r => r.Tags ).WithOne().HasForeignKey( t => t.RecipeId ).OnDelete( DeleteBehavior.Cascade );
             builder.HasMany( r => r.Steps ).WithOne().HasForeignKey( s => s.RecipeId ).OnDelete( DeleteBehavior.Cascade );

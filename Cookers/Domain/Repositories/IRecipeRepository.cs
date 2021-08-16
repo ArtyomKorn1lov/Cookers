@@ -9,7 +9,7 @@ namespace Domain.Repositories
 {
     public interface IRecipeRepository 
     {
-        IEnumerable<Recipe> GetLastCount();
+        List<Recipe> GetLastCount( int count );
         Recipe Get( int id );
         void Create( Recipe item );
         void Delete( int id );

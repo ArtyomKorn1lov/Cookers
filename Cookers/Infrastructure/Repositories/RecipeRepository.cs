@@ -1,8 +1,8 @@
 using System.Collections.Generic;
-using Microsoft.EntityFrameworkCore;
 using Domain.Entity;
 using Domain.Repositories;
 using Infrastructure.DbContexts;
+using System.Linq;
 
 namespace Infrastructure.Repositories
 {
@@ -15,14 +15,14 @@ namespace Infrastructure.Repositories
             _recipeDbContext = context;
         }
 
-        public IEnumerable<Recipe> GetLastCount()
+        public List<Recipe> GetLastCount( int count )
         {
-            return _recipeDbContext.Set<Recipe>();
+            return _recipeDbContext.Set<Recipe>().ToList();
         }
 
         public Recipe Get( int id )
         {
-            return _recipeDbContext.Set<Recipe>().Find( id );
+            return _recipeDbContext.Set<Recipe>().FirstOrDefault( r => r.Id == id );
         }
 
         public void Create( Recipe recipe )

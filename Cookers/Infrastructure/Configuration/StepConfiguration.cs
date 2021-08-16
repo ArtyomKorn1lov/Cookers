@@ -8,7 +8,9 @@ namespace Infrastructure.Configuration
     {
         public void Configure( EntityTypeBuilder<Step> builder )
         {
-            builder.ToTable( nameof( Step ) ).HasKey( m => m.Id );
+            builder.ToTable( nameof( Step ) );
+
+            builder.HasKey( m => m.Id );
 
             builder.Property( m => m.Name ).IsRequired();
             builder.Property( m => m.Description ).IsRequired();

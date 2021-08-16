@@ -6068,6 +6068,9 @@
           "projectReferences": {
             "C:\\Данные\\Практика в Travelline\\Учебный проект\\Project\\Cookers\\Cookers\\Core\\Domain.csproj": {
               "projectPath": "C:\\Данные\\Практика в Travelline\\Учебный проект\\Project\\Cookers\\Cookers\\Core\\Domain.csproj"
+            },
+            "C:\\Данные\\Практика в Travelline\\Учебный проект\\Project\\Cookers\\Cookers\\Domain\\Domain.csproj": {
+              "projectPath": "C:\\Данные\\Практика в Travelline\\Учебный проект\\Project\\Cookers\\Cookers\\Domain\\Domain.csproj"
             }
           }
         }

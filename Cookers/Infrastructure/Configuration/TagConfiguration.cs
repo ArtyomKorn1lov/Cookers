@@ -8,7 +8,9 @@ namespace Infrastructure.Configuration
     {
         public void Configure( EntityTypeBuilder<Tag> builder )
         {
-            builder.ToTable( nameof( Tag ) ).HasKey( m => m.Id );
+            builder.ToTable( nameof( Tag ) );
+
+            builder.HasKey( m => m.Id );
 
             builder.Property( m => m.Name ).IsRequired();
         }

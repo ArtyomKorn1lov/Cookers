@@ -8,10 +8,12 @@ namespace Infrastructure.Configuration
     {
         public void Configure( EntityTypeBuilder<Ingredient> builder )
         {
-            builder.ToTable( nameof( Ingredient ) ).HasKey( m => m.Id );
+            builder.ToTable( nameof( Ingredient ) );
+
+            builder.HasKey( m => m.Id );
 
             builder.Property( m => m.Name ).IsRequired();
-            builder.Property( m => m.Description ).IsRequired();
+            builder.Property( m => m.Description );
         }
     }
 }
