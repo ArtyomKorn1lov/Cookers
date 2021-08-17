@@ -1,4 +1,8 @@
+using Application;
+using Domain.Repositories;
+using Infrastructure;
 using Infrastructure.DbContexts;
+using Infrastructure.Repositories;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.SpaServices.AngularCli;
@@ -22,6 +26,9 @@ namespace Web
         public void ConfigureServices( IServiceCollection services )
         {
             services.AddControllers();
+
+            services.AddScoped<IUnitOfWork, UnitOfWork>();
+            services.AddScoped<IRecipeRepository, RecipeRepository>();
 
             services.AddDbContext<RecipeDbContext>( options =>
             {

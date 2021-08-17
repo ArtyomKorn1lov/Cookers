@@ -3,6 +3,7 @@ using Domain.Entity;
 using Domain.Repositories;
 using Infrastructure.DbContexts;
 using System.Linq;
+using Microsoft.EntityFrameworkCore;
 
 namespace Infrastructure.Repositories
 {
@@ -17,7 +18,7 @@ namespace Infrastructure.Repositories
 
         public List<Recipe> GetLastCount( int count )
         {
-            return _recipeDbContext.Set<Recipe>().ToList();
+            return _recipeDbContext.Set<Recipe>().Include( r => r.Tags ).Include( r => r.Ingredients ).Include( r => r.Steps ).Take( count ).ToList();
         }
 
         public Recipe Get( int id )
