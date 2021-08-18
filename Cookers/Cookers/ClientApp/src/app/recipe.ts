@@ -1,5 +1,6 @@
 import { Step } from "./step";
 import { Ingredient } from "./ingredient";
+import { Tag } from "./tag";
 
 export interface Recipe {
     id: number;
@@ -12,4 +13,5 @@ export interface Recipe {
     likes: number;
     steps: Step[];
     ingredients: Ingredient[];
+    tags: Tag[];
 }

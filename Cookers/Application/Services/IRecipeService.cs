@@ -5,16 +5,16 @@ using System.Text;
 using System.Threading.Tasks;
 using Domain.Entity;
 
-namespace Domain.Repositories
+namespace Application.Services
 {
-    public interface IRecipeRepository
+    public interface IRecipeService
     {
         List<Recipe> GetLastCount( int count );
         List<Recipe> SeachRecipes( string name );
         List<Recipe> GetRecipeByTag( string tagName );
-        Recipe Get( int id );
         Recipe GetDayRecipe();
-        void Create( Recipe item );
+        Recipe Get( int id );
+        void Create( Recipe recipe );
         void Delete( int id );
     }
 }

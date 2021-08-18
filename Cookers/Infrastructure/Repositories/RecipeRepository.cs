@@ -1,9 +1,9 @@
 using System.Collections.Generic;
+using Microsoft.EntityFrameworkCore;
 using Domain.Entity;
 using Domain.Repositories;
 using Infrastructure.DbContexts;
 using System.Linq;
-using Microsoft.EntityFrameworkCore;
 
 namespace Infrastructure.Repositories
 {
@@ -22,6 +22,22 @@ namespace Infrastructure.Repositories
                 .Include( r => r.Tags )
                 .Include( r => r.Ingredients )
                 .Include( r => r.Steps ).Take( count ).ToList();
+        }
+
+        public List<Recipe> SeachRecipes( string name )
+        {
+            return _recipeDbContext.Set<Recipe>().Where( r => EF.Functions.Like( r.Name, name ) ).ToList();
+        }
+
+        public List<Recipe> GetRecipeByTag( string tagName )
+        {
+            return _recipeDbContext.Set<Recipe>().Where( r => r.Tags.Any( t => t.Name == tagName) ).ToList();
+        }
+
+        public Recipe GetDayRecipe()
+        {
+            int maxLikes = _recipeDbContext.Set<Recipe>().Max( r => r.Likes );
+            return _recipeDbContext.Set<Recipe>().FirstOrDefault( r => r.Likes == maxLikes );
         }
 
         public Recipe Get( int id )

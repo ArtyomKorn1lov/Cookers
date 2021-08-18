@@ -1,4 +1,4 @@
-using Application;
+using Application.Services;
 using Domain.Repositories;
 using Infrastructure;
 using Infrastructure.DbContexts;
@@ -28,6 +28,7 @@ namespace Web
             services.AddControllers();
 
             services.AddScoped<IUnitOfWork, UnitOfWork>();
+            services.AddScoped<IRecipeService, RecipeService>();
             services.AddScoped<IRecipeRepository, RecipeRepository>();
 
             services.AddDbContext<RecipeDbContext>( options =>

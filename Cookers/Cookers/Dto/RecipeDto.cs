@@ -13,6 +13,7 @@ namespace Web.Dto
         public int Favourites { get; set; }
         public int Likes { get; set; }
         public List<StepDto> Steps { get; set; }
-        public List<StepDto> Ingredients { get; set; }
+        public List<IngredientDto> Ingredients { get; set; }
+        public List<TagDto> Tags { get; set; }
     }
 }

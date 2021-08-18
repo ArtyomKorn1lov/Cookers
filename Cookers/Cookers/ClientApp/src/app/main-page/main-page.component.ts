@@ -62,7 +62,7 @@ export class MainPageComponent implements OnInit {
 
   ngOnInit() {
     this.pageId = 1;
-    this.getRecipes()
+    this.recipesService.getDayRecipe().subscribe(data => this.recipe = data);
   }
 
 }

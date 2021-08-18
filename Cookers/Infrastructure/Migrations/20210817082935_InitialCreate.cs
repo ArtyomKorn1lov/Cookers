@@ -17,32 +17,12 @@ namespace Infrastructure.Migrations
                     CookingTime = table.Column<int>( type: "int", nullable: false ),
                     PersonCount = table.Column<int>( type: "int", nullable: false ),
                     Favourites = table.Column<int>( type: "int", nullable: false ),
-                    Likes = table.Column<int>( type: "int", nullable: false ),
-                    RecipeId = table.Column<int>( type: "int", nullable: true )
+                    Photo = table.Column<string>( type: "nvarchar(max)", nullable: false ),
+                    Likes = table.Column<int>( type: "int", nullable: false )
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey( "PK_Recipe", x => x.Id );
-                    table.ForeignKey(
-                        name: "FK_Recipe_Recipe_RecipeId",
-                        column: x => x.RecipeId,
-                        principalTable: "Recipe",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict );
-                } );
-
-            migrationBuilder.CreateTable(
-                name: "Tag",
-                columns: table => new
-                {
-                    Id = table.Column<int>( type: "int", nullable: false )
-                        .Annotation( "SqlServer:Identity", "1, 1" ),
-                    Name = table.Column<string>( type: "nvarchar(max)", nullable: false ),
-                    RecipeId = table.Column<int>( type: "int", nullable: false )
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey( "PK_Tag", x => x.Id );
                 } );
 
             migrationBuilder.CreateTable(
@@ -51,9 +31,9 @@ namespace Infrastructure.Migrations
                 {
                     Id = table.Column<int>( type: "int", nullable: false )
                         .Annotation( "SqlServer:Identity", "1, 1" ),
-                    Name = table.Column<string>( type: "nvarchar(250)", maxLength: 250, nullable: false ),
-                    Login = table.Column<string>( type: "nvarchar(250)", maxLength: 250, nullable: false ),
-                    Password = table.Column<string>( type: "nvarchar(250)", maxLength: 250, nullable: false )
+                    Name = table.Column<string>( type: "nvarchar(max)", nullable: false ),
+                    Login = table.Column<string>( type: "nvarchar(max)", nullable: false ),
+                    Password = table.Column<string>( type: "nvarchar(max)", nullable: false )
                 },
                 constraints: table =>
                 {
@@ -67,7 +47,7 @@ namespace Infrastructure.Migrations
                     Id = table.Column<int>( type: "int", nullable: false )
                         .Annotation( "SqlServer:Identity", "1, 1" ),
                     Name = table.Column<string>( type: "nvarchar(max)", nullable: false ),
-                    Description = table.Column<string>( type: "nvarchar(max)", nullable: false ),
+                    Description = table.Column<string>( type: "nvarchar(max)", nullable: true ),
                     RecipeId = table.Column<int>( type: "int", nullable: false )
                 },
                 constraints: table =>
@@ -88,7 +68,7 @@ namespace Infrastructure.Migrations
                     Id = table.Column<int>( type: "int", nullable: false )
                         .Annotation( "SqlServer:Identity", "1, 1" ),
                     Name = table.Column<string>( type: "nvarchar(max)", nullable: false ),
-                    Description = table.Column<string>( type: "nvarchar(max)", nullable: false ),
+                    Description = table.Column<string>( type: "nvarchar(max)", nullable: true ),
                     RecipeId = table.Column<int>( type: "int", nullable: false )
                 },
                 constraints: table =>
@@ -102,19 +82,39 @@ namespace Infrastructure.Migrations
                         onDelete: ReferentialAction.Cascade );
                 } );
 
+            migrationBuilder.CreateTable(
+                name: "Tag",
+                columns: table => new
+                {
+                    Id = table.Column<int>( type: "int", nullable: false )
+                        .Annotation( "SqlServer:Identity", "1, 1" ),
+                    Name = table.Column<string>( type: "nvarchar(max)", nullable: false ),
+                    RecipeId = table.Column<int>( type: "int", nullable: false )
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey( "PK_Tag", x => x.Id );
+                    table.ForeignKey(
+                        name: "FK_Tag_Recipe_RecipeId",
+                        column: x => x.RecipeId,
+                        principalTable: "Recipe",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade );
+                } );
+
             migrationBuilder.CreateIndex(
                 name: "IX_Ingredient_RecipeId",
                 table: "Ingredient",
                 column: "RecipeId" );
 
             migrationBuilder.CreateIndex(
-                name: "IX_Recipe_RecipeId",
-                table: "Recipe",
+                name: "IX_Step_RecipeId",
+                table: "Step",
                 column: "RecipeId" );
 
             migrationBuilder.CreateIndex(
-                name: "IX_Step_RecipeId",
-                table: "Step",
+                name: "IX_Tag_RecipeId",
+                table: "Tag",
                 column: "RecipeId" );
         }
 
