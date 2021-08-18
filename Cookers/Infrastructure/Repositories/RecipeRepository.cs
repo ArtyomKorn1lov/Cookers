@@ -18,7 +18,10 @@ namespace Infrastructure.Repositories
 
         public List<Recipe> GetLastCount( int count )
         {
-            return _recipeDbContext.Set<Recipe>().Include( r => r.Tags ).Include( r => r.Ingredients ).Include( r => r.Steps ).Take( count ).ToList();
+            return _recipeDbContext.Set<Recipe>()
+                .Include( r => r.Tags )
+                .Include( r => r.Ingredients )
+                .Include( r => r.Steps ).Take( count ).ToList();
         }
 
         public Recipe Get( int id )
