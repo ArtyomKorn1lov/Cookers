@@ -1,5 +1,3 @@
-using System.Collections.Generic;
-
 namespace Web.Dto
 {
     public class IngredientDto

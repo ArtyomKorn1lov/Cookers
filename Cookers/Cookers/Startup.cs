@@ -1,6 +1,12 @@
+using Application;
+using Domain.Repositories;
+using Infrastructure;
+using Infrastructure.DbContexts;
+using Infrastructure.Repositories;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.SpaServices.AngularCli;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -20,11 +26,26 @@ namespace Web
         public void ConfigureServices( IServiceCollection services )
         {
             services.AddControllers();
+
+            services.AddScoped<IUnitOfWork, UnitOfWork>();
+            services.AddScoped<IRecipeRepository, RecipeRepository>();
+
+            services.AddDbContext<RecipeDbContext>( options =>
+            {
+                string connectionString = Configuration.GetConnectionString( "CookersConnection" ); 
+                options.UseSqlServer( connectionString );
+            } );
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure( IApplicationBuilder app, IWebHostEnvironment env )
         {
+            using ( var serviceScope = app.ApplicationServices.GetRequiredService<IServiceScopeFactory>().CreateScope() )
+            {
+                var recipeContext = serviceScope.ServiceProvider.GetService<RecipeDbContext>();
+                recipeContext.Database.Migrate();
+            }
+
             if ( env.IsDevelopment() )
             {
                 app.UseDeveloperExceptionPage();

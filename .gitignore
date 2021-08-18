@@ -361,3 +361,11 @@ MigrationBackup/
 
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
+
+obj
+packages
+*.cache
+*.cache
+Cookers/Application/obj/Debug/net5.0/Application.csprojAssemblyReference.cache
+*.cache
+*.cache

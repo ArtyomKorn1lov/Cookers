@@ -9,7 +9,7 @@ namespace Web.Dto
         public string Description { get; set; }
         public string Photo { get; set; }
         public int CookingTime { get; set; }
-        public int Peoples { get; set; }
+        public int PersonCount { get; set; }
         public int Favourites { get; set; }
         public int Likes { get; set; }
         public List<StepDto> Steps { get; set; }
