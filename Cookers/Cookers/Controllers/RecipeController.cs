@@ -1,8 +1,6 @@
+using Application;
 using Application.Services;
-using Domain;
 using Domain.Entity;
-using Domain.Repositories;
-using Infrastructure;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using System.Linq;
@@ -25,31 +23,31 @@ namespace Web.Controllers
             _recipeService = recipeService;
         }
 
-        [HttpGet( "several" )]
+        [HttpGet( "сount" )]
         public List<RecipeDto> GetSeveralRecipes()
         {
             List<Recipe> recipes = _recipeService.GetLastCount( _recipesCount );
             return recipes.Select( r => RecipeDtoConverter.ConvertToRecipeDto( r ) ).ToList();
         }
 
-        [HttpGet( "seach" )]
-        public List<RecipeDto> SeachRecipes( string name )
+        [HttpGet( "by-name" )]
+        public List<RecipeDto> GetByName( string name )
         {
-            List<Recipe> recipes = _recipeService.SeachRecipes( name );
+            List<Recipe> recipes = _recipeService.GetByName( name );
             return recipes.Select( r => RecipeDtoConverter.ConvertToRecipeDto( r ) ).ToList();
         }
 
         [HttpGet( "tag" )]
-        public List<RecipeDto> GetRecipeByTag( string tagName )
+        public List<RecipeDto> GetRecipeByTag( string tag )
         {
-            List<Recipe> recipes = _recipeService.GetRecipeByTag( tagName );
+            List<Recipe> recipes = _recipeService.GetRecipeByTag( tag );
             return recipes.Select( r => RecipeDtoConverter.ConvertToRecipeDto( r ) ).ToList();
         }
 
         [HttpGet( "day" )]
-        public RecipeDto GetDayRecipe()
+        public RecipeDto RecipeOfDay()
         {
-            Recipe recipe = _recipeService.GetDayRecipe();
+            Recipe recipe = _recipeService.RecipeOfDay();
             return RecipeDtoConverter.ConvertToRecipeDto( recipe );
         }
 

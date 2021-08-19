@@ -1,7 +1,4 @@
-using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 using Domain.Entity;
 using Web.Dto;
 
@@ -21,17 +18,17 @@ namespace Web.DtoConverter
                 PersonCount = recipe.PersonCount,
                 Favourites = recipe.Favourites,
                 Likes = recipe.Likes,
-                Steps = recipe.Steps.Select( s => new StepDto
+                Steps = recipe.Steps?.Select( s => new StepDto
                 {
                     Name = s.Name,
                     Description = s.Description
                 } ).ToList(),
-                Ingredients = recipe.Ingredients.Select( i => new IngredientDto
+                Ingredients = recipe.Ingredients?.Select( i => new IngredientDto
                 {
                     Name = i.Name,
                     Description = i.Description,
                 } ).ToList(),
-                Tags = recipe.Tags.Select( t => new TagDto
+                Tags = recipe.Tags?.Select( t => new TagDto
                 {
                     Name = t.Name
                 } ).ToList(),
@@ -48,17 +45,17 @@ namespace Web.DtoConverter
                 PersonCount = recipe.PersonCount,
                 Favourites = recipe.Favourites,
                 Likes = recipe.Likes,
-                Steps = recipe.Steps.Select( s => new Step
+                Steps = recipe.Steps?.Select( s => new Step
                 {
                     Name = s.Name,
                     Description = s.Description
                 } ).ToList(),
-                Ingredients = recipe.Ingredients.Select( i => new Ingredient
+                Ingredients = recipe.Ingredients?.Select( i => new Ingredient
                 {
                     Name = i.Name,
                     Description = i.Description,
                 } ).ToList(),
-                Tags = recipe.Tags.Select( t => new Tag
+                Tags = recipe.Tags?.Select( t => new Tag
                 {
                     Name = t.Name
                 } ).ToList(),

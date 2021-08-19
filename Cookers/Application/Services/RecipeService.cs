@@ -1,8 +1,4 @@
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Domain.Entity;
 using Domain.Repositories;
 
@@ -22,20 +18,19 @@ namespace Application.Services
             return _recipeRepository.GetLastCount( count );
         }
 
-        public List<Recipe> SeachRecipes( string name )
+        public List<Recipe> GetByName( string name )
         {
-            name = "%" + name + "%";
-            return _recipeRepository.SeachRecipes( name );
+            return _recipeRepository.GetByName( $"%{name}%");
         }
 
-        public List<Recipe> GetRecipeByTag( string tagName )
+        public List<Recipe> GetRecipeByTag( string tag )
         {
-            return _recipeRepository.GetRecipeByTag( tagName );
+            return _recipeRepository.GetRecipeByTag( tag );
         }
 
-        public Recipe GetDayRecipe()
+        public Recipe RecipeOfDay()
         {
-            return _recipeRepository.GetDayRecipe();
+            return _recipeRepository.RecipeOfDay();
         }
 
         public Recipe Get( int id )

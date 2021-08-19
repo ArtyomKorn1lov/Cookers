@@ -24,17 +24,23 @@ namespace Infrastructure.Repositories
                 .Include( r => r.Steps ).Take( count ).ToList();
         }
 
-        public List<Recipe> SeachRecipes( string name )
+        public List<Recipe> GetByName( string name )
         {
-            return _recipeDbContext.Set<Recipe>().Where( r => EF.Functions.Like( r.Name, name ) ).ToList();
+            return _recipeDbContext.Set<Recipe>()
+                .Include( r => r.Tags )
+                .Include( r => r.Ingredients )
+                .Include( r => r.Steps ).Where( r => r.Name == name ).ToList();
         }
 
-        public List<Recipe> GetRecipeByTag( string tagName )
+        public List<Recipe> GetRecipeByTag( string tag )
         {
-            return _recipeDbContext.Set<Recipe>().Where( r => r.Tags.Any( t => t.Name == tagName) ).ToList();
+            return _recipeDbContext.Set<Recipe>()
+                .Include( r => r.Tags )
+                .Include( r => r.Ingredients )
+                .Include( r => r.Steps ).Where( r => r.Tags.Any( t => t.Name == tag ) ).ToList();
         }
 
-        public Recipe GetDayRecipe()
+        public Recipe RecipeOfDay()
         {
             int maxLikes = _recipeDbContext.Set<Recipe>().Max( r => r.Likes );
             return _recipeDbContext.Set<Recipe>().FirstOrDefault( r => r.Likes == maxLikes );
@@ -42,7 +48,10 @@ namespace Infrastructure.Repositories
 
         public Recipe Get( int id )
         {
-            return _recipeDbContext.Set<Recipe>().FirstOrDefault( r => r.Id == id );
+            return _recipeDbContext.Set<Recipe>()
+                .Include( r => r.Tags )
+                .Include( r => r.Ingredients )
+                .Include( r => r.Steps ).FirstOrDefault( r => r.Id == id );
         }
 
         public void Create( Recipe recipe )
