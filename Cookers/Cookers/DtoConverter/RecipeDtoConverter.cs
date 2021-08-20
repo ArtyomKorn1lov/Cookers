@@ -8,6 +8,10 @@ namespace Web.DtoConverter
     {
         public static RecipeDto ConvertToRecipeDto( Recipe recipe )
         {
+            if ( recipe == null )
+            {
+                return null;
+            }
             return new RecipeDto
             {
                 Id = recipe.Id,
@@ -36,6 +40,10 @@ namespace Web.DtoConverter
         }
         public static Recipe ConvertToRecipeEntity( RecipeDto recipe )
         {
+            if ( recipe == null )
+            {
+                return null;
+            }
             return new Recipe
             {
                 Name = recipe.Name,

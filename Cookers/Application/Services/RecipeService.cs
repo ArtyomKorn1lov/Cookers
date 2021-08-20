@@ -28,9 +28,9 @@ namespace Application.Services
             return _recipeRepository.GetRecipeByTag( tag );
         }
 
-        public Recipe RecipeOfDay()
+        public Recipe GetRecipeOfDay()
         {
-            return _recipeRepository.RecipeOfDay();
+            return _recipeRepository.GetRecipeOfDay();
         }
 
         public Recipe Get( int id )

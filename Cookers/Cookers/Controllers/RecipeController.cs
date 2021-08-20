@@ -24,7 +24,7 @@ namespace Web.Controllers
         }
 
         [HttpGet( "сount" )]
-        public List<RecipeDto> GetSeveralRecipes()
+        public List<RecipeDto> GetLastRecipes()
         {
             List<Recipe> recipes = _recipeService.GetLastCount( _recipesCount );
             return recipes.Select( r => RecipeDtoConverter.ConvertToRecipeDto( r ) ).ToList();
@@ -37,21 +37,21 @@ namespace Web.Controllers
             return recipes.Select( r => RecipeDtoConverter.ConvertToRecipeDto( r ) ).ToList();
         }
 
-        [HttpGet( "tag" )]
+        [HttpGet( "by-tag" )]
         public List<RecipeDto> GetRecipeByTag( string tag )
         {
             List<Recipe> recipes = _recipeService.GetRecipeByTag( tag );
             return recipes.Select( r => RecipeDtoConverter.ConvertToRecipeDto( r ) ).ToList();
         }
 
-        [HttpGet( "day" )]
+        [HttpGet( "of-day" )]
         public RecipeDto RecipeOfDay()
         {
-            Recipe recipe = _recipeService.RecipeOfDay();
+            Recipe recipe = _recipeService.GetRecipeOfDay();
             return RecipeDtoConverter.ConvertToRecipeDto( recipe );
         }
 
-        [HttpGet( "id" )]
+        [HttpGet]
         public RecipeDto GetRecipeById( int id )
         {
             Recipe recipe = _recipeService.Get( id );

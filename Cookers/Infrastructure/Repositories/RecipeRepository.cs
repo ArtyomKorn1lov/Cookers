@@ -40,7 +40,7 @@ namespace Infrastructure.Repositories
                 .Include( r => r.Steps ).Where( r => r.Tags.Any( t => t.Name == tag ) ).ToList();
         }
 
-        public Recipe RecipeOfDay()
+        public Recipe GetRecipeOfDay()
         {
             int maxLikes = _recipeDbContext.Set<Recipe>().Max( r => r.Likes );
             return _recipeDbContext.Set<Recipe>().FirstOrDefault( r => r.Likes == maxLikes );

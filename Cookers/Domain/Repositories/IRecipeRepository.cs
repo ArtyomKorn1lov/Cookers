@@ -9,7 +9,7 @@ namespace Domain.Repositories
         List<Recipe> GetByName( string name );
         List<Recipe> GetRecipeByTag( string tag );
         Recipe Get( int id );
-        Recipe RecipeOfDay();
+        Recipe GetRecipeOfDay();
         void Create( Recipe item );
         void Delete( int id );
     }
