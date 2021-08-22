@@ -1,4 +1,5 @@
 using Application;
+using Application.Commands;
 using Application.Services;
 using Domain.Entity;
 using Microsoft.AspNetCore.Mvc;
@@ -15,7 +16,6 @@ namespace Web.Controllers
     {
         private IUnitOfWork _unitOfWork;
         private IRecipeService _recipeService;
-        private const int _recipesCount = 3;
 
         public RecipeController( IUnitOfWork unitOfWork, IRecipeService recipeService )
         {
@@ -23,10 +23,10 @@ namespace Web.Controllers
             _recipeService = recipeService;
         }
 
-        [HttpGet( "сount" )]
-        public List<RecipeDto> GetLastRecipes()
+        [HttpGet( "by-count" )]
+        public List<RecipeDto> GetLastRecipes( int count )
         {
-            List<Recipe> recipes = _recipeService.GetLastCount( _recipesCount );
+            List<Recipe> recipes = _recipeService.GetLastCount( count );
             return recipes.Select( r => RecipeDtoConverter.ConvertToRecipeDto( r ) ).ToList();
         }
 
@@ -61,7 +61,7 @@ namespace Web.Controllers
         [HttpPost]
         public void CreateRecipe( RecipeDto recipeDto )
         {
-            Recipe recipe = RecipeDtoConverter.ConvertToRecipeEntity( recipeDto );
+            RecipeCommand recipe = RecipeCommandConverter.ConvertToRecipeCommand( recipeDto );
             _recipeService.Create( recipe );
         }
 
@@ -69,7 +69,8 @@ namespace Web.Controllers
         public void Update( RecipeDto recipeDto )
         {
             Recipe recipe = _recipeService.Get( recipeDto.Id );
-            recipe.CopyFrom( RecipeDtoConverter.ConvertToRecipeEntity( recipeDto ) );
+            RecipeCommand recipeCommand = RecipeCommandConverter.ConvertToRecipeCommand( recipeDto );
+            recipe.CopyFrom( _recipeService.Update( recipeCommand ) );
             _unitOfWork.Commit();
         }
 

@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Application.Commands;
 using Domain.Entity;
 
 namespace Application.Services
@@ -10,7 +11,8 @@ namespace Application.Services
         List<Recipe> GetRecipeByTag( string tag );
         Recipe GetRecipeOfDay();
         Recipe Get( int id );
-        void Create( Recipe recipe );
+        Recipe Update( RecipeCommand recipe );
+        void Create( RecipeCommand recipe );
         void Delete( int id );
     }
 }

@@ -1,4 +1,6 @@
 using System.Collections.Generic;
+using Application.Commands;
+using Application.EntityConverter;
 using Domain.Entity;
 using Domain.Repositories;
 
@@ -20,7 +22,7 @@ namespace Application.Services
 
         public List<Recipe> GetByName( string name )
         {
-            return _recipeRepository.GetByName( $"%{name}%");
+            return _recipeRepository.GetByName( $"%{name}%" );
         }
 
         public List<Recipe> GetRecipeByTag( string tag )
@@ -38,8 +40,14 @@ namespace Application.Services
             return _recipeRepository.Get( id );
         }
 
-        public void Create( Recipe recipe )
+        public Recipe Update( RecipeCommand recipe )
         {
+            return RecipeCommandToRecipeEntity.ConvertToRecipeEntity( recipe );
+        }
+
+        public void Create( RecipeCommand _recipe )
+        {
+            Recipe recipe = RecipeCommandToRecipeEntity.ConvertToRecipeEntity( _recipe );
             _recipeRepository.Create( recipe );
         }
 
