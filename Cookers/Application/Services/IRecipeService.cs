@@ -11,7 +11,7 @@ namespace Application.Services
         List<Recipe> GetRecipeByTag( string tag );
         Recipe GetRecipeOfDay();
         Recipe Get( int id );
-        void Update( UpdateRecipeCommand recipeCommand, Recipe recipe );
+        void Update( UpdateRecipeCommand recipeCommand );
         void Create( CreateRecipeCommand recipe );
         void Delete( int id );
     }

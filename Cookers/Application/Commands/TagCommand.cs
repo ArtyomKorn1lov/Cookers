@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Application.Commands
 {
-    public class TagCommand
+    public class TagDto
     {
         public string Name { get; set; }
     }

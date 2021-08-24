@@ -41,6 +41,10 @@ namespace Web.Controllers
         public List<RecipeDto> GetRecipeByTag( string tag )
         {
             List<Recipe> recipes = _recipeService.GetRecipeByTag( tag );
+            if(recipes == null)
+            {
+                return null;
+            }
             return recipes.Select( r => RecipeDtoConverter.ConvertToRecipeDto( r ) ).ToList();
         }
 
@@ -68,9 +72,8 @@ namespace Web.Controllers
         [HttpPut]
         public void Update( UpdateRecipeCommandDto recipeDto )
         {
-            Recipe recipe = _recipeService.Get( recipeDto.Id );
             UpdateRecipeCommand recipeCommand = RecipeCommandConverter.ConvertUpdateRecipeCommand( recipeDto );
-            _recipeService.Update( recipeCommand, recipe );
+            _recipeService.Update( recipeCommand );
             _unitOfWork.Commit();
         }
 

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Application.Commands
 {
-    public class StepCommand
+    public class StepDto
     {
         public string Name { get; set; }
         public string Description { get; set; }

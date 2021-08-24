@@ -10,17 +10,7 @@ namespace Web.DtoConverter
         {
             if ( recipe == null )
             {
-                return new CreateRecipeCommand
-                {
-                    Name = "",
-                    Description = "",
-                    Photo = "",
-                    CookingTime = 0,
-                    PersonCount = 0,
-                    Steps = null,
-                    Ingredients = null,
-                    Tags = null,
-                };
+                return null;
             }
             return new CreateRecipeCommand
             {
@@ -29,17 +19,17 @@ namespace Web.DtoConverter
                 Photo = recipe.Photo,
                 CookingTime = recipe.CookingTime,
                 PersonCount = recipe.PersonCount,
-                Steps = recipe.Steps?.Select( s => new StepCommand
+                Steps = recipe.Steps?.Select( s => new Application.Commands.StepDto
                 {
                     Name = s.Name,
                     Description = s.Description
                 } ).ToList(),
-                Ingredients = recipe.Ingredients?.Select( i => new IngredientCommand
+                Ingredients = recipe.Ingredients?.Select( i => new Application.Commands.IngredientDto
                 {
                     Name = i.Name,
                     Description = i.Description,
                 } ).ToList(),
-                Tags = recipe.Tags?.Select( t => new TagCommand
+                Tags = recipe.Tags?.Select( t => new Application.Commands.TagDto
                 {
                     Name = t.Name
                 } ).ToList(),
@@ -49,22 +39,11 @@ namespace Web.DtoConverter
         {
             if ( recipe == null )
             {
-                return new UpdateRecipeCommand
-                {
-                    Name = "",
-                    Description = "",
-                    Photo = "",
-                    CookingTime = 0,
-                    PersonCount = 0,
-                    Likes = 0,
-                    Favourites = 0,
-                    Steps = null,
-                    Ingredients = null,
-                    Tags = null,
-                };
+                return null;
             }
             return new UpdateRecipeCommand
             {
+                Id = recipe.Id,
                 Name = recipe.Name,
                 Description = recipe.Description,
                 Photo = recipe.Photo,
@@ -72,17 +51,17 @@ namespace Web.DtoConverter
                 PersonCount = recipe.PersonCount,
                 Likes = recipe.Likes,
                 Favourites = recipe.Favourites,
-                Steps = recipe.Steps?.Select( s => new StepCommand
+                Steps = recipe.Steps?.Select( s => new Application.Commands.StepDto
                 {
                     Name = s.Name,
                     Description = s.Description
                 } ).ToList(),
-                Ingredients = recipe.Ingredients?.Select( i => new IngredientCommand
+                Ingredients = recipe.Ingredients?.Select( i => new Application.Commands.IngredientDto
                 {
                     Name = i.Name,
                     Description = i.Description,
                 } ).ToList(),
-                Tags = recipe.Tags?.Select( t => new TagCommand
+                Tags = recipe.Tags?.Select( t => new Application.Commands.TagDto
                 {
                     Name = t.Name
                 } ).ToList(),

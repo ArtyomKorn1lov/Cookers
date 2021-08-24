@@ -40,17 +40,19 @@ namespace Application.Services
             return _recipeRepository.Get( id );
         }
 
-        public void Update( UpdateRecipeCommand recipeCommand, Recipe recipe )
+        public void Update( UpdateRecipeCommand recipeCommand )
         {
-
+            Recipe recipe = _recipeRepository.Get( recipeCommand.Id );
             Recipe _recipe = RecipeCommandToRecipeEntity.ConvertFromUpdateCommand( recipeCommand );
-            recipe.CopyFrom( recipe );
+            if ( _recipe != null && recipe != null )
+                recipe.CopyFrom( _recipe );
         }
 
         public void Create( CreateRecipeCommand _recipe )
         {
             Recipe recipe = RecipeCommandToRecipeEntity.ConvertFromCreateCommand( _recipe );
-            _recipeRepository.Create( recipe );
+            if ( recipe != null )
+                _recipeRepository.Create( recipe );
         }
 
         public void Delete( int id )

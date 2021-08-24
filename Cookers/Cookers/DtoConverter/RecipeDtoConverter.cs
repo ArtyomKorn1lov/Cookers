@@ -10,20 +10,7 @@ namespace Web.DtoConverter
         {
             if ( recipe == null )
             {
-                return new RecipeDto
-                {
-                    Id = 0,
-                    Name = "",
-                    Description = "",
-                    Photo = "",
-                    CookingTime = 0,
-                    PersonCount = 0,
-                    Favourites = 0,
-                    Likes = 0,
-                    Steps = null,
-                    Ingredients = null,
-                    Tags = null,
-                };
+                return null;
             }
             return new RecipeDto
             {
@@ -55,19 +42,7 @@ namespace Web.DtoConverter
         {
             if ( recipe == null )
             {
-                return new Recipe
-                {
-                    Name = "",
-                    Description = "",
-                    Photo = "",
-                    CookingTime = 0,
-                    PersonCount = 0,
-                    Favourites = 0,
-                    Likes = 0,
-                    Steps = null,
-                    Ingredients = null,
-                    Tags = null,
-                };
+                return null;
             }
             return new Recipe
             {

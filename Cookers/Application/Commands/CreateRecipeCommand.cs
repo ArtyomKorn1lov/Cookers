@@ -9,8 +9,8 @@ namespace Application.Commands
         public string Photo { get; set; }
         public int CookingTime { get; set; }
         public int PersonCount { get; set; }
-        public List<StepCommand> Steps { get; set; }
-        public List<IngredientCommand> Ingredients { get; set; }
-        public List<TagCommand> Tags { get; set; }
+        public List<StepDto> Steps { get; set; }
+        public List<IngredientDto> Ingredients { get; set; }
+        public List<TagDto> Tags { get; set; }
     }
 }
