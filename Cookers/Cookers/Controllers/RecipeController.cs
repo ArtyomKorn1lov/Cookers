@@ -59,18 +59,18 @@ namespace Web.Controllers
         }
 
         [HttpPost]
-        public void CreateRecipe( RecipeDto recipeDto )
+        public void CreateRecipe( CreateRecipeCommandDto recipeDto )
         {
-            RecipeCommand recipe = RecipeCommandConverter.ConvertToRecipeCommand( recipeDto );
+            CreateRecipeCommand recipe = RecipeCommandConverter.ConvertCreateRecipeCommand( recipeDto );
             _recipeService.Create( recipe );
         }
 
         [HttpPut]
-        public void Update( RecipeDto recipeDto )
+        public void Update( UpdateRecipeCommandDto recipeDto )
         {
             Recipe recipe = _recipeService.Get( recipeDto.Id );
-            RecipeCommand recipeCommand = RecipeCommandConverter.ConvertToRecipeCommand( recipeDto );
-            recipe.CopyFrom( _recipeService.Update( recipeCommand ) );
+            UpdateRecipeCommand recipeCommand = RecipeCommandConverter.ConvertUpdateRecipeCommand( recipeDto );
+            _recipeService.Update( recipeCommand, recipe );
             _unitOfWork.Commit();
         }
 

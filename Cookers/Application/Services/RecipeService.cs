@@ -40,14 +40,16 @@ namespace Application.Services
             return _recipeRepository.Get( id );
         }
 
-        public Recipe Update( RecipeCommand recipe )
+        public void Update( UpdateRecipeCommand recipeCommand, Recipe recipe )
         {
-            return RecipeCommandToRecipeEntity.ConvertToRecipeEntity( recipe );
+
+            Recipe _recipe = RecipeCommandToRecipeEntity.ConvertFromUpdateCommand( recipeCommand );
+            recipe.CopyFrom( recipe );
         }
 
-        public void Create( RecipeCommand _recipe )
+        public void Create( CreateRecipeCommand _recipe )
         {
-            Recipe recipe = RecipeCommandToRecipeEntity.ConvertToRecipeEntity( _recipe );
+            Recipe recipe = RecipeCommandToRecipeEntity.ConvertFromCreateCommand( _recipe );
             _recipeRepository.Create( recipe );
         }
 
