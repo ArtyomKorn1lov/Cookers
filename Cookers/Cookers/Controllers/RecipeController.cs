@@ -10,8 +10,8 @@ using Web.DtoConverter;
 
 namespace Web.Controllers
 {
-    [Route( "api/[controller]" )]
     [ApiController]
+    [Route( "api/recipe" )]
     public class RecipeController : Controller
     {
         private IUnitOfWork _unitOfWork;
@@ -41,14 +41,14 @@ namespace Web.Controllers
         public List<RecipeDto> GetRecipeByTag( string tag )
         {
             List<Recipe> recipes = _recipeService.GetRecipeByTag( tag );
-            if(recipes == null)
+            if ( recipes == null )
             {
                 return null;
             }
             return recipes.Select( r => RecipeDtoConverter.ConvertToRecipeDto( r ) ).ToList();
         }
 
-        [HttpGet( "of-day" )]
+        [HttpGet( "day" )]
         public RecipeDto RecipeOfDay()
         {
             Recipe recipe = _recipeService.GetRecipeOfDay();

@@ -6059,19 +6059,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Admin\\.nuget\\packages\\": {}
+    "C:\\Users\\danik\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Данные\\Практика в Travelline\\Учебный проект\\Project\\Cookers\\Cookers\\Infrastructure\\Infrastructure.csproj",
+      "projectUniqueName": "C:\\Users\\danik\\source\\repos\\TL\\cookers\\artem\\Cookers\\Cookers\\Infrastructure\\Infrastructure.csproj",
       "projectName": "Infrastructure",
-      "projectPath": "C:\\Данные\\Практика в Travelline\\Учебный проект\\Project\\Cookers\\Cookers\\Infrastructure\\Infrastructure.csproj",
-      "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
-      "outputPath": "C:\\Данные\\Практика в Travelline\\Учебный проект\\Project\\Cookers\\Cookers\\Infrastructure\\obj\\",
+      "projectPath": "C:\\Users\\danik\\source\\repos\\TL\\cookers\\artem\\Cookers\\Cookers\\Infrastructure\\Infrastructure.csproj",
+      "packagesPath": "C:\\Users\\danik\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\danik\\source\\repos\\TL\\cookers\\artem\\Cookers\\Cookers\\Infrastructure\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\danik\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -6085,11 +6085,11 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "projectReferences": {
-            "C:\\Данные\\Практика в Travelline\\Учебный проект\\Project\\Cookers\\Cookers\\Application\\Application.csproj": {
-              "projectPath": "C:\\Данные\\Практика в Travelline\\Учебный проект\\Project\\Cookers\\Cookers\\Application\\Application.csproj"
+            "C:\\Users\\danik\\source\\repos\\TL\\cookers\\artem\\Cookers\\Cookers\\Application\\Application.csproj": {
+              "projectPath": "C:\\Users\\danik\\source\\repos\\TL\\cookers\\artem\\Cookers\\Cookers\\Application\\Application.csproj"
             },
-            "C:\\Данные\\Практика в Travelline\\Учебный проект\\Project\\Cookers\\Cookers\\Domain\\Domain.csproj": {
-              "projectPath": "C:\\Данные\\Практика в Travelline\\Учебный проект\\Project\\Cookers\\Cookers\\Domain\\Domain.csproj"
+            "C:\\Users\\danik\\source\\repos\\TL\\cookers\\artem\\Cookers\\Cookers\\Domain\\Domain.csproj": {
+              "projectPath": "C:\\Users\\danik\\source\\repos\\TL\\cookers\\artem\\Cookers\\Cookers\\Domain\\Domain.csproj"
             }
           }
         }
@@ -6136,7 +6136,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.303\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.202\\RuntimeIdentifierGraph.json"
       }
     }
   }

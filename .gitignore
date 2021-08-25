@@ -369,3 +369,4 @@ packages
 Cookers/Application/obj/Debug/net5.0/Application.csprojAssemblyReference.cache
 *.cache
 *.cache
+Cookers/Application/obj/Application.csproj.nuget.dgspec.json
