@@ -1,6 +1,6 @@
-namespace Web.Dto
+namespace Application.Commands
 {
-    public class StepDto
+    public class UpdateStepCommand
     {
         public int Id { get; set; }
         public string Name { get; set; }

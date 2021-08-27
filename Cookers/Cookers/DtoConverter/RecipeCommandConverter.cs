@@ -19,17 +19,17 @@ namespace Web.DtoConverter
                 Photo = recipe.Photo,
                 CookingTime = recipe.CookingTime,
                 PersonCount = recipe.PersonCount,
-                Steps = recipe.Steps?.Select( s => new Application.Commands.StepDto
+                Steps = recipe.Steps?.Select( s => new CreateStepCommand
                 {
                     Name = s.Name,
                     Description = s.Description
                 } ).ToList(),
-                Ingredients = recipe.Ingredients?.Select( i => new Application.Commands.IngredientDto
+                Ingredients = recipe.Ingredients?.Select( i => new CreateIngredientCommand
                 {
                     Name = i.Name,
                     Description = i.Description,
                 } ).ToList(),
-                Tags = recipe.Tags?.Select( t => new Application.Commands.TagDto
+                Tags = recipe.Tags?.Select( t => new CreateTagCommand
                 {
                     Name = t.Name
                 } ).ToList(),
@@ -51,18 +51,21 @@ namespace Web.DtoConverter
                 PersonCount = recipe.PersonCount,
                 Likes = recipe.Likes,
                 Favourites = recipe.Favourites,
-                Steps = recipe.Steps?.Select( s => new Application.Commands.StepDto
+                Steps = recipe.Steps?.Select( s => new UpdateStepCommand
                 {
+                    Id = s.Id,
                     Name = s.Name,
                     Description = s.Description
                 } ).ToList(),
-                Ingredients = recipe.Ingredients?.Select( i => new Application.Commands.IngredientDto
+                Ingredients = recipe.Ingredients?.Select( i => new UpdateIngredientCommand
                 {
+                    Id = i.Id,
                     Name = i.Name,
                     Description = i.Description,
                 } ).ToList(),
-                Tags = recipe.Tags?.Select( t => new Application.Commands.TagDto
+                Tags = recipe.Tags?.Select( t => new UpdateTagCommand
                 {
+                    Id = t.Id,
                     Name = t.Name
                 } ).ToList(),
             };

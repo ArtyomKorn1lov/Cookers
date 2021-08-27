@@ -9,6 +9,9 @@ namespace Application.Services
     public class RecipeService : IRecipeService
     {
         private IRecipeRepository _recipeRepository;
+        private IStepRepository _stepRepository;
+        private IIngredientRepository _ingredientRepository;
+        private ITagRepository _tagRepository;
 
         public RecipeService( IRecipeRepository recipeRepository )
         {
@@ -43,7 +46,10 @@ namespace Application.Services
         public void Update( UpdateRecipeCommand recipeCommand )
         {
             Recipe recipe = _recipeRepository.Get( recipeCommand.Id );
-            Recipe _recipe = RecipeCommandToRecipeEntity.ConvertFromUpdateCommand( recipeCommand );
+            List<Step> steps = _stepRepository.GetByRecipeId( recipeCommand.Id );
+            List<Ingredient> ingredients = _ingredientRepository.GetByRecipeId( recipeCommand.Id );
+            List<Tag> tags = _tagRepository.GetByRecipeId( recipeCommand.Id );
+            Recipe _recipe = RecipeCommandToRecipeEntity.ConvertFromUpdateCommand( recipeCommand, steps, ingredients, tags );
             if ( _recipe != null && recipe != null )
                 recipe.CopyFrom( _recipe );
         }

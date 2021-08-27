@@ -24,16 +24,19 @@ namespace Web.DtoConverter
                 Likes = recipe.Likes,
                 Steps = recipe.Steps?.Select( s => new StepDto
                 {
+                    Id = s.Id,
                     Name = s.Name,
                     Description = s.Description
                 } ).ToList(),
                 Ingredients = recipe.Ingredients?.Select( i => new IngredientDto
                 {
+                    Id = i.Id,
                     Name = i.Name,
                     Description = i.Description,
                 } ).ToList(),
                 Tags = recipe.Tags?.Select( t => new TagDto
                 {
+                    Id = t.Id,
                     Name = t.Name
                 } ).ToList(),
             };

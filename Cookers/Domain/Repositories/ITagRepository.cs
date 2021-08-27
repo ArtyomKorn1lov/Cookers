@@ -3,11 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Domain.Entity;
 
-namespace Application.Commands
+namespace Domain.Repositories
 {
-    public class TagDto
+    public interface ITagRepository
     {
-        public string Name { get; set; }
+        List<Tag> GetByRecipeId( int id );
     }
 }

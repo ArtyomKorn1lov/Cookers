@@ -42,8 +42,7 @@ namespace Infrastructure.Repositories
 
         public Recipe GetRecipeOfDay()
         {
-            int maxLikes = _recipeDbContext.Set<Recipe>().Max( r => r.Likes );
-            return _recipeDbContext.Set<Recipe>().FirstOrDefault( r => r.Likes == maxLikes );
+            return _recipeDbContext.Set<Recipe>().OrderBy( r => r.Likes ).ToList()[ 0 ];
         }
 
         public Recipe Get( int id )

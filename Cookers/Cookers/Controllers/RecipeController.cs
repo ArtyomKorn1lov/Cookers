@@ -10,8 +10,8 @@ using Web.DtoConverter;
 
 namespace Web.Controllers
 {
-    [Route( "api/[controller]" )]
     [ApiController]
+    [Route( "api/recipe" )]
     public class RecipeController : Controller
     {
         private IUnitOfWork _unitOfWork;
@@ -23,25 +23,25 @@ namespace Web.Controllers
             _recipeService = recipeService;
         }
 
-        [HttpGet( "by-count" )]
+        [HttpGet( "by-count/{count}" )]
         public List<RecipeDto> GetLastRecipes( int count )
         {
             List<Recipe> recipes = _recipeService.GetLastCount( count );
             return recipes.Select( r => RecipeDtoConverter.ConvertToRecipeDto( r ) ).ToList();
         }
 
-        [HttpGet( "by-name" )]
+        [HttpGet( "by-name/{name}" )]
         public List<RecipeDto> GetByName( string name )
         {
             List<Recipe> recipes = _recipeService.GetByName( name );
             return recipes.Select( r => RecipeDtoConverter.ConvertToRecipeDto( r ) ).ToList();
         }
 
-        [HttpGet( "by-tag" )]
+        [HttpGet( "by-tag/{tag}" )]
         public List<RecipeDto> GetRecipeByTag( string tag )
         {
             List<Recipe> recipes = _recipeService.GetRecipeByTag( tag );
-            if(recipes == null)
+            if ( recipes == null )
             {
                 return null;
             }
@@ -55,7 +55,7 @@ namespace Web.Controllers
             return RecipeDtoConverter.ConvertToRecipeDto( recipe );
         }
 
-        [HttpGet]
+        [HttpGet( "{id}" )]
         public RecipeDto GetRecipeById( int id )
         {
             Recipe recipe = _recipeService.Get( id );
@@ -63,25 +63,29 @@ namespace Web.Controllers
         }
 
         [HttpPost]
-        public void CreateRecipe( CreateRecipeCommandDto recipeDto )
+        public IActionResult CreateRecipe( CreateRecipeCommandDto recipeDto )
         {
             CreateRecipeCommand recipe = RecipeCommandConverter.ConvertCreateRecipeCommand( recipeDto );
             _recipeService.Create( recipe );
+            _unitOfWork.Commit();
+            return Ok( "success" );
         }
 
         [HttpPut]
-        public void Update( UpdateRecipeCommandDto recipeDto )
+        public IActionResult Update( UpdateRecipeCommandDto recipeDto )
         {
             UpdateRecipeCommand recipeCommand = RecipeCommandConverter.ConvertUpdateRecipeCommand( recipeDto );
             _recipeService.Update( recipeCommand );
             _unitOfWork.Commit();
+            return Ok( "success" );
         }
 
-        [HttpDelete]
-        public void DeleteRecipe( int id )
+        [HttpDelete( "{id}" )]
+        public IActionResult DeleteRecipe( int id )
         {
             _recipeService.Delete( id );
             _unitOfWork.Commit();
+            return Ok( "success" );
         }
     }
 }

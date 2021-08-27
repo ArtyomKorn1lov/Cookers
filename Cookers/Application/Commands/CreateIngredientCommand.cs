@@ -1,8 +1,7 @@
-namespace Web.Dto
+namespace Application.Commands
 {
-    public class StepDto
+    public class CreateIngredientCommand
     {
-        public int Id { get; set; }
         public string Name { get; set; }
         public string Description { get; set; }
     }

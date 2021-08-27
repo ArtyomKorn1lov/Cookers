@@ -12,8 +12,8 @@ namespace Application.Commands
         public int PersonCount { get; set; }
         public int Favourites { get; set; }
         public int Likes { get; set; }
-        public List<StepDto> Steps { get; set; }
-        public List<IngredientDto> Ingredients { get; set; }
-        public List<TagDto> Tags { get; set; }
+        public List<UpdateStepCommand> Steps { get; set; }
+        public List<UpdateIngredientCommand> Ingredients { get; set; }
+        public List<UpdateTagCommand> Tags { get; set; }
     }
 }
