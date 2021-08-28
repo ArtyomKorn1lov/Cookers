@@ -3,6 +3,7 @@ using Infrastructure.DbContexts;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Infrastructure.Migrations
 {
@@ -68,7 +69,6 @@ namespace Infrastructure.Migrations
                          .HasColumnType( "int" );
 
                      b.Property<string>( "Photo" )
-                         .IsRequired()
                          .HasColumnType( "nvarchar(max)" );
 
                      b.HasKey( "Id" );

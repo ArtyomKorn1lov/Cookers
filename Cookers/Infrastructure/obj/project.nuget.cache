@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "LKyrTmAImiHQ+IdQnUCgN6+bSPMUaQvZoUL5MaqCaMTr+AAiRXgMgoeokWbvr6c4gGVi0aj5996wKrP0+CA16A==",
+  "dgSpecHash": "fyKKaw0JakQtRJ/+cQ1rM38jnDyYPA2IZTKgwhJGPFYnbXOxaZf6xIKeoQynudi1UZM8f8mTBfvW8NqpARc/jQ==",
   "success": true,
-  "projectFilePath": "C:\\Данные\\Практика в Travelline\\Учебный проект\\Project\\Cookers\\Cookers\\Infrastructure\\Infrastructure.csproj",
+  "projectFilePath": "C:\\Users\\Admin\\Desktop\\project2\\Cookers-Temp\\Cookers\\Infrastructure\\Infrastructure.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Admin\\.nuget\\packages\\entityframework\\6.4.4\\entityframework.6.4.4.nupkg.sha512",
     "C:\\Users\\Admin\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",

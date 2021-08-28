@@ -29,7 +29,7 @@ namespace Infrastructure.Repositories
             return _recipeDbContext.Set<Recipe>()
                 .Include( r => r.Tags )
                 .Include( r => r.Ingredients )
-                .Include( r => r.Steps ).Where( r => r.Name == name ).ToList();
+                .Include( r => r.Steps ).Where( r => EF.Functions.Like( r.Name, name ) ).ToList();
         }
 
         public List<Recipe> GetRecipeByTag( string tag )
@@ -42,7 +42,7 @@ namespace Infrastructure.Repositories
 
         public Recipe GetRecipeOfDay()
         {
-            return _recipeDbContext.Set<Recipe>().OrderBy( r => r.Likes ).ToList()[ 0 ];
+            return _recipeDbContext.Set<Recipe>().OrderBy( r => r.Likes).ToList()[0];
         }
 
         public Recipe Get( int id )

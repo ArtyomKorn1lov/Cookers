@@ -31,6 +31,9 @@ namespace Web
             services.AddScoped<IUnitOfWork, UnitOfWork>();
             services.AddScoped<IRecipeService, RecipeService>();
             services.AddScoped<IRecipeRepository, RecipeRepository>();
+            services.AddScoped<IStepRepository, StepRepository>();
+            services.AddScoped<IIngredientRepository, IngredientRepository>();
+            services.AddScoped<ITagRepository, TagRepository>();
 
             services.AddSpaStaticFiles( configuration =>
             {

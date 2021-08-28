@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using System.Linq;
 using Application.Commands;
 using Domain.Entity;
@@ -37,7 +38,7 @@ namespace Application.EntityConverter
                 } ).ToList(),
             };
         }
-        public static Recipe ConvertFromUpdateCommand( UpdateRecipeCommand recipe )
+        public static Recipe ConvertFromUpdateCommand( UpdateRecipeCommand recipe, List<Step> steps, List<Ingredient> ingredients, List<Tag> tags )
         {
             if ( recipe == null )
             {
@@ -52,20 +53,44 @@ namespace Application.EntityConverter
                 PersonCount = recipe.PersonCount,
                 Likes = recipe.Likes,
                 Favourites = recipe.Favourites,
-                Steps = recipe.Steps?.Select( s => new Step
-                {
-                    Name = s.Name,
-                    Description = s.Description
-                } ).ToList(),
-                Ingredients = recipe.Ingredients?.Select( i => new Ingredient
-                {
-                    Name = i.Name,
-                    Description = i.Description,
-                } ).ToList(),
-                Tags = recipe.Tags?.Select( t => new Tag
-                {
-                    Name = t.Name
-                } ).ToList(),
+                Steps = steps,
+                Ingredients = ingredients,
+                Tags = tags,
+            };
+        }
+        public static Step ConvertToStepEntity( UpdateStepCommand step )
+        {
+            if ( step == null )
+            {
+                return null;
+            }
+            return new Step
+            {
+                Name = step.Name,
+                Description = step.Description,
+            };
+        }
+        public static Ingredient ConvertToIngredientEntity( UpdateIngredientCommand ingredient )
+        {
+            if ( ingredient == null )
+            {
+                return null;
+            }
+            return new Ingredient
+            {
+                Name = ingredient.Name,
+                Description = ingredient.Description,
+            };
+        }
+        public static Tag ConvertToTagEntity( UpdateTagCommand tag )
+        {
+            if ( tag == null )
+            {
+                return null;
+            }
+            return new Tag
+            {
+                Name = tag.Name,
             };
         }
     }

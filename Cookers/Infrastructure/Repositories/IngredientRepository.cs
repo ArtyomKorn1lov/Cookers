@@ -10,6 +10,11 @@ namespace Infrastructure.Repositories
     {
         private RecipeDbContext _recipeDbContext;
 
+        public IngredientRepository( RecipeDbContext context )
+        {
+            _recipeDbContext = context;
+        }
+
         public List<Ingredient> GetByRecipeId( int id )
         {
             return _recipeDbContext.Set<Ingredient>().Where( i => i.RecipeId == id ).ToList();
