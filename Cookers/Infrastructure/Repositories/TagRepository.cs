@@ -19,5 +19,16 @@ namespace Infrastructure.Repositories
         {
             return _recipeDbContext.Set<Tag>().Where( t => t.RecipeId == id ).ToList();
         }
+
+        public Tag Get( int id )
+        {
+            return _recipeDbContext.Set<Tag>().FirstOrDefault( t => t.Id == id );
+        }
+
+        public void Update( Tag tag, int id )
+        {
+            Tag _tag = Get( id );
+            _tag.CopyFrom( tag );
+        }
     }
 }

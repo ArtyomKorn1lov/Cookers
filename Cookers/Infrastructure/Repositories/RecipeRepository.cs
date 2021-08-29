@@ -42,7 +42,7 @@ namespace Infrastructure.Repositories
 
         public Recipe GetRecipeOfDay()
         {
-            return _recipeDbContext.Set<Recipe>().OrderBy( r => r.Likes).ToList()[0];
+            return _recipeDbContext.Set<Recipe>().OrderBy( r => r.Likes ).ToList()[ 0 ];
         }
 
         public Recipe Get( int id )
@@ -56,6 +56,12 @@ namespace Infrastructure.Repositories
         public void Create( Recipe recipe )
         {
             _recipeDbContext.Set<Recipe>().Add( recipe );
+        }
+
+        public void Update( Recipe recipe, int id )
+        {
+            Recipe _recipe = Get( id );
+            _recipe.CopyFrom( recipe );
         }
 
         public void Delete( int id )

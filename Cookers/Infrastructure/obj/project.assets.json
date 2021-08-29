@@ -6064,11 +6064,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Admin\\Desktop\\project2\\Cookers-Temp\\Cookers\\Infrastructure\\Infrastructure.csproj",
+      "projectUniqueName": "C:\\Данные\\Практика в Travelline\\Учебный проект\\Project\\Cookers\\Cookers\\Infrastructure\\Infrastructure.csproj",
       "projectName": "Infrastructure",
-      "projectPath": "C:\\Users\\Admin\\Desktop\\project2\\Cookers-Temp\\Cookers\\Infrastructure\\Infrastructure.csproj",
+      "projectPath": "C:\\Данные\\Практика в Travelline\\Учебный проект\\Project\\Cookers\\Cookers\\Infrastructure\\Infrastructure.csproj",
       "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Admin\\Desktop\\project2\\Cookers-Temp\\Cookers\\Infrastructure\\obj\\",
+      "outputPath": "C:\\Данные\\Практика в Travelline\\Учебный проект\\Project\\Cookers\\Cookers\\Infrastructure\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -6085,11 +6085,11 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "projectReferences": {
-            "C:\\Users\\Admin\\Desktop\\project2\\Cookers-Temp\\Cookers\\Application\\Application.csproj": {
-              "projectPath": "C:\\Users\\Admin\\Desktop\\project2\\Cookers-Temp\\Cookers\\Application\\Application.csproj"
+            "C:\\Данные\\Практика в Travelline\\Учебный проект\\Project\\Cookers\\Cookers\\Application\\Application.csproj": {
+              "projectPath": "C:\\Данные\\Практика в Travelline\\Учебный проект\\Project\\Cookers\\Cookers\\Application\\Application.csproj"
             },
-            "C:\\Users\\Admin\\Desktop\\project2\\Cookers-Temp\\Cookers\\Domain\\Domain.csproj": {
-              "projectPath": "C:\\Users\\Admin\\Desktop\\project2\\Cookers-Temp\\Cookers\\Domain\\Domain.csproj"
+            "C:\\Данные\\Практика в Travelline\\Учебный проект\\Project\\Cookers\\Cookers\\Domain\\Domain.csproj": {
+              "projectPath": "C:\\Данные\\Практика в Travelline\\Учебный проект\\Project\\Cookers\\Cookers\\Domain\\Domain.csproj"
             }
           }
         }

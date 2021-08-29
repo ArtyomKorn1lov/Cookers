@@ -1,8 +1,4 @@
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Domain.Entity;
 
 namespace Domain.Repositories
@@ -10,5 +6,7 @@ namespace Domain.Repositories
     public interface ITagRepository
     {
         List<Tag> GetByRecipeId( int id );
+        Tag Get( int id );
+        void Update( Tag item, int id );
     }
 }

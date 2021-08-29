@@ -19,5 +19,16 @@ namespace Infrastructure.Repositories
         {
             return _recipeDbContext.Set<Step>().Where( s => s.RecipeId == id ).ToList();
         }
+
+        public Step Get( int id )
+        {
+            return _recipeDbContext.Set<Step>().FirstOrDefault( s => s.Id == id );
+        }
+
+        public void Update( Step step, int id )
+        {
+            Step _step = Get( id );
+            _step.CopyFrom( step );
+        }
     }
 }

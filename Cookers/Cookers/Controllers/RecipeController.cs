@@ -27,6 +27,10 @@ namespace Web.Controllers
         public List<RecipeDto> GetLastRecipes( int count )
         {
             List<Recipe> recipes = _recipeService.GetLastCount( count );
+            if ( recipes == null )
+            {
+                return new List<RecipeDto>();
+            }
             return recipes.Select( r => RecipeDtoConverter.ConvertToRecipeDto( r ) ).ToList();
         }
 
@@ -34,6 +38,10 @@ namespace Web.Controllers
         public List<RecipeDto> GetByName( string name )
         {
             List<Recipe> recipes = _recipeService.GetByName( name );
+            if ( recipes == null )
+            {
+                return new List<RecipeDto>();
+            }
             return recipes.Select( r => RecipeDtoConverter.ConvertToRecipeDto( r ) ).ToList();
         }
 
@@ -43,7 +51,7 @@ namespace Web.Controllers
             List<Recipe> recipes = _recipeService.GetRecipeByTag( tag );
             if ( recipes == null )
             {
-                return null;
+                return new List<RecipeDto>();
             }
             return recipes.Select( r => RecipeDtoConverter.ConvertToRecipeDto( r ) ).ToList();
         }
@@ -52,6 +60,10 @@ namespace Web.Controllers
         public RecipeDto RecipeOfDay()
         {
             Recipe recipe = _recipeService.GetRecipeOfDay();
+            if ( recipe == null )
+            {
+                return new RecipeDto();
+            }
             return RecipeDtoConverter.ConvertToRecipeDto( recipe );
         }
 
@@ -59,54 +71,46 @@ namespace Web.Controllers
         public RecipeDto GetRecipeById( int id )
         {
             Recipe recipe = _recipeService.Get( id );
+            if ( recipe == null )
+            {
+                return new RecipeDto();
+            }
             return RecipeDtoConverter.ConvertToRecipeDto( recipe );
         }
 
         [HttpPost]
         public IActionResult CreateRecipe( CreateRecipeCommandDto recipeDto )
         {
-            try
+            CreateRecipeCommand recipe = RecipeCommandConverter.ConvertCreateRecipeCommand( recipeDto );
+            if ( _recipeService.Create( recipe ) )
             {
-                CreateRecipeCommand recipe = RecipeCommandConverter.ConvertCreateRecipeCommand( recipeDto );
-                _recipeService.Create( recipe );
                 _unitOfWork.Commit();
                 return Ok( "success" );
             }
-            catch
-            {
-                return BadRequest( "error" );
-            }
+            return BadRequest( "error" );
         }
 
         [HttpPut]
         public IActionResult Update( UpdateRecipeCommandDto recipeDto )
         {
-            try
+            UpdateRecipeCommand recipeCommand = RecipeCommandConverter.ConvertUpdateRecipeCommand( recipeDto );
+            if ( _recipeService.Update( recipeCommand ) )
             {
-                UpdateRecipeCommand recipeCommand = RecipeCommandConverter.ConvertUpdateRecipeCommand( recipeDto );
-                _recipeService.Update( recipeCommand );
                 _unitOfWork.Commit();
                 return Ok( "success" );
             }
-            catch
-            {
-                return BadRequest( "error" );
-            }
+            return BadRequest( "error" );
         }
 
         [HttpDelete( "{id}" )]
         public IActionResult DeleteRecipe( int id )
         {
-            try
+            if ( _recipeService.Delete( id ) )
             {
-                _recipeService.Delete( id );
                 _unitOfWork.Commit();
                 return Ok( "success" );
             }
-            catch
-            {
-                return BadRequest( "error" );
-            }
+            return BadRequest( "error" );
         }
     }
 }

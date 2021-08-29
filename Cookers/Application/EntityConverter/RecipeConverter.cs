@@ -5,9 +5,9 @@ using Domain.Entity;
 
 namespace Application.EntityConverter
 {
-    public class RecipeCommandToRecipeEntity
+    public class RecipeConverter
     {
-        public static Recipe ConvertFromCreateCommand( CreateRecipeCommand recipe )
+        public static Recipe FromCreateCommand( CreateRecipeCommand recipe )
         {
             if ( recipe == null )
             {
@@ -38,7 +38,7 @@ namespace Application.EntityConverter
                 } ).ToList(),
             };
         }
-        public static Recipe ConvertFromUpdateCommand( UpdateRecipeCommand recipe, List<Step> steps, List<Ingredient> ingredients, List<Tag> tags )
+        public static Recipe FromUpdateCommand( UpdateRecipeCommand recipe )
         {
             if ( recipe == null )
             {
@@ -53,12 +53,9 @@ namespace Application.EntityConverter
                 PersonCount = recipe.PersonCount,
                 Likes = recipe.Likes,
                 Favourites = recipe.Favourites,
-                Steps = steps,
-                Ingredients = ingredients,
-                Tags = tags,
             };
         }
-        public static Step ConvertToStepEntity( UpdateStepCommand step )
+        public static Step ToStepEntity( UpdateStepCommand step )
         {
             if ( step == null )
             {
@@ -70,7 +67,7 @@ namespace Application.EntityConverter
                 Description = step.Description,
             };
         }
-        public static Ingredient ConvertToIngredientEntity( UpdateIngredientCommand ingredient )
+        public static Ingredient ToIngredientEntity( UpdateIngredientCommand ingredient )
         {
             if ( ingredient == null )
             {
@@ -82,7 +79,7 @@ namespace Application.EntityConverter
                 Description = ingredient.Description,
             };
         }
-        public static Tag ConvertToTagEntity( UpdateTagCommand tag )
+        public static Tag ToTagEntity( UpdateTagCommand tag )
         {
             if ( tag == null )
             {

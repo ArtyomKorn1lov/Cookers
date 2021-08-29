@@ -46,117 +46,72 @@ namespace Application.Services
             return _recipeRepository.Get( id );
         }
 
-        public void Update( UpdateRecipeCommand recipeCommand )
+        public bool Update( UpdateRecipeCommand recipeCommand )
         {
-            Recipe recipe = _recipeRepository.Get( recipeCommand.Id );
-            List<Step> steps = UpdateStepsEntities( _stepRepository.GetByRecipeId( recipeCommand.Id ), recipeCommand.Steps );
-            List<Ingredient> ingredients = UpdateIngredientsEntities( _ingredientRepository.GetByRecipeId( recipeCommand.Id ), recipeCommand.Ingredients );
-            List<Tag> tags = UpdateTagsEntities( _tagRepository.GetByRecipeId( recipeCommand.Id ), recipeCommand.Tags );
-            Recipe _recipe = RecipeCommandToRecipeEntity.ConvertFromUpdateCommand( recipeCommand, steps, ingredients, tags );
-            if ( _recipe != null && recipe != null )
-                recipe.CopyFrom( _recipe );
+            try
+            {
+                _recipeRepository.Update( RecipeConverter.FromUpdateCommand( recipeCommand ), recipeCommand.Id );
+                UpdateIngredientsEntities( recipeCommand.Ingredients );
+                UpdateStepsEntities( recipeCommand.Steps );
+                UpdateTagsEntities( recipeCommand.Tags );
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
         }
 
-        public void Create( CreateRecipeCommand _recipe )
+        public bool Create( CreateRecipeCommand _recipe )
         {
-            Recipe recipe = RecipeCommandToRecipeEntity.ConvertFromCreateCommand( _recipe );
-            if ( recipe != null )
-                _recipeRepository.Create( recipe );
+            try
+            {
+                Recipe recipe = RecipeConverter.FromCreateCommand( _recipe );
+                if ( recipe != null )
+                    _recipeRepository.Create( recipe );
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
         }
 
-        public void Delete( int id )
+        public bool Delete( int id )
         {
-            _recipeRepository.Delete( id );
+            try
+            {
+                _recipeRepository.Delete( id );
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
         }
 
-        public List<Step> UpdateStepsEntities( List<Step> steps, List<UpdateStepCommand> updateSteps )
+        public void UpdateStepsEntities( List<UpdateStepCommand> updateSteps )
         {
-            bool flag;
-            for ( int countStep = 0; countStep < steps.Count; countStep++ )
+            foreach ( UpdateStepCommand step in updateSteps )
             {
-                flag = false;
-                for ( int countUpdateSteps = 0; countUpdateSteps < updateSteps.Count; countUpdateSteps++ )
-                {
-                    if ( steps[ countStep ].Id == updateSteps[ countUpdateSteps ].Id )
-                    {
-                        steps[ countStep ].CopyFrom( RecipeCommandToRecipeEntity.ConvertToStepEntity( updateSteps[ countUpdateSteps ] ) );
-                        flag = true;
-                    }
-                }
-                if ( !flag )
-                {
-                    steps.RemoveAt( countStep );
-                }
+                _stepRepository.Update( RecipeConverter.ToStepEntity( step ), step.Id );
             }
-            for ( int countUpdateSteps = 0; countUpdateSteps < updateSteps.Count; countUpdateSteps++ )
-            {
-                if ( updateSteps[ countUpdateSteps ].Id == 0 )
-                {
-                    steps.Add( new Step() );
-                    steps[ steps.Count - 1 ] = RecipeCommandToRecipeEntity.ConvertToStepEntity( updateSteps[ countUpdateSteps ] );
-                }
-            }
-            return steps;
         }
 
-        public List<Ingredient> UpdateIngredientsEntities( List<Ingredient> ingredients, List<UpdateIngredientCommand> updateIngredients )
+        public void UpdateIngredientsEntities( List<UpdateIngredientCommand> updateIngredients )
         {
-            bool flag;
-            for ( int countIngredient = 0; countIngredient < ingredients.Count; countIngredient++ )
+            foreach ( UpdateIngredientCommand ingredient in updateIngredients )
             {
-                flag = false;
-                for ( int countUpdateIngredients = 0; countUpdateIngredients < updateIngredients.Count; countUpdateIngredients++ )
-                {
-                    if ( ingredients[ countIngredient ].Id == updateIngredients[ countUpdateIngredients ].Id )
-                    {
-                        ingredients[ countIngredient ].CopyFrom( RecipeCommandToRecipeEntity.ConvertToIngredientEntity( updateIngredients[ countUpdateIngredients ] ) );
-                        flag = true;
-                    }
-                }
-                if ( !flag )
-                {
-                    ingredients.RemoveAt( countIngredient );
-                }
+                _ingredientRepository.Update( RecipeConverter.ToIngredientEntity( ingredient ), ingredient.Id );
             }
-            for ( int countUpdateIngredients = 0; countUpdateIngredients < updateIngredients.Count; countUpdateIngredients++ )
-            {
-                if ( updateIngredients[ countUpdateIngredients ].Id == 0 )
-                {
-                    ingredients.Add( new Ingredient() );
-                    ingredients[ ingredients.Count - 1 ] = RecipeCommandToRecipeEntity.ConvertToIngredientEntity( updateIngredients[ countUpdateIngredients ] );
-                }
-            }
-            return ingredients;
         }
 
-        public List<Tag> UpdateTagsEntities( List<Tag> tags, List<UpdateTagCommand> updateTags )
+        public void UpdateTagsEntities( List<UpdateTagCommand> updateTags )
         {
-            bool flag;
-            for ( int countTag = 0; countTag < tags.Count; countTag++ )
+            foreach ( UpdateTagCommand tag in updateTags )
             {
-                flag = false;
-                for ( int countUpdateTags = 0; countUpdateTags < updateTags.Count; countUpdateTags++ )
-                {
-                    if ( tags[ countTag ].Id == updateTags[ countUpdateTags ].Id )
-                    {
-                        tags[ countTag ].CopyFrom( RecipeCommandToRecipeEntity.ConvertToTagEntity( updateTags[ countUpdateTags ] ) );
-                        flag = true;
-                    }
-                }
-                if ( !flag )
-                {
-                    tags.RemoveAt( countTag );
-                }
+                _tagRepository.Update( RecipeConverter.ToTagEntity( tag ), tag.Id );
             }
-            for ( int countUpdateTags = 0; countUpdateTags < updateTags.Count; countUpdateTags++ )
-            {
-                if ( updateTags[ countUpdateTags ].Id == 0 )
-                {
-                    tags.Add( new Tag() );
-                    tags[ tags.Count - 1 ] = RecipeCommandToRecipeEntity.ConvertToTagEntity( updateTags[ countUpdateTags ] );
-                }
-            }
-            return tags;
         }
     }
 }

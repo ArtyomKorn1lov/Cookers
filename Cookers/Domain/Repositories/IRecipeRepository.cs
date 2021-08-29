@@ -11,6 +11,7 @@ namespace Domain.Repositories
         Recipe Get( int id );
         Recipe GetRecipeOfDay();
         void Create( Recipe item );
+        void Update( Recipe item, int id );
         void Delete( int id );
     }
 }
