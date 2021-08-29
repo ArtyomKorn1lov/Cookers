@@ -32,7 +32,7 @@ namespace Infrastructure.Repositories
                 .Include( r => r.Steps ).Where( r => EF.Functions.Like( r.Name, name ) ).ToList();
         }
 
-        public List<Recipe> GetRecipeByTag( string tag )
+        public List<Recipe> GetByTag( string tag )
         {
             return _recipeDbContext.Set<Recipe>()
                 .Include( r => r.Tags )
@@ -58,9 +58,9 @@ namespace Infrastructure.Repositories
             _recipeDbContext.Set<Recipe>().Add( recipe );
         }
 
-        public void Update( Recipe recipe, int id )
+        public void Update( Recipe recipe )
         {
-            Recipe _recipe = Get( id );
+            Recipe _recipe = Get( recipe.Id );
             _recipe.CopyFrom( recipe );
         }
 

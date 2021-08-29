@@ -25,9 +25,9 @@ namespace Infrastructure.Repositories
             return _recipeDbContext.Set<Step>().FirstOrDefault( s => s.Id == id );
         }
 
-        public void Update( Step step, int id )
+        public void Update( Step step )
         {
-            Step _step = Get( id );
+            Step _step = Get( step.Id );
             _step.CopyFrom( step );
         }
     }

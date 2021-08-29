@@ -25,9 +25,9 @@ namespace Infrastructure.Repositories
             return _recipeDbContext.Set<Ingredient>().FirstOrDefault( i => i.Id == id );
         }
 
-        public void Update( Ingredient ingredient, int id )
+        public void Update( Ingredient ingredient )
         {
-            Ingredient _ingredient = Get( id );
+            Ingredient _ingredient = Get( ingredient.Id );
             _ingredient.CopyFrom( ingredient );
         }
     }

@@ -27,12 +27,12 @@ namespace Web.DtoConverter
                 Ingredients = recipe.Ingredients?.Select( i => new CreateIngredientCommand
                 {
                     Name = i.Name,
-                    Description = i.Description,
+                    Description = i.Description
                 } ).ToList(),
                 Tags = recipe.Tags?.Select( t => new CreateTagCommand
                 {
                     Name = t.Name
-                } ).ToList(),
+                } ).ToList()
             };
         }
         public static UpdateRecipeCommand ConvertUpdateRecipeCommand( UpdateRecipeCommandDto recipe )
@@ -61,13 +61,13 @@ namespace Web.DtoConverter
                 {
                     Id = i.Id,
                     Name = i.Name,
-                    Description = i.Description,
+                    Description = i.Description
                 } ).ToList(),
                 Tags = recipe.Tags?.Select( t => new UpdateTagCommand
                 {
                     Id = t.Id,
                     Name = t.Name
-                } ).ToList(),
+                } ).ToList()
             };
         }
     }

@@ -7,6 +7,6 @@ namespace Domain.Repositories
     {
         List<Tag> GetByRecipeId( int id );
         Tag Get( int id );
-        void Update( Tag item, int id );
+        void Update( Tag item );
     }
 }

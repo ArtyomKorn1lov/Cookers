@@ -1,5 +1,4 @@
 using Application;
-using Application.Commands;
 using Application.Services;
 using Domain.Entity;
 using Microsoft.AspNetCore.Mvc;
@@ -62,7 +61,7 @@ namespace Web.Controllers
             Recipe recipe = _recipeService.GetRecipeOfDay();
             if ( recipe == null )
             {
-                return new RecipeDto();
+                return null;
             }
             return RecipeDtoConverter.ConvertToRecipeDto( recipe );
         }
@@ -81,8 +80,7 @@ namespace Web.Controllers
         [HttpPost]
         public IActionResult CreateRecipe( CreateRecipeCommandDto recipeDto )
         {
-            CreateRecipeCommand recipe = RecipeCommandConverter.ConvertCreateRecipeCommand( recipeDto );
-            if ( _recipeService.Create( recipe ) )
+            if ( _recipeService.Create( RecipeCommandConverter.ConvertCreateRecipeCommand( recipeDto ) ) )
             {
                 _unitOfWork.Commit();
                 return Ok( "success" );
@@ -93,8 +91,7 @@ namespace Web.Controllers
         [HttpPut]
         public IActionResult Update( UpdateRecipeCommandDto recipeDto )
         {
-            UpdateRecipeCommand recipeCommand = RecipeCommandConverter.ConvertUpdateRecipeCommand( recipeDto );
-            if ( _recipeService.Update( recipeCommand ) )
+            if ( _recipeService.Update( RecipeCommandConverter.ConvertUpdateRecipeCommand( recipeDto ) ) )
             {
                 _unitOfWork.Commit();
                 return Ok( "success" );

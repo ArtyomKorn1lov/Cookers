@@ -25,9 +25,9 @@ namespace Infrastructure.Repositories
             return _recipeDbContext.Set<Tag>().FirstOrDefault( t => t.Id == id );
         }
 
-        public void Update( Tag tag, int id )
+        public void Update( Tag tag )
         {
-            Tag _tag = Get( id );
+            Tag _tag = Get( tag.Id );
             _tag.CopyFrom( tag );
         }
     }

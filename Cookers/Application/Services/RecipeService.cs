@@ -33,7 +33,7 @@ namespace Application.Services
 
         public List<Recipe> GetRecipeByTag( string tag )
         {
-            return _recipeRepository.GetRecipeByTag( tag );
+            return _recipeRepository.GetByTag( tag );
         }
 
         public Recipe GetRecipeOfDay()
@@ -50,7 +50,7 @@ namespace Application.Services
         {
             try
             {
-                _recipeRepository.Update( RecipeConverter.FromUpdateCommand( recipeCommand ), recipeCommand.Id );
+                _recipeRepository.Update( RecipeConverter.FromUpdateCommand( recipeCommand ) );
                 UpdateIngredientsEntities( recipeCommand.Ingredients );
                 UpdateStepsEntities( recipeCommand.Steps );
                 UpdateTagsEntities( recipeCommand.Tags );
@@ -94,7 +94,7 @@ namespace Application.Services
         {
             foreach ( UpdateStepCommand step in updateSteps )
             {
-                _stepRepository.Update( RecipeConverter.ToStepEntity( step ), step.Id );
+                _stepRepository.Update( StepConverter.ToStepEntity( step ) );
             }
         }
 
@@ -102,7 +102,7 @@ namespace Application.Services
         {
             foreach ( UpdateIngredientCommand ingredient in updateIngredients )
             {
-                _ingredientRepository.Update( RecipeConverter.ToIngredientEntity( ingredient ), ingredient.Id );
+                _ingredientRepository.Update( IngredientConverter.ToIngredientEntity( ingredient ) );
             }
         }
 
@@ -110,7 +110,7 @@ namespace Application.Services
         {
             foreach ( UpdateTagCommand tag in updateTags )
             {
-                _tagRepository.Update( RecipeConverter.ToTagEntity( tag ), tag.Id );
+                _tagRepository.Update( TagConverter.ToTagEntity( tag ) );
             }
         }
     }

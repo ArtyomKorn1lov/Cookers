@@ -16,6 +16,20 @@ namespace Domain.Entity
         public List<Tag> Tags { get; set; }
         public List<Ingredient> Ingredients { get; set; }
 
+        public Recipe() { }
+
+        public Recipe( int id, string name, string description, int cookingTime, int personCount, int favourites, string photo, int likes )
+        {
+            Id = id;
+            Name = name;
+            Description = description;
+            CookingTime = cookingTime;
+            PersonCount = personCount;
+            Favourites = favourites;
+            Photo = photo;
+            Likes = likes;
+        }
+
         public void CopyFrom( Recipe recipe )
         {
             Name = recipe.Name;

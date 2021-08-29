@@ -7,11 +7,11 @@ namespace Domain.Repositories
     {
         List<Recipe> GetLastCount( int count );
         List<Recipe> GetByName( string name );
-        List<Recipe> GetRecipeByTag( string tag );
+        List<Recipe> GetByTag( string tag );
         Recipe Get( int id );
         Recipe GetRecipeOfDay();
         void Create( Recipe item );
-        void Update( Recipe item, int id );
+        void Update( Recipe item );
         void Delete( int id );
     }
 }

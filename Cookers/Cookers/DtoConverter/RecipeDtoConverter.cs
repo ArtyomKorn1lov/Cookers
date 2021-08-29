@@ -32,13 +32,13 @@ namespace Web.DtoConverter
                 {
                     Id = i.Id,
                     Name = i.Name,
-                    Description = i.Description,
+                    Description = i.Description
                 } ).ToList(),
                 Tags = recipe.Tags?.Select( t => new TagDto
                 {
                     Id = t.Id,
                     Name = t.Name
-                } ).ToList(),
+                } ).ToList()
             };
         }
         public static Recipe ConvertToRecipeEntity( RecipeDto recipe )
@@ -64,12 +64,12 @@ namespace Web.DtoConverter
                 Ingredients = recipe.Ingredients?.Select( i => new Ingredient
                 {
                     Name = i.Name,
-                    Description = i.Description,
+                    Description = i.Description
                 } ).ToList(),
                 Tags = recipe.Tags?.Select( t => new Tag
                 {
                     Name = t.Name
-                } ).ToList(),
+                } ).ToList()
             };
         }
     }

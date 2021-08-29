@@ -7,6 +7,6 @@ namespace Domain.Repositories
     {
         List<Step> GetByRecipeId( int id );
         Step Get( int id );
-        void Update( Step item, int id );
+        void Update( Step item );
     }
 }

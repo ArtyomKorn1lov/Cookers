@@ -7,6 +7,6 @@ namespace Domain.Repositories
     {
         List<Ingredient> GetByRecipeId( int id );
         Ingredient Get( int id );
-        void Update( Ingredient item, int id );
+        void Update( Ingredient item );
     }
 }
