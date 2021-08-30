@@ -20,7 +20,7 @@
             </div>
         </div>
         <form [formGroup]="recipeForm" class="fields-to-fill-block">
-            <input class="fields-input" type="text" formControlName="name" placeholder="Название рецепта" ng-required="true">
+            <input matInput class="fields-input" type="text" formControlName="name" placeholder="Название рецепта">
             <textarea class="fields-textarea" formControlName="description" placeholder="Краткое описание рецепта (150 символов)"></textarea>
             <form class="tag-form" [formGroup]="tagForm" (ngSubmit)="addTag()">
                 <input class="fields-input" type="text" formControlName="tags" placeholder="Добавить теги">
@@ -65,7 +65,7 @@
                     <img class="close-button" src="assets/images/close.png" (click)="removeIngredient(ingredient)">
                 </div>
                 <div class="ingredients-info">
-                    <input [(ngModel)]="ingredient.name" class="fields-input" type="text" placeholder="Заголовок для ингридиентов" ng-required="true">
+                    <input matInput [(ngModel)]="ingredient.name" class="fields-input" type="text" placeholder="Заголовок для ингридиентов">
                     <textarea [(ngModel)]="ingredient.description" class="fields-textarea" placeholder="Список подуктов для категории"></textarea>
                 </div>
             </div>

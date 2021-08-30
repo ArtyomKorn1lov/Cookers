@@ -67,14 +67,27 @@ export class EditRecipeComponent implements OnInit {
   }
 
   addTag(): void {
-    if (this.tagForm.value.tags !== '') {
-      this.tagsDto.push(new UpdateTagDto(this.tagForm.value.tags));
-      this.tagForm = this.formBuilder.group(
-        {
-          tags: '',
-        }
-      );
+    let str = this.tagForm.value.tags;
+    if (str.trim() != '') {
+      if (this.checkNameInTags(str) == 0) {
+        this.tagsDto.push(new UpdateTagDto(this.tagForm.value.tags));
+      }
     }
+    this.tagForm = this.formBuilder.group(
+      {
+        tags: '',
+      }
+    );
+  }
+
+  checkNameInTags(name: string): number {
+    var count = 0;
+    for (let tag of this.tagsDto) {
+      if (tag.name == name) {
+        count++;
+      }
+    }
+    return count;
   }
 
   removeTag(i: number): void {
@@ -82,6 +95,13 @@ export class EditRecipeComponent implements OnInit {
   }
 
   onSubmit(): void {
+    let name = this.recipeForm.value.name;
+    var count = this.checkNameInIngredient();
+    console.log(name, count);
+    if (name.trim() == '') {
+      alert("Введите все поля, обязательные для заполнения");
+      return;
+    }
     for (var i = 1; i <= this.stepsDto.length; i++) {
       this.stepsDto[i - 1].name = "Шаг" + i;
     }
@@ -95,6 +115,19 @@ export class EditRecipeComponent implements OnInit {
     this.recipeDto.steps = this.stepsDto;
     this.recipesService.updateRecipe(this.recipeDto).subscribe(x => console.log(x));
     this.router.navigateByUrl(this.targetRoute);
+  }
+
+  checkNameInIngredient(): number {
+    var count = 0;
+    let str;
+    for (let step of this.stepsDto) {
+      str = step.name;
+      console.log(str);
+      if (str.trim() == '') {
+        count++;
+      }
+    }
+    return count;
   }
 
   fillForm(): void {

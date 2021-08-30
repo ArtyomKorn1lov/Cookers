@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using System.Linq;
 using Application.Commands;
 using Domain.Entity;
@@ -38,22 +39,23 @@ namespace Application.EntityConverter
             };
         }
 
-        public static Recipe FromUpdateCommand( UpdateRecipeCommand recipe )
+        public static Recipe FromUpdateCommand( UpdateRecipeCommand recipe, List<Step> steps, List<Ingredient> ingredients, List<Tag> tags )
         {
             if ( recipe == null )
             {
                 return null;
             }
-            return new Recipe 
-            {
-                Name = recipe.Name,
-                Description = recipe.Description,
-                Photo = recipe.Photo,
-                CookingTime = recipe.CookingTime,
-                PersonCount = recipe.PersonCount,
-                Favourites = recipe.Favourites,
-                Likes = recipe.Likes
-            };
+            return new Recipe( recipe.Id, 
+                recipe.Name, 
+                recipe.Description, 
+                recipe.CookingTime, 
+                recipe.PersonCount, 
+                recipe.Favourites, 
+                recipe.Photo,
+                recipe.Likes, 
+                steps, 
+                tags, 
+                ingredients );
         }
     }
 }

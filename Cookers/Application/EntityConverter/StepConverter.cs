@@ -5,17 +5,13 @@ namespace Application.EntityConverter
 {
     public class StepConverter
     {
-        public static Step ToStepEntity( UpdateStepCommand step )
+        public static Step ToStepEntity( UpdateStepCommand step, int recipeId )
         {
             if ( step == null )
             {
                 return null;
             }
-            return new Step
-            {
-                Name = step.Name,
-                Description = step.Description
-            };
+            return new Step( step.Id, step.Name, step.Description, recipeId );
         }
     }
 }

@@ -9,19 +9,10 @@ namespace Application.Services
     public class RecipeService : IRecipeService
     {
         private IRecipeRepository _recipeRepository;
-        private IStepRepository _stepRepository;
-        private IIngredientRepository _ingredientRepository;
-        private ITagRepository _tagRepository;
 
-        public RecipeService( IRecipeRepository recipeRepository, 
-            IStepRepository stepRepository, 
-            IIngredientRepository ingredientRepository, 
-            ITagRepository tagRepository )
+        public RecipeService( IRecipeRepository recipeRepository )
         {
             _recipeRepository = recipeRepository;
-            _stepRepository = stepRepository;
-            _ingredientRepository = ingredientRepository;
-            _tagRepository = tagRepository;
         }
 
         public List<Recipe> GetLastCount( int count )
@@ -53,11 +44,11 @@ namespace Application.Services
         {
             try
             {
-                Recipe recipe = _recipeRepository.Get( recipeCommand.Id );
-                recipe.CopyFrom( RecipeConverter.FromUpdateCommand( recipeCommand ) );
-                UpdateIngredientsEntities( recipeCommand.Ingredients );
-                UpdateStepsEntities( recipeCommand.Steps );
-                UpdateTagsEntities( recipeCommand.Tags );
+                Recipe _recipe = _recipeRepository.Get( recipeCommand.Id );
+                _recipe.CopyFrom( RecipeConverter.FromUpdateCommand( recipeCommand,
+                    UpdateStepsEntities( recipeCommand.Steps, recipeCommand.Id ),
+                    UpdateIngredientsEntities( recipeCommand.Ingredients, recipeCommand.Id ),
+                    UpdateTagsEntities( recipeCommand.Tags, recipeCommand.Id ) ) );
                 return true;
             }
             catch
@@ -94,40 +85,34 @@ namespace Application.Services
             }
         }
 
-        public void UpdateStepsEntities( List<UpdateStepCommand> updateSteps )
+        public List<Step> UpdateStepsEntities( List<UpdateStepCommand> updateSteps, int recipeId )
         {
+            List<Step> steps = new List<Step>();
             foreach ( UpdateStepCommand step in updateSteps )
             {
-                Step _step = _stepRepository.Get( step.Id );
-                if ( _step == null )
-                    _stepRepository.Create( StepConverter.ToStepEntity( step ) );
-                else
-                    _step.CopyFrom( StepConverter.ToStepEntity( step ) );
+                steps.Add( StepConverter.ToStepEntity( step, recipeId ) );
             }
+            return steps;
         }
 
-        public void UpdateIngredientsEntities( List<UpdateIngredientCommand> updateIngredients )
+        public List<Ingredient> UpdateIngredientsEntities( List<UpdateIngredientCommand> updateIngredients, int recipeId )
         {
+            List<Ingredient> ingredients = new List<Ingredient>();
             foreach ( UpdateIngredientCommand ingredient in updateIngredients )
             {
-                Ingredient _ingredient = _ingredientRepository.Get( ingredient.Id );
-                if ( _ingredient == null )
-                    _ingredientRepository.Create( IngredientConverter.ToIngredientEntity( ingredient ) );
-                else
-                    _ingredient.CopyFrom( IngredientConverter.ToIngredientEntity( ingredient ) );
+                ingredients.Add( IngredientConverter.ToIngredientEntity( ingredient, recipeId ) );
             }
+            return ingredients;
         }
 
-        public void UpdateTagsEntities( List<UpdateTagCommand> updateTags )
+        public List<Tag> UpdateTagsEntities( List<UpdateTagCommand> updateTags, int recipeId )
         {
+            List<Tag> tags = new List<Tag>();
             foreach ( UpdateTagCommand tag in updateTags )
             {
-                Tag _tag = _tagRepository.Get( tag.Id );
-                if ( _tag == null )
-                    _tagRepository.Create( TagConverter.ToTagEntity( tag ) );
-                else
-                    _tag.CopyFrom( TagConverter.ToTagEntity( tag ) );
+                tags.Add( TagConverter.ToTagEntity( tag, recipeId ) );
             }
+            return tags;
         }
     }
 }
