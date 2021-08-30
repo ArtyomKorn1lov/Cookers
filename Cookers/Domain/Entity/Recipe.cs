@@ -15,5 +15,16 @@ namespace Domain.Entity
         public List<Step> Steps { get; set; }
         public List<Tag> Tags { get; set; }
         public List<Ingredient> Ingredients { get; set; }
+
+        public void CopyFrom( Recipe recipe )
+        {
+            Name = recipe.Name;
+            Description = recipe.Description;
+            CookingTime = recipe.CookingTime;
+            PersonCount = recipe.PersonCount;
+            Favourites = recipe.Favourites;
+            Photo = recipe.Photo;
+            Likes = recipe.Likes;
+        }
     }
 }

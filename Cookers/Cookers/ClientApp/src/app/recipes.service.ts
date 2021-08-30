@@ -1,5 +1,6 @@
 import { Injectable, OnInit } from '@angular/core';
 import { Observable, of, Subject } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
 import { Recipe } from './recipe';
 
 @Injectable({
@@ -71,7 +72,16 @@ export class RecipesService {
                                     'Ванильный сахар - 2 ч.л.'
                                 ]
                         }
-                    ]
+                    ],
+                    tags:
+                    [
+                        {
+                            name: "Праздник",
+                        },
+                        {
+                            name: "Ужин",
+                        }
+                    ],
             },
             {
                 id: 2,
@@ -133,7 +143,16 @@ export class RecipesService {
                                     'Ванильный сахар - 2 ч.л.'
                                 ]
                         }
-                    ]
+                    ],
+                    tags:
+                    [
+                        {
+                            name: "Праздник",
+                        },
+                        {
+                            name: "Ужин",
+                        }
+                    ],
             },
             {
                 id: 3,
@@ -195,12 +214,24 @@ export class RecipesService {
                                     'Ванильный сахар - 2 ч.л.'
                                 ]
                         }
-                    ]
+                    ],
+                    tags:
+                    [
+                        {
+                            name: "Праздник",
+                        },
+                        {
+                            name: "Ужин",
+                        }
+                    ],
             },
         ];
 
-    constructor() 
+    private _http: HttpClient;
+
+    constructor(http: HttpClient) 
     {
+        this._http = http;
     }
 
     pushDataInService(data): void
@@ -216,5 +247,10 @@ export class RecipesService {
     getStubbedInfo(): Observable<Recipe[]> 
     {
         return of(this.recipes);
+    }
+
+    getDayRecipe(): Observable<Recipe>
+    {
+        return this._http.get<Recipe>('api/recipe/day');
     }
 }

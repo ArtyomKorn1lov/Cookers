@@ -1,4 +1,5 @@
 using Application;
+using Application.Services;
 using Domain.Repositories;
 using Infrastructure;
 using Infrastructure.DbContexts;
@@ -28,11 +29,20 @@ namespace Web
             services.AddControllers();
 
             services.AddScoped<IUnitOfWork, UnitOfWork>();
+            services.AddScoped<IRecipeService, RecipeService>();
             services.AddScoped<IRecipeRepository, RecipeRepository>();
+            services.AddScoped<IStepRepository, StepRepository>();
+            services.AddScoped<IIngredientRepository, IngredientRepository>();
+            services.AddScoped<ITagRepository, TagRepository>();
+
+            services.AddSpaStaticFiles( configuration =>
+            {
+                configuration.RootPath = "ClientApp/dist";
+            } );
 
             services.AddDbContext<RecipeDbContext>( options =>
             {
-                string connectionString = Configuration.GetConnectionString( "CookersConnection" ); 
+                string connectionString = Configuration.GetConnectionString( "CookersConnection" );
                 options.UseSqlServer( connectionString );
             } );
         }
@@ -46,20 +56,14 @@ namespace Web
                 recipeContext.Database.Migrate();
             }
 
-            if ( env.IsDevelopment() )
-            {
-                app.UseDeveloperExceptionPage();
-            }
-
             app.UseRouting();
-            app.UseDefaultFiles();
+
+            app.UseSpaStaticFiles();
             app.UseStaticFiles();
 
             app.UseEndpoints( endpoints =>
             {
-                endpoints.MapControllerRoute(
-                    name: "default",
-                    pattern: "{controller}/{action=Index}/{id?}" );
+                endpoints.MapControllers();
             } );
 
             app.UseSpa( spa =>
@@ -71,7 +75,6 @@ namespace Web
                     spa.UseAngularCliServer( npmScript: "start" );
                 }
             } );
-
         }
     }
 }

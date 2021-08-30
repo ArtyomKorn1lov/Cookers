@@ -1,8 +1,8 @@
 using System.Collections.Generic;
 
-namespace Web.Dto
+namespace Application.Commands
 {
-    public class RecipeDto
+    public class UpdateRecipeCommand
     {
         public int Id { get; set; }
         public string Name { get; set; }
@@ -12,8 +12,8 @@ namespace Web.Dto
         public int PersonCount { get; set; }
         public int Favourites { get; set; }
         public int Likes { get; set; }
-        public List<StepDto> Steps { get; set; }
-        public List<IngredientDto> Ingredients { get; set; }
-        public List<TagDto> Tags { get; set; }
+        public List<UpdateStepCommand> Steps { get; set; }
+        public List<UpdateIngredientCommand> Ingredients { get; set; }
+        public List<UpdateTagCommand> Tags { get; set; }
     }
 }

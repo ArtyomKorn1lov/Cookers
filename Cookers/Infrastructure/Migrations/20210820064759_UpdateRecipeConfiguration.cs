@@ -2,13 +2,13 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Infrastructure.Migrations
 {
-    public partial class UpdateEntitiesDecription : Migration
+    public partial class UpdateRecipeConfiguration : Migration
     {
         protected override void Up( MigrationBuilder migrationBuilder )
         {
             migrationBuilder.AlterColumn<string>(
                 name: "Description",
-                table: "Step",
+                table: "Recipe",
                 type: "nvarchar(max)",
                 nullable: true,
                 oldClrType: typeof( string ),
@@ -19,7 +19,7 @@ namespace Infrastructure.Migrations
         {
             migrationBuilder.AlterColumn<string>(
                 name: "Description",
-                table: "Step",
+                table: "Recipe",
                 type: "nvarchar(max)",
                 nullable: false,
                 defaultValue: "",
