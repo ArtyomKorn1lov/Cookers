@@ -11,7 +11,11 @@ namespace Application.EntityConverter
             {
                 return null;
             }
-            return new Ingredient( ingredient.Id, ingredient.Name, ingredient.Description );
+            return new Ingredient
+            {
+                Name = ingredient.Name,
+                Description = ingredient.Description
+            };
         }
     }
 }

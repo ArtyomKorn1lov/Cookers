@@ -1,4 +1,3 @@
-using System.Collections.Generic;
 using Domain.Entity;
 using Domain.Repositories;
 using Infrastructure.DbContexts;
@@ -15,20 +14,14 @@ namespace Infrastructure.Repositories
             _recipeDbContext = context;
         }
 
-        public List<Step> GetByRecipeId( int id )
-        {
-            return _recipeDbContext.Set<Step>().Where( s => s.RecipeId == id ).ToList();
-        }
-
         public Step Get( int id )
         {
             return _recipeDbContext.Set<Step>().FirstOrDefault( s => s.Id == id );
         }
 
-        public void Update( Step step )
+        public void Create( Step step )
         {
-            Step _step = Get( step.Id );
-            _step.CopyFrom( step );
+            _recipeDbContext.Set<Step>().Add( step );
         }
     }
 }

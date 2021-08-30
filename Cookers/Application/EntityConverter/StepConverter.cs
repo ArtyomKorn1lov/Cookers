@@ -11,7 +11,11 @@ namespace Application.EntityConverter
             {
                 return null;
             }
-            return new Step( step.Id, step.Name, step.Description );
+            return new Step
+            {
+                Name = step.Name,
+                Description = step.Description
+            };
         }
     }
 }

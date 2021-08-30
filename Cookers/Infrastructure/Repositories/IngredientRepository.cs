@@ -1,4 +1,3 @@
-using System.Collections.Generic;
 using Domain.Entity;
 using Domain.Repositories;
 using Infrastructure.DbContexts;
@@ -15,20 +14,14 @@ namespace Infrastructure.Repositories
             _recipeDbContext = context;
         }
 
-        public List<Ingredient> GetByRecipeId( int id )
-        {
-            return _recipeDbContext.Set<Ingredient>().Where( i => i.RecipeId == id ).ToList();
-        }
-
         public Ingredient Get( int id )
         {
             return _recipeDbContext.Set<Ingredient>().FirstOrDefault( i => i.Id == id );
         }
 
-        public void Update( Ingredient ingredient )
+        public void Create( Ingredient ingredient )
         {
-            Ingredient _ingredient = Get( ingredient.Id );
-            _ingredient.CopyFrom( ingredient );
+            _recipeDbContext.Set<Ingredient>().Add( ingredient );
         }
     }
 }

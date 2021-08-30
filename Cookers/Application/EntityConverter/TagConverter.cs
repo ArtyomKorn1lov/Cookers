@@ -11,7 +11,10 @@ namespace Application.EntityConverter
             {
                 return null;
             }
-            return new Tag( tag.Id, tag.Name );
+            return new Tag
+            {
+                Name = tag.Name
+            };
         }
     }
 }

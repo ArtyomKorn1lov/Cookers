@@ -44,7 +44,16 @@ namespace Application.EntityConverter
             {
                 return null;
             }
-            return new Recipe( recipe.Id, recipe.Name, recipe.Description, recipe.CookingTime, recipe.PersonCount, recipe.Favourites, recipe.Photo, recipe.Likes );
+            return new Recipe 
+            {
+                Name = recipe.Name,
+                Description = recipe.Description,
+                Photo = recipe.Photo,
+                CookingTime = recipe.CookingTime,
+                PersonCount = recipe.PersonCount,
+                Favourites = recipe.Favourites,
+                Likes = recipe.Likes
+            };
         }
     }
 }
