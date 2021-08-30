@@ -1,7 +1,7 @@
 import { Component, OnInit, } from '@angular/core';
 import { Router } from '@angular/router';
-import { RecipesService} from '../recipes.service';
-import { Recipe } from '../recipe';
+import { RecipesService } from '../services/recipes.service';
+import { Recipe } from '../dto/recipe';
 
 @Component({
   selector: 'app-main-page',
@@ -14,7 +14,6 @@ export class MainPageComponent implements OnInit {
   private isRegistered: boolean = false;
   private readonly maxLength: number;
   public pageId: number = null;
-  public recipes : Recipe[] = [];
   public recipe : Recipe | undefined;
 
   constructor(private router: Router, private recipesService: RecipesService) 
@@ -44,20 +43,7 @@ export class MainPageComponent implements OnInit {
 
   onPushDataInServiceClick(): void
   {
-    this.recipesService.pushDataInService(this.recipe);
-  }
-
-  getRecipes(): void
-  {
-    this.recipesService.getStubbedInfo().subscribe(data => this.recipes = data);
-    this.recipe = this.recipes[0]; 
-    for(let item of this.recipes)
-    {
-      if(this.recipe.likes < item.likes)
-      {
-        this.recipe = item;
-      }
-    }
+    this.recipesService.pushIdInService(this.recipe.id);
   }
 
   ngOnInit() {

@@ -1,11 +1,11 @@
-.tag-container
+.tags-container
 {
     margin-top: 42px;
     display: flex;
     justify-content: space-between;
 }
 
-.tag-box
+.tags-box
 {
     flex-basis: 278px;
     background: #FFFFFF;
@@ -17,7 +17,12 @@
     padding: 24px;
 }
 
-.tag-box p
+.tags-box:hover
+{
+    background-image: radial-gradient(ellipse farthest-corner at 50% 50%, rgba(145, 150, 161, 0.7), rgba(145, 150, 161, 0.7));
+}
+
+.tags-box p
 {
     text-align: left;
 }

@@ -16,27 +16,42 @@
     align-items: center;
 }
 
+.delete-button
+{
+    border: 1px solid rgba(145, 150, 161, 0.7);
+    background: transparent;
+    box-sizing: border-box;
+    width: 60px;
+    height: 60px;
+    border-radius: 16px;
+}
+
+.delete-button:hover
+{
+    background-image: radial-gradient(ellipse farthest-corner at 50% 50%, rgb(253, 211, 133), rgb(253, 211, 133));
+}
+
 .recipe-title-block .addrecipe
 {
     width: 278px;
 }
 
+.recipe-title-block .delete-button + .addrecipe
+{
+    margin-left: 18px;
+}
+
 .recipes-block
 {
     margin-top: 0px;
-    margin-bottom: 0px;
+    margin-bottom: 40px;
 }
 
 .ingridients-steps-block
 {
+    margin-top: 0px;
     display: flex;
     justify-content: space-between;
-    margin-bottom: 103px;
-}
-
-.recipes-block + .ingridients-steps-block 
-{
-    margin-top: 40px;
 }
 
 .ingridients-block
@@ -67,18 +82,6 @@
     margin-bottom: 0px;
 }
 
-.ingridients-list
-{
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-}
-
-.ingridients-list + .ingridients-list
-{
-    margin-top: 20px;
-}
-
 .list-title
 {
     font-weight: 600; 
@@ -99,6 +102,11 @@
     align-items: center;
 }
 
+.steps-block + .steps-block
+{
+    margin-top: 20px;
+}
+
 .step-list
 {
     display: flex;
@@ -116,4 +124,5 @@
 {
     color: #FDB100;
     margin-top: 20px;
+    margin-bottom: 20px;
 }

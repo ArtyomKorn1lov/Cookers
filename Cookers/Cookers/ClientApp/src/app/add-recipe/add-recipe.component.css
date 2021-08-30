@@ -40,15 +40,16 @@
     margin-bottom: 20px;
 }
 
-.select-block
+.tag-form
 {
-    display: flex;
-    justify-content: space-between;
+    margin-bottom: 5px;
 }
 
-.fields-to-fill-block .fields-input + .select-block
+.select-block
 {
     margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
 }
 
 .cooking-time-portions-dish
@@ -97,6 +98,11 @@
     width: 430px;
     display: flex;
     padding: 83px;
+}
+
+.photo-block:hover
+{
+    background-image: radial-gradient(ellipse farthest-corner at 50% 50%, rgb(253, 211, 133), rgb(253, 211, 133));
 }
 
 .photo-frame
@@ -260,7 +266,22 @@ h4
     width: 380px;
 }
 
-.step-form + .step-addbutton
+.step-container + .step-container
+{
+    margin-top: 40px;
+}
+
+.step-container + .step-addbutton
+{
+    margin-top: 40px;
+}
+
+.ingredient-container + .ingredient-container
+{
+    margin-top: 40px;
+}
+
+.ingredient-container + button
 {
     margin-top: 40px;
 }
@@ -270,5 +291,10 @@ h4
     font-size: 16px; 
     color: #F29E1F; 
     text-align: center;
+}
+
+#selectImage
+{
+    visibility: hidden;
 }
 

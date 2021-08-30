@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { RecipesService } from '../recipes.service';
-import { Recipe } from '../recipe';
+import { RecipesService } from '../services/recipes.service';
+import { Recipe } from '../dto/recipe';
 
 @Component({
   selector: 'app-recipe',
@@ -29,7 +29,7 @@ export class RecipeComponent {
 
   onPushDataInServiceClick(): void
   {
-    this.recipesService.pushDataInService(this.recipe);
+    this.recipesService.pushIdInService(this.recipe.id);
   }
 
 }

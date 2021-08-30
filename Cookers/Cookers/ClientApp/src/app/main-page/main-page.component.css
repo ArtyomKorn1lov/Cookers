@@ -83,14 +83,10 @@
 
 .findrecipe-title-block
 {
+    margin-top: 150px;
     align-items: center;
     display: flex;
     flex-direction: column;
-}
-
-.day-recipe-block + .findrecipe-title-block
-{
-    margin-top: 150px;
 }
 
 .findrecipe-block

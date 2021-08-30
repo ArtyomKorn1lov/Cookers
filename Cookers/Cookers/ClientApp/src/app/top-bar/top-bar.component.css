@@ -37,6 +37,7 @@ h1 + .menu
     font-style: normal;
     font-weight: 600;
     font-size: 18px;
+    text-decoration: none;
     color: #808080;
 }
 
@@ -56,6 +57,7 @@ h1 + .menu
 {
     font-family: 'Montserrat', sans-serif;
     font-style: normal;
+    text-decoration: none;
     font-weight: 600;
     font-size: 18px;
     color: #FDB100;

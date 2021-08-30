@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
-import { RecipesService } from '../recipes.service';
-import { Recipe } from '../recipe';
+import { RecipesService } from '../services/recipes.service';
+import { Recipe } from '../dto/recipe';
 
 @Component({
   selector: 'app-recipes-page',
@@ -10,28 +11,41 @@ import { Recipe } from '../recipe';
 })
 export class RecipesPageComponent implements OnInit {
 
+  private searchForm = this.formBuilder.group(
+    {
+      name: '',
+    }
+  );
   public pageId: number = 3;
-  public recipes : Recipe[] = [];
+  public recipes: Recipe[] = [];
 
-  constructor(private router: Router, private recipesService: RecipesService) { }
+  constructor(private router: Router, private recipesService: RecipesService, private formBuilder: FormBuilder) { }
 
-  returnPage(): number 
-  {
+  returnPage(): number {
     return this.pageId;
   }
 
-  btnClick()
-  {
-      this.router.navigateByUrl('/addnewrecipe');
+  btnClick() {
+    this.router.navigateByUrl('/addnewrecipe');
   }
 
-  getRecipes(): void
+  onSubmit()
   {
-    this.recipesService.getStubbedInfo().subscribe(data => this.recipes = data);
+    this.recipes = null;
+    this.recipesService.getRecipeByName(this.searchForm.value.name).subscribe(data => this.recipes = data);
   }
 
-  ngOnInit() 
+  searchByTag(name: string)
   {
+    this.recipes = null;
+    this.recipesService.getRecipeByTag(name).subscribe(data => this.recipes = data)
+  }
+
+  getRecipes(): void {
+    this.recipesService.getSeveralRecipes().subscribe(data => this.recipes = data);
+  }
+
+  ngOnInit() {
     this.getRecipes();
   }
 

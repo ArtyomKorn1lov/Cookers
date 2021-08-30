@@ -1,29 +1,42 @@
 <div class="main-page-container">
     <div class="add-recipe-block">
         <h4>Рецепты</h4>
-        <button class="addrecipe" [routerLink] = "['/addnewrecipe', {'paramId': pageId}]">
+        <button class="addrecipe" [routerLink]="['/addnewrecipe', {'paramId': pageId}]">
             <p style="color: #FFFFFF; font-weight: 600;">+ &nbsp; &nbsp; Добавить рецепт</p>
         </button>
     </div>
 
-    <app-tag-list></app-tag-list>
+    <app-tag-list (simpleEvent)="searchByTag('Простые')" (childEvent)="searchByTag('Детское')"
+        (chiefEvent)="searchByTag('Шеф')" (partyEvent)="searchByTag('Праздник')"></app-tag-list>
 
     <div class="find-recipe-with-title-block">
         <h4>Поиск рецепта</h4>
         <div class="searchbar-button-hyperlinkbar-block">
-            <div class="searchbar-button-block">
-                <input type="text" placeholder="Название блюда...">
-                <button class="seachbutton">
+            <form [formGroup]="searchForm" class="searchbar-button-block">
+                <input formControlName="name" type="text" placeholder="Название блюда...">
+                <button class="seachbutton" (click)="onSubmit()">
                     <p>Поиск</p>
                 </button>
-            </div>
+            </form>
             <div class="hyperlinkbar">
-                <a>Мясо</a>
-                <a>Деликатесы</a>
-                <a>Пироги</a>
-                <a>Рыба</a>
-                <a>Пост</a>
-                <a>Пасха2021</a>
+                <div class="back-block" (click)="searchByTag('Мясо')">
+                    <a>Мясо</a>
+                </div>
+                <div class="back-block" (click)="searchByTag('Деликатесы')">
+                    <a>Деликатесы</a>
+                </div>
+                <div class="back-block" (click)="searchByTag('Пироги')">
+                    <a>Пироги</a>
+                </div>
+                <div class="back-block" (click)="searchByTag('Рыба')">
+                    <a>Рыба</a>
+                </div>
+                <div class="back-block" (click)="searchByTag('Пост')">
+                    <a>Пост</a>
+                </div>
+                <div class="back-block" (click)="searchByTag('Пасха2021')">
+                    <a>Пасха2021</a>
+                </div>
             </div>
         </div>
     </div>
@@ -32,5 +45,11 @@
         <div class="list-recipes-block" *ngFor="let recipe of recipes">
             <app-recipe [parentPageId]="pageId" [recipe]="recipe"></app-recipe>
         </div>
+    </div>
+
+    <div class="download-block">
+        <button class="authorise">
+            <p>Загрузить ещё</p>
+        </button>
     </div>
 </div>

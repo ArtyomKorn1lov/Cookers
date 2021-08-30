@@ -4,7 +4,7 @@
 
 @font-face {
     font-family: 'Montserrat';
-    src: local('Montserrat'), local('Montserrat-Regular'), url('assets/fonts/montserrat.woff2') format('woff2'), url('assets/fonts/montserrat.woff') format('woff'), url('assets/fonts/montserrat.ttf') format('truetype');
+    src: local('Montserrat'), url('assets/fonts/Montserrat-Regular.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
 }
@@ -83,7 +83,7 @@ h4
 
 .addrecipe:hover
 {
-    background-image: radial-gradient(ellipse farthest-corner at 50% 50%, #dadacc, #dadacc);
+    background-image: radial-gradient(ellipse farthest-corner at 50% 50%, rgba(145, 150, 161, 0.7), rgba(145, 150, 161, 0.7));
 }
 
 .addrecipe p
@@ -102,7 +102,7 @@ h4
 
 .seachbutton:hover
 {
-    background-image: radial-gradient(ellipse farthest-corner at 50% 50%, #dadacc, #dadacc);
+    background-image: radial-gradient(ellipse farthest-corner at 50% 50%, rgba(145, 150, 161, 0.7), rgba(145, 150, 161, 0.7));
 }
 
 .searchbar-button-hyperlinkbar-block
@@ -138,8 +138,10 @@ h4
 
 .hyperlinkbar a
 {
+    font-family: 'Montserrat', sans-serif;
     font-style: normal;
     font-weight: normal;
+    text-decoration: none;
     font-size: 16px;
     color: #808080;
 }
@@ -175,7 +177,7 @@ h4
     -khtml-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
-    user-select: none;       
+    user-select: none;
 }
 
 .back-block:hover
@@ -316,6 +318,7 @@ h4
 {
     font-family: 'Montserrat', sans-serif;
     font-style: normal;
+    text-decoration: none;
     font-weight: 600;
     font-size: 18px;
     text-align: center;
@@ -368,4 +371,46 @@ h4
 .auth-reg-form
 {
     display: flex;
+}
+
+.close-button:hover
+{
+    background-image: radial-gradient(ellipse farthest-corner at 50% 50%, rgb(253, 211, 133), rgb(253, 211, 133));
+}
+
+.tags
+{
+    display: flex;
+}
+
+.tags-block
+{
+    display: flex;
+    align-items: flex-start;
+}
+
+.tag-container
+{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(0deg, #FFEFCC, #FFEFCC), #FFFCF7;
+    border-radius: 5px;
+    margin-right: 5px;
+}
+
+.tag-container p
+{
+    margin-left: 5px;
+    margin-top: 3px;
+    margin-bottom: 3px;
+    margin-right: 5px;
+    font-size: 14px;
+    color: #F29E1F;
+    text-align: center;
+}
+
+.tag-container .close-img
+{
+    margin-right: 5px;
 }

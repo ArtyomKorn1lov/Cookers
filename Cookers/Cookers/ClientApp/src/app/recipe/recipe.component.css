@@ -22,6 +22,12 @@
     padding: 30px 36px;
 }
 
+.tags-likes-favourites-block
+{
+    display: flex;
+    justify-content: space-between;
+}
+
 .likes-favourites-block
 {
     display: flex;
@@ -64,7 +70,7 @@
     width: 571px;;
 }
 
-.likes-favourites-block + .text-block
+.tags-likes-favourites-block + .text-block
 {
     margin-top: 34px;
 }
@@ -78,13 +84,6 @@
 .cooking-portions-block
 {
     display: flex;
-}
-
-.cooking-portions-block p
-{
-    margin-top: 0px;
-    margin-bottom: 0px;
-    font-size: 14px;
 }
 
 .cooking-or-portions-container
@@ -122,6 +121,8 @@
 
 .illustrate-information-block p
 {
-    font-size: 18px; 
     color: #25292D;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    font-size: 14px;
 }

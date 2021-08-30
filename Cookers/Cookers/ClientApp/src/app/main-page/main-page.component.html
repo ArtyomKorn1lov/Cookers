@@ -1,12 +1,14 @@
 <div class="main-page-container">
     <div *ngIf="isAuthorised">
         <div class="background-fon">
-            <app-authorization class="auth-reg-form" (buttonAuthClick)="closeAuthForm()" (buttonRegClick)="closeAuthForm(); onRegFormClick()"></app-authorization>
+            <app-authorization class="auth-reg-form" (buttonAuthClick)="closeAuthForm()"
+                (buttonRegClick)="closeAuthForm(); onRegFormClick()"></app-authorization>
         </div>
     </div>
     <div *ngIf="isRegistered">
         <div class="background-fon">
-            <app-registration class="auth-reg-form" (buttonRegClick)="closeRegForm()" (buttonAuthClick)="closeRegForm(); onAuthFormClick()"></app-registration>
+            <app-registration class="auth-reg-form" (buttonRegClick)="closeRegForm()"
+                (buttonAuthClick)="closeRegForm(); onAuthFormClick()"></app-registration>
         </div>
     </div>
 
@@ -14,14 +16,14 @@
         <h6>Готовь и делись <br> рецептами</h6>
         <p>Никаких кулинарных книг и блокнотов! Храни все <br> любимые рецепты в одном месте.</p>
         <div class="addrecipe-authorise">
-            <button class="addrecipe" [routerLink] = "['/addnewrecipe', {'paramId': pageId}]">
+            <button class="addrecipe" [routerLink]="['/addnewrecipe', {'paramId': pageId}]">
                 <p>+ &nbsp; &nbsp; Добавить рецепт</p>
             </button>
             <button class="authorise" (click)="onAuthFormClick()">
                 <p>Войти</p>
             </button>
         </div>
-        
+
     </div>
 
     <div class="sortingbytags-block">
@@ -41,9 +43,13 @@
             </div>
             <img class="day-recipe-img" src="assets/images/day-recipe.png">
             <h5>{{recipe.name}}</h5>
-            <p>{{(recipe.description.length>maxLength)? (recipe.description | slice:0:maxLength)+'...':(recipe.description)}}</p>
+            <div *ngIf="recipe.description !== null">
+                <p>{{(recipe.description.length>maxLength)? (recipe.description |
+                    slice:0:maxLength)+'...':(recipe.description)}}</p>
+            </div>
             <div class="about-button-block">
-                <button class="addrecipe" [routerLink] = "['/recipeinfo', {'paramId': pageId}]"  (click)="onPushDataInServiceClick()">
+                <button class="addrecipe" [routerLink]="['/recipeinfo', {'paramId': pageId}]"
+                    (click)="onPushDataInServiceClick()">
                     <p>Подробнее</p>
                 </button>
             </div>
@@ -62,14 +68,22 @@
                 <button class="seachbutton">
                     <p>Поиск</p>
                 </button>
-            </div> 
-            <div class="hyperlinkbar">
-                <a>Мясо</a>
-                <a>Деликатесы</a>
-                <a>Пироги</a>
-                <a>Рыба</a>
             </div>
-        </div>   
+            <div class="hyperlinkbar">
+                <div class="back-block">
+                    <a>Мясо</a>
+                </div>
+                <div class="back-block">
+                    <a>Деликатесы</a>
+                </div>
+                <div class="back-block">
+                    <a>Пироги</a>
+                </div>
+                <div class="back-block">
+                    <a>Рыба</a>
+                </div>
+            </div>
+        </div>
     </div>
-    
+
 </div>

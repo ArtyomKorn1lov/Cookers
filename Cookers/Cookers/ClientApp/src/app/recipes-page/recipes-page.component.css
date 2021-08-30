@@ -33,3 +33,21 @@ app-tag-list + .find-recipe-with-title-block
     color: #FFFFFF; 
     font-weight: 600;
 }
+
+.download-block
+{
+    margin-top: 65px;
+    margin-bottom: 108px;
+    display: flex;
+    justify-content: center;
+}
+
+.download-block .authorise
+{
+    flex-basis: 309px;
+}
+
+.back-block + .back-block
+{
+    margin-left: 20px;
+}

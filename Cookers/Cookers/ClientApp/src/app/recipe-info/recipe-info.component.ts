@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { RecipesService } from '../recipes.service';
+import { RecipesService } from '../services/recipes.service';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Recipe } from '../recipe';
+import { Recipe } from '../dto/recipe';
 
 @Component({
   selector: 'app-recipe-info',
@@ -22,10 +22,22 @@ export class RecipeInfoComponent implements OnInit {
     this.router.navigateByUrl(this.targetRoute);
   }
 
+  deleteRecipe(): void
+  {
+    this.recipeService.removeRecipe(this.recipeService.getRecipeId()).subscribe( x => console.log(x) );
+    this.router.navigateByUrl(this.targetRoute);
+  }
+
+  onPushDataInServiceClick(): void
+  {
+    this.recipeService.pushIdInService(this.recipe.id);
+    this.recipeService.pushReccipeInService(this.recipe);
+  }
+
   ngOnInit() 
   {
-    this.recipeService.getStubbedCurrentRecipe().subscribe(data => this.recipe = data);
-    this.route.params.subscribe(params => this.parentPageId = Number.parseInt(params['paramId']))
+    this.recipeService.getRecipeById(this.recipeService.getRecipeId()).subscribe(data => this.recipe = data);
+    this.route.params.subscribe(params => this.parentPageId = Number.parseInt(params['paramId']));
     switch (this.parentPageId)
     {
       case 1: 

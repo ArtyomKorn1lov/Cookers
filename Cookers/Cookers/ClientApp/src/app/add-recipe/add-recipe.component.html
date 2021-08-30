@@ -7,35 +7,52 @@
     </div>
     <div class="publish-block">
         <h5>Добавить новый рецепт</h5>
-        <button class="addrecipe">
+        <button class="addrecipe" (click)="onSubmit()">
             <p>Опубликовать</p>
         </button>
     </div>
+    <input id='selectImage' type="file" (change)="download($event)">
     <div class="general-information-block">
-        <div class="photo-block">
+        <div class="photo-block" (click)="upload()">
             <div class="photo-frame">
-                    <img src="assets/images/download.png">
-                    <p>Загрузите фото <br> готового блюда </p>
+                <img src="assets/images/download.png">
+                <p>Загрузите фото <br> готового блюда </p>
             </div>
         </div>
-        <form class="fields-to-fill-block">
-                <input class="fields-input" type="text" placeholder="Название рецепта">
-                <textarea class="fields-textarea" placeholder="Краткое описание рецепта (150 символов)"></textarea>
-                <input class="fields-input" type="text" placeholder="Добавить теги">
-                <div class="select-block">
-                    <div class="cooking-time-portions-dish">
-                        <select> 
-                            <option disabled><p> Время готовки </p></option>
-                        </select>
-                        <p>Минут</p>
-                    </div>
-                    <div class="cooking-time-portions-dish">
-                        <select> 
-                            <option disabled>Порций в блюде</option>
-                        </select>
-                        <p>Персон</p>
+        <form [formGroup]="recipeForm" class="fields-to-fill-block">
+            <input class="fields-input" type="text" formControlName="name" placeholder="Название рецепта" ng-required="true">
+            <textarea class="fields-textarea" formControlName="description" placeholder="Краткое описание рецепта (150 символов)"></textarea>
+            <form class="tag-form" [formGroup]="tagForm" (ngSubmit)="addTag()">
+                <input class="fields-input" type="text" formControlName="tags" placeholder="Добавить теги">
+            </form>
+            <div class="tags">
+                <div class="tags-block" *ngFor="let tag of tagsDto; let i = index">
+                    <div class="tag-container">
+                        <p>{{tag.name}}</p>
+                        <div class="close-img">
+                            <img class="close-button" src="assets/images/close.png" (click)="removeTag(i)">
+                        </div>
                     </div>
                 </div>
+            </div>
+            <div class="select-block">
+                <div class="cooking-time-portions-dish">
+                    <select formControlName="cookingTime">
+                        <option value="15">15 минут</option>
+                        <option value="20">20 минут</option>
+                        <option value="30">30 минут</option>
+                    </select>
+                    <p>Минут</p>
+                </div>
+                <div class="cooking-time-portions-dish">
+                    <select formControlName="personCount">
+                        <option value="3">3 человека</option>
+                        <option value="4">4 человека</option>
+                        <option value="5">5 человек</option>
+                    </select>
+                    <p>Персон</p>
+                </div>
+            </div>
         </form>
     </div>
     <div class="ingredients-step-block">
@@ -43,31 +60,35 @@
             <div class="ingredients-title">
                 <h4>Ингридиенты</h4>
             </div>
-            <div class="close-img">
-                <img src="assets/images/close.png">
+            <div class="ingredient-container" *ngFor="let ingredient of ingredientsDto; let i = index">
+                <div class="close-img">
+                    <img class="close-button" src="assets/images/close.png" (click)="removeIngredient(ingredient)">
+                </div>
+                <div class="ingredients-info">
+                    <input [(ngModel)]="ingredient.name" class="fields-input" type="text" placeholder="Заголовок для ингридиентов" ng-required="true">
+                    <textarea [(ngModel)]="ingredient.description" class="fields-textarea" placeholder="Список подуктов для категории"></textarea>
+                </div>
             </div>
-            <form class="ingredients-info">
-                <input class="fields-input" type="text" placeholder="Заголовок для ингридиентов">
-                <textarea class="fields-textarea" placeholder="Список подуктов для категории"></textarea>
-            </form>
-            <button>
+            <button (click)="addIngridient()">
                 <p>Добавить заголовок</p>
             </button>
         </div>
         <div class="step-block">
-            <form class="step-form">
-                <div class="step-title">
-                   <h4>Шаг 1</h4>
-                    <img src="assets/images/close.png">
+            <div class="step-container" *ngFor="let step of stepsDto; let i = index">
+                <div class="step-form">
+                    <div class="step-title">
+                        <h4>Шаг {{i + 1}}</h4>
+                        <img class="close-button" src="assets/images/close.png" (click)="removeStep(i)">
+                    </div>
+                    <textarea [(ngModel)]="step.description" class="fields-textarea" placeholder="Описание шага"></textarea>
                 </div>
-                <textarea class="fields-textarea" placeholder="Описание шага"></textarea>
-            </form>
-            <div class="step-addbutton">
+            </div>
+            <div class="step-addbutton" (click)="addStep()">
                 <button>
                     <p>Добавить заголовок</p>
                 </button>
             </div>
         </div>
     </div>
-    
+
 </div>
