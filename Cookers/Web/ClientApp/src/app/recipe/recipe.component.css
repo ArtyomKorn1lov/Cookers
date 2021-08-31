@@ -1,0 +1,136 @@
+.recipe-block
+{ 
+    margin-top: 40px;
+    background: #FFFFFF;
+    box-shadow: 0px 16px 72px rgba(34, 39, 47, 0.05);
+    border-radius: 72px 24px 24px 0px;
+    display: flex;
+}
+
+.recipe-img
+{
+    width: 430px;
+    height: 430px;
+    border-radius: 72px 0px;
+}
+
+.description-block
+{
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    padding: 30px 36px;
+}
+
+.tags-likes-favourites-block
+{
+    display: flex;
+    justify-content: space-between;
+}
+
+.likes-favourites-block
+{
+    display: flex;
+    justify-content: flex-end;
+}
+
+.likes-or-favourites-button
+{
+    display: flex;
+    align-items: center;
+    border: 1px solid #FDB100;
+    box-sizing: border-box;
+    border-radius: 16px;
+    padding: 11px 26px;
+}
+
+.likes-or-favourites-button p
+{
+    font-weight: 600;
+    color: #FDB100;
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+
+.likes-or-favourites-button img + p
+{
+    margin-left: 14px;
+}
+
+.likes-or-favourites-button + .likes-or-favourites-button
+{
+    margin-left: 15px;
+}
+
+.text-block
+{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 571px;;
+}
+
+.tags-likes-favourites-block + .text-block
+{
+    margin-top: 34px;
+}
+
+.cooking-portions-button-block
+{
+    display: flex;
+    justify-content: space-between;
+}
+
+.cooking-portions-block
+{
+    display: flex;
+}
+
+.cooking-or-portions-container
+{
+    display: flex;
+    align-items: center;
+}
+
+.illustrate-information-block
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.cooking-or-portions-container img + .illustrate-information-block
+{
+    margin-left: 20px;
+}
+
+.cooking-or-portions-container + .cooking-or-portions-container
+{
+    margin-left: 71px;
+}
+
+.cooking-portions-button-block .addrecipe
+{
+    width: 180px;
+}
+
+.text-block + .cooking-portions-button-block
+{
+    margin-top: 34px;
+}
+
+.illustrate-information-block p
+{
+    color: #25292D;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    font-size: 14px;
+}
+
+.illustrate-information-block h4
+{
+    color: #25292D;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    font-size: 16px;
+}

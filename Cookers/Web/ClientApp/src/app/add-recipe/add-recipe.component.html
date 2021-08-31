@@ -1,0 +1,105 @@
+<div class="add-recipe-container">
+    <div class="back-container">
+        <div class="back-block" (click)="goToPreviousPage()">
+            <img src="assets/images/back.png">
+            <p>Назад</p>
+        </div>
+    </div>
+    <div class="publish-block">
+        <h5>Добавить новый рецепт</h5>
+        <button class="addrecipe" (click)="onSubmit()">
+            <p>Опубликовать</p>
+        </button>
+    </div>
+    <input id="selectImage" type="file" (change)="download($event)">
+    <div class="general-information-block">
+        <div class="photo-block" (click)="upload()">
+            <div class="photo-frame">
+                <img src="assets/images/download.png">
+                <p>Загрузите фото <br> готового блюда </p>
+            </div>
+        </div>
+        <form [formGroup]="recipeForm" class="fields-to-fill-block">
+            <input matInput class="fields-input" type="text" formControlName="name" placeholder="Название рецепта">
+            <textarea class="fields-textarea" formControlName="description" placeholder="Краткое описание рецепта (150 символов)"></textarea>
+            <form class="tag-form" [formGroup]="tagForm" (ngSubmit)="addTag()">
+                <input class="fields-input" type="text" formControlName="tags" placeholder="Добавить теги">
+            </form>
+            <div class="tags">
+                <div class="tags-block" *ngFor="let tag of tags; let i = index">
+                    <div class="tag-container">
+                        <p>{{tag.name}}</p>
+                        <div class="close-img">
+                            <img class="close-button" src="assets/images/close.png" (click)="removeTag(i)">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="select-block">
+                <div class="cooking-time-portions-dish">
+                    <select formControlName="cookingTime">
+                        <option value="15">15</option>
+                        <option value="20">20</option>
+                        <option value="25">25</option>
+                        <option value="30">30</option>
+                        <option value="35">35</option>
+                        <option value="40">40</option>
+                        <option value="45">45</option>
+                        <option value="55">55</option>
+                        <option value="60">60</option>
+                    </select>
+                    <p>Минут</p>
+                </div>
+                <div class="cooking-time-portions-dish">
+                    <select formControlName="personCount">
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10</option>
+                    </select>
+                    <p>Персон</p>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="ingredients-step-block">
+        <div class="ingredients-block">
+            <div class="ingredients-title">
+                <h4>Ингридиенты</h4>
+            </div>
+            <div class="ingredient-container" *ngFor="let ingredient of ingredients; let i = index">
+                <div class="close-img">
+                    <img class="close-button" src="assets/images/close.png" (click)="removeIngredient(ingredient)">
+                </div>
+                <div class="ingredients-info">
+                    <input matInput [(ngModel)]="ingredient.name" class="fields-input" type="text" placeholder="Заголовок для ингридиентов">
+                    <textarea [(ngModel)]="ingredient.description" class="fields-textarea" placeholder="Список подуктов для категории"></textarea>
+                </div>
+            </div>
+            <button (click)="addIngredient()">
+                <p>Добавить заголовок</p>
+            </button>
+        </div>
+        <div class="step-block">
+            <div class="step-container" *ngFor="let step of steps; let i = index">
+                <div class="step-form">
+                    <div class="step-title">
+                        <h4>Шаг {{i + 1}}</h4>
+                        <img class="close-button" src="assets/images/close.png" (click)="removeStep(i)">
+                    </div>
+                    <textarea [(ngModel)]="step.description" class="fields-textarea" placeholder="Описание шага"></textarea>
+                </div>
+            </div>
+            <div class="step-addbutton" (click)="addStep()">
+                <button>
+                    <p>Добавить заголовок</p>
+                </button>
+            </div>
+        </div>
+    </div>
+
+</div>

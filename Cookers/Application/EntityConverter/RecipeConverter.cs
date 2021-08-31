@@ -44,16 +44,35 @@ namespace Application.EntityConverter
             {
                 return null;
             }
-            return new Recipe 
-            {
-                Name = recipe.Name,
-                Description = recipe.Description,
-                Photo = recipe.Photo,
-                CookingTime = recipe.CookingTime,
-                PersonCount = recipe.PersonCount,
-                Favourites = recipe.Favourites,
-                Likes = recipe.Likes
-            };
+            return new Recipe( recipe.Id,
+                recipe.Name,
+                recipe.Description,
+                recipe.CookingTime,
+                recipe.PersonCount,
+                recipe.Favourites,
+                recipe.Photo,
+                recipe.Likes,
+                recipe.Steps?.Select( s => new Step
+                (
+                    s.Id,
+                    s.Name,
+                    s.Description,
+                    s.RecipeId
+                    ) ).ToList(),
+                recipe.Tags?.Select( t => new Tag
+                (
+                    t.Id,
+                    t.Name,
+                    t.RecipeId
+                   ) ).ToList(),
+                recipe.Ingredients?.Select( i => new Ingredient
+                (
+                    i.Id,
+                    i.Name,
+                    i.Description,
+                    i.RecipeId
+                    )).ToList()
+                );
         }
     }
 }

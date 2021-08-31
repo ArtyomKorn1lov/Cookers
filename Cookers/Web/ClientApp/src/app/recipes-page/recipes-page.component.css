@@ -1,0 +1,53 @@
+.add-recipe-block
+{
+    display: flex;
+    justify-content: space-between;
+    text-align: center;
+    align-items: center;
+}
+
+.find-recipe-with-title-block
+{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+app-tag-list + .find-recipe-with-title-block
+{
+    margin-top: 50px;
+}
+
+.searchbar-button-block + .hyperlinkbar
+{
+    margin-top: 10px;
+}
+
+.searchbar-button-block input
+{
+    width: 779px;
+}
+
+.seachbutton p
+{
+    color: #FFFFFF; 
+    font-weight: 600;
+}
+
+.download-block
+{
+    margin-top: 65px;
+    margin-bottom: 108px;
+    display: flex;
+    justify-content: center;
+}
+
+.download-block .authorise
+{
+    flex-basis: 309px;
+}
+
+.back-block + .back-block
+{
+    margin-left: 20px;
+}

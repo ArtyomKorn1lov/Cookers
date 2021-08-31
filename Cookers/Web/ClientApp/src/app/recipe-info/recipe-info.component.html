@@ -1,0 +1,48 @@
+<div class="recipe-info-container">
+    <div class="back-container">
+        <div class="back-block" (click)="returnBackPageClick()">
+            <img src="assets/images/back.png">
+            <p>Назад</p>
+        </div>
+    </div>
+
+    <div class="recipe-title-block">
+        <h5>{{recipe.name}}</h5>
+        <div class="remove-edit-block">
+            <button class="delete-button" (click)="deleteRecipe()">
+                <img src="assets/images/delete.png">
+            </button>
+            <button class="addrecipe" [routerLink]="['/editrecipe', {'paramId': pageId}]" (click)="onPushDataInServiceClick()">
+                <p>Редактировать</p>
+            </button>
+        </div>
+    </div>
+
+    <div class="recipes-block" *ngIf="recipe !== undefined">
+        <div class="list-recipes-block">
+            <app-recipe [parentPageId]="pageId" [recipe]="recipe"></app-recipe>
+        </div>
+    </div>
+
+    <div class="ingridients-steps-block">
+        <div class="ingridients-block" *ngIf="recipe.ingredients !== undefined">
+            <h3 class="ingridients-title">Ингридиенты</h3>
+            <div class="ingridients-list-block">
+                <div class="ingridients-list" *ngFor="let ingredient of recipe.ingredients">
+                    <p class="list-title">{{ingredient.name}}</p>
+                    <p>{{ingredient.description}}</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="steps-block" *ngIf="recipe.steps !== undefined">
+            <div class="steps-block" *ngFor="let step of recipe.steps">
+                <div class="step-list">
+                    <p class="list-title">{{step.name}}</p>
+                    <p>{{step.description}}</p>
+                </div>
+            </div>
+            <h4>Приятного Аппетита!</h4>
+        </div>
+    </div>
+</div>

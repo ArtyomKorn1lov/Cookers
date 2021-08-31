@@ -7,6 +7,21 @@ namespace Domain.Entity
         public string Description { get; set; }
         public int RecipeId { get; set; }
 
+        public Ingredient() { }
+
+        public Ingredient(
+            int id,
+            string name,
+            string description,
+            int recipeId
+            )
+        {
+            Id = id;
+            Name = name;
+            Description = description;
+            RecipeId = recipeId;
+        }
+
         public void CopyFrom( Ingredient ingredient )
         {
             Name = ingredient.Name;

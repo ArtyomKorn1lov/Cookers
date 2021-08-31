@@ -1,0 +1,30 @@
+.page
+{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+.home-image
+{
+  background: url("src/assets/images/home-pic.png") right bottom no-repeat;
+}
+
+.centered-container
+{
+  width: 1440px;
+  position: relative;
+  background: #FEFEFB;
+  flex-grow: 1;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.footer-block
+{
+  background: #FBF9F4;
+  display: flex;
+  justify-content: center;
+  min-width: 1440px;
+}

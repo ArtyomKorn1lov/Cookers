@@ -9,19 +9,10 @@ namespace Application.Services
     public class RecipeService : IRecipeService
     {
         private IRecipeRepository _recipeRepository;
-        private IStepRepository _stepRepository;
-        private IIngredientRepository _ingredientRepository;
-        private ITagRepository _tagRepository;
 
-        public RecipeService( IRecipeRepository recipeRepository, 
-            IStepRepository stepRepository, 
-            IIngredientRepository ingredientRepository, 
-            ITagRepository tagRepository )
+        public RecipeService( IRecipeRepository recipeRepository )
         {
             _recipeRepository = recipeRepository;
-            _stepRepository = stepRepository;
-            _ingredientRepository = ingredientRepository;
-            _tagRepository = tagRepository;
         }
 
         public List<Recipe> GetLastCount( int count )
@@ -53,11 +44,8 @@ namespace Application.Services
         {
             try
             {
-                Recipe recipe = _recipeRepository.Get( recipeCommand.Id );
-                recipe.CopyFrom( RecipeConverter.FromUpdateCommand( recipeCommand ) );
-                UpdateIngredientsEntities( recipeCommand.Ingredients );
-                UpdateStepsEntities( recipeCommand.Steps );
-                UpdateTagsEntities( recipeCommand.Tags );
+                Recipe _recipe = _recipeRepository.Get( recipeCommand.Id );
+                _recipe.CopyFrom( RecipeConverter.FromUpdateCommand( recipeCommand ) );
                 return true;
             }
             catch
@@ -91,42 +79,6 @@ namespace Application.Services
             catch
             {
                 return false;
-            }
-        }
-
-        public void UpdateStepsEntities( List<UpdateStepCommand> updateSteps )
-        {
-            foreach ( UpdateStepCommand step in updateSteps )
-            {
-                Step _step = _stepRepository.Get( step.Id );
-                if ( _step == null )
-                    _stepRepository.Create( StepConverter.ToStepEntity( step ) );
-                else
-                    _step.CopyFrom( StepConverter.ToStepEntity( step ) );
-            }
-        }
-
-        public void UpdateIngredientsEntities( List<UpdateIngredientCommand> updateIngredients )
-        {
-            foreach ( UpdateIngredientCommand ingredient in updateIngredients )
-            {
-                Ingredient _ingredient = _ingredientRepository.Get( ingredient.Id );
-                if ( _ingredient == null )
-                    _ingredientRepository.Create( IngredientConverter.ToIngredientEntity( ingredient ) );
-                else
-                    _ingredient.CopyFrom( IngredientConverter.ToIngredientEntity( ingredient ) );
-            }
-        }
-
-        public void UpdateTagsEntities( List<UpdateTagCommand> updateTags )
-        {
-            foreach ( UpdateTagCommand tag in updateTags )
-            {
-                Tag _tag = _tagRepository.Get( tag.Id );
-                if ( _tag == null )
-                    _tagRepository.Create( TagConverter.ToTagEntity( tag ) );
-                else
-                    _tag.CopyFrom( TagConverter.ToTagEntity( tag ) );
             }
         }
     }

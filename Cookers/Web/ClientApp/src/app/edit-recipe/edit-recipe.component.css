@@ -1,0 +1,305 @@
+.add-recipe-container
+{
+    padding: 0px 120px;
+}
+
+.publish-block
+{
+    display: flex;
+    justify-content: space-between;
+}
+
+.general-information-block
+{
+    display: flex;
+    background: #FFFFFF;
+    box-shadow: 0px 16px 72px rgba(34, 39, 47, 0.05);
+    border-radius: 24px;
+}
+
+.publish-block + .general-information-block
+{
+    margin-top: 50px;
+}
+
+.fields-to-fill-block
+{
+    display: flex;
+    flex-direction: column;
+    padding: 50px 50px;
+}
+
+.fields-to-fill-block .fields-input + .fields-input
+{
+    margin-top: 20px;
+}
+
+.fields-to-fill-block .fields-textarea
+{
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.tag-form
+{
+    margin-bottom: 5px;
+}
+
+.select-block
+{
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.cooking-time-portions-dish
+{
+    display: flex;
+    align-items: center;
+}
+
+.select-block p
+{
+    font-size: 16px;
+}
+
+.fields-to-fill-block select
+{
+    text-indent: 32px;
+    outline: none;
+    width: 220px;
+    height: 50px;
+    border: 1px solid rgba(145, 150, 161, 0.4);
+    box-sizing: border-box;
+    color: rgba(37, 41, 45, 0.5);
+    appearance: none;
+    border-radius: 16px;
+}
+
+.fields-to-fill-block option
+{
+    font-family: 'Montserrat', sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    background: inherit;
+    font-size: 16px;
+    color: rgba(37, 41, 45, 0.5);
+}
+
+.select-block select + p
+{
+    margin-left: 11px;
+}
+
+.photo-block
+{
+    background: linear-gradient(0deg, #FFEFCC, #FFEFCC), #FFFCF7;
+    border-radius: 72px 0px;
+    width: 430px;
+    display: flex;
+    padding: 83px;
+}
+
+.photo-block:hover
+{
+    background-image: radial-gradient(ellipse farthest-corner at 50% 50%, rgb(253, 211, 133), rgb(253, 211, 133));
+}
+
+.photo-frame
+{
+    border: 1px dashed #F29E1F;
+    box-sizing: border-box;
+    border-radius: 20px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+h4
+{
+    font-size: 20px;
+}
+
+.ingredients-step-block
+{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 106px;
+}
+
+.general-information-block + .ingredients-step-block
+{
+    margin-top: 40px;
+}
+
+.ingredients-block
+{
+    display: flex;
+    flex-direction: column;
+}
+
+.ingredients-title
+{
+    display: flex; 
+    justify-content: flex-start;
+}
+
+.close-img
+{
+    display: flex;
+    justify-content: flex-end;
+}
+
+.ingredients-info
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 380px;
+    padding: 36px 30px;
+    background: #FFFFFF;
+    box-shadow: 0px 16px 72px rgba(34, 39, 47, 0.05);
+    border-radius: 24px;
+}
+
+.close-img + .ingredients-info
+{
+    margin-top: 15px;
+}
+
+.ingredients-info .fields-input
+{
+    width: auto;
+}
+
+.ingredients-info .fields-textarea
+{
+    width: auto;
+    height: 229px;
+}
+
+.ingredients-info .fields-input + .fields-textarea
+{
+    margin-top: 20px;
+}
+
+.ingredients-step-block button
+{
+    border: 1px solid #FDB100;
+    background: inherit;
+    box-sizing: border-box;
+    border-radius: 16px;
+    display: flex;
+    justify-content: center;
+}
+
+.ingredients-block button
+{
+    width: 380px;
+}
+
+.ingredients-step-block button:hover
+{
+    background-image: radial-gradient(ellipse farthest-corner at 50% 50%, rgb(253, 211, 133), rgb(253, 211, 133));
+}
+
+.ingredients-info + button
+{
+    margin-top: 40px;
+}
+
+.ingredients-step-block button p
+{
+    font-weight: 600;
+    color: #FDB100;
+}
+
+.step-block
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.step-form
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 790px;
+    padding: 50px 70px;
+    background: #FFFFFF;
+    box-shadow: 0px 16px 72px rgba(34, 39, 47, 0.05);
+    border-radius: 24px;
+}
+
+.step-title
+{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.step-form h4
+{
+    font-weight: 600;
+    font-size: 18px;
+}
+
+.step-form .fields-textarea
+{
+    width: auto;
+    height: 229px;
+}
+
+.step-form .step-title + .fields-textarea
+{
+    margin-top: 21px;
+}
+
+.step-addbutton
+{
+    display: flex;
+    justify-content: center;
+}
+
+.step-addbutton button
+{
+    width: 380px;
+}
+
+.step-container + .step-container
+{
+    margin-top: 40px;
+}
+
+.step-container + .step-addbutton
+{
+    margin-top: 40px;
+}
+
+.ingredient-container + .ingredient-container
+{
+    margin-top: 40px;
+}
+
+.ingredient-container + button
+{
+    margin-top: 40px;
+}
+
+.photo-frame p
+{
+    font-size: 16px; 
+    color: #F29E1F; 
+    text-align: center;
+}
+
+#selectImage
+{
+    visibility: hidden;
+}
+
