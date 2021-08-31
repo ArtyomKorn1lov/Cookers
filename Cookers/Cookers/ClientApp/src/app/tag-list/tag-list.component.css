@@ -5,7 +5,7 @@
     justify-content: space-between;
 }
 
-.tags-box
+.tags-button
 {
     flex-basis: 278px;
     background: #FFFFFF;
@@ -17,12 +17,12 @@
     padding: 24px;
 }
 
-.tags-box:hover
+.tags-button:hover
 {
     background-image: radial-gradient(ellipse farthest-corner at 50% 50%, rgba(145, 150, 161, 0.7), rgba(145, 150, 161, 0.7));
 }
 
-.tags-box p
+.tags-button p
 {
     text-align: left;
 }

@@ -11,7 +11,7 @@
             <p>Опубликовать</p>
         </button>
     </div>
-    <input id='selectImage' type="file" (change)="download($event)">
+    <input id="selectImage" type="file" (change)="download($event)">
     <div class="general-information-block">
         <div class="photo-block" (click)="upload()">
             <div class="photo-frame">
@@ -20,13 +20,13 @@
             </div>
         </div>
         <form [formGroup]="recipeForm" class="fields-to-fill-block">
-            <input class="fields-input" type="text" formControlName="name" placeholder="Название рецепта">
+            <input matInput class="fields-input" type="text" formControlName="name" placeholder="Название рецепта">
             <textarea class="fields-textarea" formControlName="description" placeholder="Краткое описание рецепта (150 символов)"></textarea>
             <form class="tag-form" [formGroup]="tagForm" (ngSubmit)="addTag()">
                 <input class="fields-input" type="text" formControlName="tags" placeholder="Добавить теги">
             </form>
             <div class="tags">
-                <div class="tags-block" *ngFor="let tag of tagsDto; let i = index">
+                <div class="tags-block" *ngFor="let tag of tags; let i = index">
                     <div class="tag-container">
                         <p>{{tag.name}}</p>
                         <div class="close-img">
@@ -60,21 +60,21 @@
             <div class="ingredients-title">
                 <h4>Ингридиенты</h4>
             </div>
-            <div class="ingredient-container" *ngFor="let ingredient of ingredientsDto; let i = index">
+            <div class="ingredient-container" *ngFor="let ingredient of ingredients; let i = index">
                 <div class="close-img">
                     <img class="close-button" src="assets/images/close.png" (click)="removeIngredient(ingredient)">
                 </div>
                 <div class="ingredients-info">
-                    <input [(ngModel)]="ingredient.name" class="fields-input" type="text" placeholder="Заголовок для ингридиентов">
+                    <input matInput [(ngModel)]="ingredient.name" class="fields-input" type="text" placeholder="Заголовок для ингридиентов">
                     <textarea [(ngModel)]="ingredient.description" class="fields-textarea" placeholder="Список подуктов для категории"></textarea>
                 </div>
             </div>
-            <button (click)="addIngridient()">
+            <button (click)="addIngredient()">
                 <p>Добавить заголовок</p>
             </button>
         </div>
         <div class="step-block">
-            <div class="step-container" *ngFor="let step of stepsDto; let i = index">
+            <div class="step-container" *ngFor="let step of steps; let i = index">
                 <div class="step-form">
                     <div class="step-title">
                         <h4>Шаг {{i + 1}}</h4>

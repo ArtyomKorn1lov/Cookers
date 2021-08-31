@@ -55,18 +55,21 @@ namespace Web.DtoConverter
                 {
                     Id = s.Id,
                     Name = s.Name,
-                    Description = s.Description
+                    Description = s.Description,
+                    RecipeId = s.RecipeId
                 } ).ToList(),
                 Ingredients = recipe.Ingredients?.Select( i => new UpdateIngredientCommand
                 {
                     Id = i.Id,
                     Name = i.Name,
-                    Description = i.Description
+                    Description = i.Description,
+                    RecipeId = i.RecipeId
                 } ).ToList(),
                 Tags = recipe.Tags?.Select( t => new UpdateTagCommand
                 {
                     Id = t.Id,
-                    Name = t.Name
+                    Name = t.Name,
+                    RecipeId = t.RecipeId
                 } ).ToList()
             };
         }

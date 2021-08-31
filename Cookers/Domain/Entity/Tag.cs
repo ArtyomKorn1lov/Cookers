@@ -8,7 +8,12 @@ namespace Domain.Entity
 
         public Tag() { }
 
-        public Tag( int id, string name, int recipeId )
+        public Tag
+            ( 
+            int id, 
+            string name, 
+            int recipeId 
+            )
         {
             Id = id;
             Name = name;

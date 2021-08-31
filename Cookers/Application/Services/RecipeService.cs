@@ -45,10 +45,7 @@ namespace Application.Services
             try
             {
                 Recipe _recipe = _recipeRepository.Get( recipeCommand.Id );
-                _recipe.CopyFrom( RecipeConverter.FromUpdateCommand( recipeCommand,
-                    UpdateStepsEntities( recipeCommand.Steps, recipeCommand.Id ),
-                    UpdateIngredientsEntities( recipeCommand.Ingredients, recipeCommand.Id ),
-                    UpdateTagsEntities( recipeCommand.Tags, recipeCommand.Id ) ) );
+                _recipe.CopyFrom( RecipeConverter.FromUpdateCommand( recipeCommand ) );
                 return true;
             }
             catch
@@ -83,36 +80,6 @@ namespace Application.Services
             {
                 return false;
             }
-        }
-
-        public List<Step> UpdateStepsEntities( List<UpdateStepCommand> updateSteps, int recipeId )
-        {
-            List<Step> steps = new List<Step>();
-            foreach ( UpdateStepCommand step in updateSteps )
-            {
-                steps.Add( StepConverter.ToStepEntity( step, recipeId ) );
-            }
-            return steps;
-        }
-
-        public List<Ingredient> UpdateIngredientsEntities( List<UpdateIngredientCommand> updateIngredients, int recipeId )
-        {
-            List<Ingredient> ingredients = new List<Ingredient>();
-            foreach ( UpdateIngredientCommand ingredient in updateIngredients )
-            {
-                ingredients.Add( IngredientConverter.ToIngredientEntity( ingredient, recipeId ) );
-            }
-            return ingredients;
-        }
-
-        public List<Tag> UpdateTagsEntities( List<UpdateTagCommand> updateTags, int recipeId )
-        {
-            List<Tag> tags = new List<Tag>();
-            foreach ( UpdateTagCommand tag in updateTags )
-            {
-                tags.Add( TagConverter.ToTagEntity( tag, recipeId ) );
-            }
-            return tags;
         }
     }
 }

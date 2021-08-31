@@ -9,7 +9,13 @@ namespace Domain.Entity
 
         public Step() { }
 
-        public Step( int id, string name, string description, int recipeId )
+        public Step
+            ( 
+            int id, 
+            string name, 
+            string description, 
+            int recipeId 
+            )
         {
             Id = id;
             Name = name;

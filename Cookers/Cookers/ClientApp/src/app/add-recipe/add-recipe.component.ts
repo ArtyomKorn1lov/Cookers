@@ -6,7 +6,6 @@ import { CreateRecipeDto } from '../dto/createRecipeDto';
 import { CreateStepDto } from '../dto/createStepDto';
 import { CreateIngredientDto } from '../dto/createIngredientDto';
 import { CreateTagDto } from '../dto/createTagDto';
-import { ImageService } from '../services/image.service';
 
 @Component({
   selector: 'app-add-recipe',
@@ -29,15 +28,14 @@ export class AddRecipeComponent implements OnInit {
       tags: '',
     }
   );
-  private recipeDto: CreateRecipeDto = new CreateRecipeDto();
-  private stepsDto: CreateStepDto[] = [];
-  private ingredientsDto: CreateIngredientDto[] = [];
-  private tagsDto: CreateTagDto[] = [];
+  private recipe: CreateRecipeDto = new CreateRecipeDto();
+  private steps: CreateStepDto[] = [];
+  private ingredients: CreateIngredientDto[] = [];
+  private tags: CreateTagDto[] = [];
   private imgFile: File = null;
-  private imgUrl: string = null;
   public pageId: number;
 
-  constructor(private router: Router, private route: ActivatedRoute, private recipesService: RecipesService, private formBuilder: FormBuilder, private imageServeice: ImageService) { }
+  constructor(private router: Router, private route: ActivatedRoute, private recipesService: RecipesService, private formBuilder: FormBuilder) { }
 
   upload(): void {
     document.getElementById("selectImage").click();
@@ -45,8 +43,6 @@ export class AddRecipeComponent implements OnInit {
 
   download(event): void {
     this.imgFile = event.target.files[0];
-    this.imageServeice.uploadImage(this.imgFile).subscribe(x => this.imgUrl = x );
-    console.log(this.imgUrl);
   }
 
   goToPreviousPage(): void {
@@ -54,26 +50,26 @@ export class AddRecipeComponent implements OnInit {
   }
 
   addStep(): void {
-    this.stepsDto.push(new CreateStepDto('', ''));
+    this.steps.push(new CreateStepDto('', ''));
   }
 
   removeStep(i: number): void {
-    this.stepsDto.splice(i, 1);
+    this.steps.splice(i, 1);
   }
 
-  addIngridient(): void {
-    this.ingredientsDto.push(new CreateIngredientDto('', ''));
+  addIngredient(): void {
+    this.ingredients.push(new CreateIngredientDto('', ''));
   }
 
   removeIngredient(i: number): void {
-    this.ingredientsDto.splice(i, 1);
+    this.ingredients.splice(i, 1);
   }
 
   addTag(): void {
     let str = this.tagForm.value.tags;
     if (str.trim() != '') {
       if (this.checkNameInTags(str) == 0) {
-        this.tagsDto.push(new CreateTagDto(this.tagForm.value.tags));
+        this.tags.push(new CreateTagDto(this.tagForm.value.tags));
       }
     }
     this.tagForm = this.formBuilder.group(
@@ -85,7 +81,7 @@ export class AddRecipeComponent implements OnInit {
 
   checkNameInTags(name: string): number {
     var count = 0;
-    for (let tag of this.tagsDto) {
+    for (let tag of this.tags) {
       if (tag.name == name) {
         count++;
       }
@@ -94,38 +90,41 @@ export class AddRecipeComponent implements OnInit {
   }
 
   removeTag(i: number): void {
-    this.tagsDto.splice(i, 1);
+    this.tags.splice(i, 1);
   }
 
   onSubmit(): void {
     let name = this.recipeForm.value.name;
     var count = this.checkNameInIngredient();
-    console.log(name, count);
     if (name.trim() == '') {
       alert("Введите все поля, обязательные для заполнения");
       return;
     }
-    for (var i = 1; i <= this.stepsDto.length; i++) {
-      this.stepsDto[i - 1].name = "Шаг " + i;
+    for (var i = 1; i <= this.steps.length; i++) {
+      this.steps[i - 1].name = this.createStepName(i);
     }
-    this.recipeDto.tags = this.tagsDto;
-    this.recipeDto.name = this.recipeForm.value.name;
-    this.recipeDto.description = this.recipeForm.value.description;
-    this.recipeDto.cookingTime = this.recipeForm.value.cookingTime;
-    this.recipeDto.personCount = this.recipeForm.value.personCount;
-    this.recipeDto.photo = null;
-    this.recipeDto.ingredients = this.ingredientsDto;
-    this.recipeDto.steps = this.stepsDto;
-    this.recipesService.addRecipe(this.recipeDto).subscribe(x => console.log(x));
+    this.recipe.tags = this.tags;
+    this.recipe.name = this.recipeForm.value.name;
+    this.recipe.description = this.recipeForm.value.description;
+    this.recipe.cookingTime = this.recipeForm.value.cookingTime;
+    this.recipe.personCount = this.recipeForm.value.personCount;
+    this.recipe.photo = null;
+    this.recipe.ingredients = this.ingredients;
+    this.recipe.steps = this.steps;
+    this.recipesService.addRecipe(this.recipe).subscribe(x => console.log(x));
     this.router.navigateByUrl(this.targetRoute);
+  }
+
+  createStepName(i: number): string
+  {
+    return "Шаг " + i;
   }
 
   checkNameInIngredient(): number {
     var count = 0;
     let str;
-    for (let step of this.stepsDto) {
+    for (let step of this.steps) {
       str = step.name;
-      console.log(str);
       if (str.trim() == '') {
         count++;
       }
@@ -143,8 +142,8 @@ export class AddRecipeComponent implements OnInit {
         this.targetRoute = '/recipes';
         break;
     }
-    this.stepsDto.push(new CreateStepDto('', ''));
-    this.ingredientsDto.push(new CreateIngredientDto('', ''));
+    this.steps.push(new CreateStepDto('', ''));
+    this.ingredients.push(new CreateIngredientDto('', ''));
   }
 
 }

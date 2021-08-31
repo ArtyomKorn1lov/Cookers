@@ -10,9 +10,9 @@ import { UpdateRecipeDto } from '../dto/updateRecipeDto';
 })
 
 export class RecipesService {
-
     private currentRecipe: Recipe;
     private Id: number;
+    private commonUri: string = 'api/recipe';
 
     constructor(private http: HttpClient) { }
 
@@ -34,11 +34,11 @@ export class RecipesService {
     }
 
     getSeveralRecipes(): Observable<Recipe[]> {
-        return this.http.get<Recipe[]>(`api/recipe/by-count/${10}`);
+        return this.http.get<Recipe[]>(`${this.commonUri}/by-count/${10}`);
     }
 
     getDayRecipe(): Observable<Recipe> {
-        return this.http.get<Recipe>(`api/recipe/of-day`);
+        return this.http.get<Recipe>(`${this.commonUri}/of-day`);
     }
 
     addRecipe(recipe: CreateRecipeDto): Observable<object> {
@@ -50,18 +50,18 @@ export class RecipesService {
     }
 
     getRecipeByTag(tag: string): Observable<Recipe[]> {
-        return this.http.get<Recipe[]>(`api/recipe/by-tag/${tag}`);
+        return this.http.get<Recipe[]>(`${this.commonUri}/by-tag/${tag}`);
     }
 
     getRecipeByName(name: string): Observable<Recipe[]> {
-        return this.http.get<Recipe[]>(`api/recipe/by-name/${name}`);
+        return this.http.get<Recipe[]>(`${this.commonUri}/by-name/${name}`);
     }
 
     updateRecipe(recipe: UpdateRecipeDto): Observable<object> {
-        return this.http.put<Recipe>(`api/recipe`, recipe);
+        return this.http.put<Recipe>(`${this.commonUri}`, recipe);
     }
 
     removeRecipe(id: number): Observable<object> {
-        return this.http.delete<Recipe>(`api/recipe/${id}`);
+        return this.http.delete<Recipe>(`${this.commonUri}/${id}`);
     }
 }

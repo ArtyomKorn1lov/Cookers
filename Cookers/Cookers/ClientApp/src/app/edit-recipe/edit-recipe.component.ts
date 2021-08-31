@@ -6,7 +6,6 @@ import { UpdateRecipeDto } from '../dto/updateRecipeDto';
 import { UpdateIngredientDto } from '../dto/updateIngredientDto';
 import { UpdateStepDto } from '../dto/updateStepDto';
 import { UpdateTagDto } from '../dto/updateTagDto';
-import { Recipe } from '../dto/recipe';
 
 @Component({
   selector: 'app-edit-recipe',
@@ -29,10 +28,10 @@ export class EditRecipeComponent implements OnInit {
       tags: '',
     }
   );
-  private recipeDto: UpdateRecipeDto = new UpdateRecipeDto();
-  private stepsDto: UpdateStepDto[] = [];
-  private ingredientsDto: UpdateIngredientDto[] = [];
-  private tagsDto: UpdateTagDto[] = [];
+  private recipe: UpdateRecipeDto = new UpdateRecipeDto();
+  private steps: UpdateStepDto[] = [];
+  private ingredients: UpdateIngredientDto[] = [];
+  private tags: UpdateTagDto[] = [];
   private imgFile: File = null;
   public pageId: number;
 
@@ -51,26 +50,26 @@ export class EditRecipeComponent implements OnInit {
   }
 
   addStep(): void {
-    this.stepsDto.push(new UpdateStepDto('', ''));
+    this.steps.push(new UpdateStepDto('', '', this.recipe.id));
   }
 
   removeStep(i: number): void {
-    this.stepsDto.splice(i, 1);
+    this.steps.splice(i, 1);
   }
 
-  addIngridient(): void {
-    this.ingredientsDto.push(new UpdateIngredientDto('', ''));
+  addIngredient(): void {
+    this.ingredients.push(new UpdateIngredientDto('', '', this.recipe.id));
   }
 
   removeIngredient(i: number): void {
-    this.ingredientsDto.splice(i, 1);
+    this.ingredients.splice(i, 1);
   }
 
   addTag(): void {
     let str = this.tagForm.value.tags;
     if (str.trim() != '') {
       if (this.checkNameInTags(str) == 0) {
-        this.tagsDto.push(new UpdateTagDto(this.tagForm.value.tags));
+        this.tags.push(new UpdateTagDto(this.tagForm.value.tags, this.recipe.id));
       }
     }
     this.tagForm = this.formBuilder.group(
@@ -82,7 +81,7 @@ export class EditRecipeComponent implements OnInit {
 
   checkNameInTags(name: string): number {
     var count = 0;
-    for (let tag of this.tagsDto) {
+    for (let tag of this.tags) {
       if (tag.name == name) {
         count++;
       }
@@ -91,38 +90,41 @@ export class EditRecipeComponent implements OnInit {
   }
 
   removeTag(i: number): void {
-    this.tagsDto.splice(i, 1);
+    this.tags.splice(i, 1);
   }
 
   onSubmit(): void {
     let name = this.recipeForm.value.name;
     var count = this.checkNameInIngredient();
-    console.log(name, count);
     if (name.trim() == '') {
       alert("Введите все поля, обязательные для заполнения");
       return;
     }
-    for (var i = 1; i <= this.stepsDto.length; i++) {
-      this.stepsDto[i - 1].name = "Шаг" + i;
+    for (var i = 1; i <= this.steps.length; i++) {
+      this.steps[i - 1].name = this.createStepName(i);
     }
-    this.recipeDto.tags = this.tagsDto;
-    this.recipeDto.name = this.recipeForm.value.name;
-    this.recipeDto.description = this.recipeForm.value.description;
-    this.recipeDto.cookingTime = this.recipeForm.value.cookingTime;
-    this.recipeDto.personCount = this.recipeForm.value.personCount;
-    this.recipeDto.photo = null;
-    this.recipeDto.ingredients = this.ingredientsDto;
-    this.recipeDto.steps = this.stepsDto;
-    this.recipesService.updateRecipe(this.recipeDto).subscribe(x => console.log(x));
+    this.recipe.tags = this.tags;
+    this.recipe.name = this.recipeForm.value.name;
+    this.recipe.description = this.recipeForm.value.description;
+    this.recipe.cookingTime = this.recipeForm.value.cookingTime;
+    this.recipe.personCount = this.recipeForm.value.personCount;
+    this.recipe.photo = null;
+    this.recipe.ingredients = this.ingredients;
+    this.recipe.steps = this.steps;
+    this.recipesService.updateRecipe(this.recipe).subscribe(x => console.log(x));
     this.router.navigateByUrl(this.targetRoute);
+  }
+
+  createStepName(i: number): string
+  {
+    return "Шаг " + i;
   }
 
   checkNameInIngredient(): number {
     var count = 0;
     let str;
-    for (let step of this.stepsDto) {
+    for (let step of this.steps) {
       str = step.name;
-      console.log(str);
       if (str.trim() == '') {
         count++;
       }
@@ -131,28 +133,28 @@ export class EditRecipeComponent implements OnInit {
   }
 
   fillForm(): void {
-    if (this.recipeDto.steps != null) {
-      this.stepsDto = this.recipeDto.steps;
+    if (this.recipe.steps != null) {
+      this.steps = this.recipe.steps;
     }
-    if (this.recipeDto.ingredients != null) {
-      this.ingredientsDto = this.recipeDto.ingredients;
+    if (this.recipe.ingredients != null) {
+      this.ingredients = this.recipe.ingredients;
     }
-    if (this.recipeDto.tags != null) {
-      this.tagsDto = this.recipeDto.tags;
+    if (this.recipe.tags != null) {
+      this.tags = this.recipe.tags;
     }
     this.recipeForm = this.formBuilder.group(
       {
-        name: this.recipeDto.name,
-        description: this.recipeDto.description,
-        cookingTime: this.recipeDto.cookingTime,
-        personCount: this.recipeDto.personCount,
+        name: this.recipe.name,
+        description: this.recipe.description,
+        cookingTime: this.recipe.cookingTime,
+        personCount: this.recipe.personCount,
       }
     );
   }
 
   ngOnInit() {
     this.route.params.subscribe(params => this.pageId = Number.parseInt(params['paramId']));
-    this.recipeDto = this.recipesService.getCurrentRecipe();
+    this.recipe = this.recipesService.getCurrentRecipe();
     switch (this.pageId) {
       case 1:
         this.targetRoute = '/';
@@ -161,8 +163,8 @@ export class EditRecipeComponent implements OnInit {
         this.targetRoute = '/recipeinfo';
         break;
     }
-    this.stepsDto.push(new UpdateStepDto('', ''));
-    this.ingredientsDto.push(new UpdateIngredientDto('', ''));
+    this.steps.push(new UpdateStepDto('', '', this.recipe.id));
+    this.ingredients.push(new UpdateIngredientDto('', '', this.recipe.id));
     this.fillForm();
   }
 }

@@ -6,7 +6,6 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class ImageService {
-
   constructor(private http: HttpClient) { }
 
   uploadImage(file): Observable<string> {

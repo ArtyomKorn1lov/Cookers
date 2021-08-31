@@ -18,7 +18,20 @@ namespace Domain.Entity
 
         public Recipe() { }
 
-        public Recipe( int id, string name, string description, int cookingTime, int personCount, int favourites, string photo, int likes, List<Step> steps, List<Tag> tags, List<Ingredient> ingredients )
+        public Recipe
+            ( 
+            int id, 
+            string name, 
+            string description, 
+            int cookingTime, 
+            int personCount, 
+            int favourites, 
+            string photo, 
+            int likes, 
+            List<Step> steps, 
+            List<Tag> tags, 
+            List<Ingredient> ingredients 
+            )
         {
             Id = id;
             Name = name;
