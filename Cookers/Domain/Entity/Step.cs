@@ -9,8 +9,7 @@ namespace Domain.Entity
 
         public Step() { }
 
-        public Step
-            ( 
+        public Step( 
             int id, 
             string name, 
             string description, 

@@ -18,8 +18,7 @@ namespace Domain.Entity
 
         public Recipe() { }
 
-        public Recipe
-            ( 
+        public Recipe( 
             int id, 
             string name, 
             string description, 

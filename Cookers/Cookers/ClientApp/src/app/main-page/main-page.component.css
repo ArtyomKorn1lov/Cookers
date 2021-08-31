@@ -122,3 +122,8 @@
     color: #FFFFFF; 
     font-weight: 600;
 }
+
+.back-block + .back-block
+{
+    margin-left: 20px;
+}

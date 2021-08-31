@@ -9,12 +9,11 @@ namespace Domain.Entity
 
         public Ingredient() { }
 
-        public Ingredient
-            ( 
-            int id, 
-            string name, 
-            string description, 
-            int recipeId 
+        public Ingredient(
+            int id,
+            string name,
+            string description,
+            int recipeId
             )
         {
             Id = id;

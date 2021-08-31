@@ -28,7 +28,7 @@ export class EditRecipeComponent implements OnInit {
       tags: '',
     }
   );
-  private recipe: UpdateRecipeDto = new UpdateRecipeDto();
+  private recipe = new UpdateRecipeDto();
   private steps: UpdateStepDto[] = [];
   private ingredients: UpdateIngredientDto[] = [];
   private tags: UpdateTagDto[] = [];
@@ -112,7 +112,7 @@ export class EditRecipeComponent implements OnInit {
     this.recipe.ingredients = this.ingredients;
     this.recipe.steps = this.steps;
     this.recipesService.updateRecipe(this.recipe).subscribe(x => console.log(x));
-    this.router.navigateByUrl(this.targetRoute);
+    this.router.navigateByUrl('/');
   }
 
   createStepName(i: number): string

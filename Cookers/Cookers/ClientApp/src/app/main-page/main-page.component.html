@@ -23,13 +23,13 @@
                 <p>Войти</p>
             </button>
         </div>
-
     </div>
 
     <div class="sortingbytags-block">
         <h5>Умная сортировка по тегам</h5>
         <p>Добавляй рецепты и указывай наиболее популярные теги. Это позволит <br> быстро находить любые категории.</p>
-        <app-tag-list [pageId]="pageId"></app-tag-list>
+        <app-tag-list (simpleEvent)="searchByTag('Простые')" (childEvent)="searchByTag('Детское')"
+            (chiefEvent)="searchByTag('Шеф')" (partyEvent)="searchByTag('Праздник')" [pageId]="pageId"></app-tag-list>
     </div>
 
     <div class="day-recipe-block" *ngIf="recipe !== undefined">
@@ -63,26 +63,32 @@
 
     <div class="findrecipe-block">
         <div class="searchbar-button-hyperlinkbar-block">
-            <div class="searchbar-button-block">
-                <input type="text" placeholder="Название блюда...">
-                <button class="seachbutton">
+            <form [formGroup]="searchForm" class="searchbar-button-block">
+                <input formControlName="name" type="text" placeholder="Название блюда...">
+                <button class="seachbutton" (click)="onSubmit()">
                     <p>Поиск</p>
                 </button>
-            </div>
+            </form>
             <div class="hyperlinkbar">
-                <div class="back-block">
+                <div (click)="searchByTag('Мясо')" class="back-block">
                     <a>Мясо</a>
                 </div>
-                <div class="back-block">
+                <div (click)="searchByTag('Деликатесы')" class="back-block">
                     <a>Деликатесы</a>
                 </div>
-                <div class="back-block">
+                <div (click)="searchByTag('Пироги')" class="back-block">
                     <a>Пироги</a>
                 </div>
-                <div class="back-block">
+                <div (click)="searchByTag('Рыба')" class="back-block">
                     <a>Рыба</a>
                 </div>
             </div>
+        </div>
+    </div>
+
+    <div class="recipes-block" *ngIf="recipes !== undefined">
+        <div class="list-recipes-block" *ngFor="let recipe of recipes">
+            <app-recipe [parentPageId]="pageId" [recipe]="recipe"></app-recipe>
         </div>
     </div>
 
